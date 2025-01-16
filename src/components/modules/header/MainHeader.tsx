@@ -5,6 +5,7 @@ import { ProfileLink } from '@/components/shared/ProfileLink';
 import { Support } from '@/components/shared/Support';
 import { SwitchTheme } from '@/components/shared/SwitchTheme';
 import { MobileMenu } from '../mobile-menu/MobileMenu';
+import { Suspense } from "react";
  
 export default async function MainHeader({ locale }: {locale:string}) {
    return (
@@ -21,7 +22,9 @@ export default async function MainHeader({ locale }: {locale:string}) {
                <Support />
              </li>
              <li>
-               <SelectLocale />
+               <Suspense>
+                 <SelectLocale />
+               </Suspense>
              </li>
              <li>
                <SwitchTheme />
