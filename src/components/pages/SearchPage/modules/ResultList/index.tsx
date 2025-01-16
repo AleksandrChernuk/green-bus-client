@@ -43,7 +43,7 @@ export const ResultList = () => {
       {!isLoading &&
         filterRoutes?.map((el, i) => <ResultCard key={`${el.route_id}_${i}`} element={el} />)}
       {isLoading && <Loader />}
-      {!error && !isLoading && filterRoutes?.length < 1 && <NoTravel />}
+      {!error && !isLoading && !data?.length && <NoTravel />}
     </div>
   );
 };
