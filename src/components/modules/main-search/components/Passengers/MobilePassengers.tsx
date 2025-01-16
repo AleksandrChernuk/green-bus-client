@@ -27,9 +27,6 @@ export const MobilePassengers = memo(() => {
             type='button'
             value={adult + children}
             className='z-0 min-h-10 rounded-md size-full h-auto px-4 py-2 pl-8 tablet:px-9 laptop:px-12 tablet:py-4 outline-none bg-transparent focus:bg-gray_1 active:bg-gray_1 dark:focus:bg-black_2_for_text dark:active:bg-black_2_for_text placeholder-black dark:placeholder-gray_0 body_medium laptop:filter_input_medium_text text-black dark:text-grayy text-left text-nowrap truncate border-[1px] border-transparent'
-            onClick={() => {
-              toggleOpen();
-            }}
           />
         </div>
       }
