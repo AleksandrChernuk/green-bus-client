@@ -19,7 +19,7 @@
 //   // const { hours, minutes } = getTimeOnRoad(stopPoint.date_time || "", startPoint.date_time || "");
 
 //   return (
-//     <div className="small_text text-text_seconddary_color">
+//     <div className="small_text text-text_secondary_color">
 //       {/* <div className="mb-4 space-y-2">
 //         <div className="gap-2 flex_center">
 //           <h5 className="h5 text-text_prymery_color ">Маршрут:</h5>

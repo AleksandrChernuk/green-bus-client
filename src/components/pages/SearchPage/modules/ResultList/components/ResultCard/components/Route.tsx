@@ -1,35 +1,51 @@
-import { format } from "date-fns";
+import { IconRouteLeft } from '@/components/pages/SearchPage/images/IconRouteLeft';
+import { IconRouteRigth } from '@/components/pages/SearchPage/images/IconRouteRigth';
+import { format } from 'date-fns';
 
 type Props = {
   arrival: string;
   arrivalName: string;
+  arrivalPoin: string;
+
+  departurePoint: string;
   departureName: string;
+
   departure: string;
 };
 
-export const Route = ({ arrival, departure, departureName, arrivalName }: Props) => {
+export const Route = ({
+  arrival,
+  departure,
+  departureName,
+  arrivalName,
+  departurePoint,
+  arrivalPoin,
+}: Props) => {
   return (
-    <div className="flex flex-row items-center gap-4">
-      <ul className="hidden tablet:block tablet:space-y-2">
-        <li className="h3 text-text_prymery_color">{format(departure || new Date(), "HH:mm")}</li>
-        <li className="body_medium laptop:h4 text-text_seconddary_color">{departureName}</li>
-      </ul>
+    <div className='grid w-full grid-cols-3 gap-2'>
+      <div className='space-y-2'>
+        <h3 className='h5 text-text_secondary_color'>{format(departure || new Date(), 'HH:mm')}</h3>
 
-      <ul className="space-y-4 tablet:hidden">
-        <li className="h5 text-text_prymery_color">{format(departure || new Date(), "HH:mm")}</li>
-        <li className="small_text text-text_seconddary_color">{`${"hours"}h,${"minutes"}m`}</li>
-        <li className="h5 text-text_prymery_color">{format(arrival || new Date(), "HH:mm")}</li>
-      </ul>
+        <div className='space-y-2 truncate text-wrap'>
+          <div className='h3 laptop:h4 text-text_prymery_color'>{departureName}</div>
+          <div className='text-sm leading-4 text-text_secondary_color'>{departurePoint}</div>
+        </div>
+      </div>
 
-      <ul className="hidden tablet:block tablet:space-y-2">
-        <li className="h3 text-text_prymery_color">{format(arrival || new Date(), "HH:mm")}</li>
-        <li className="body_medium laptop:h4 text-text_seconddary_color">{arrivalName}</li>
-      </ul>
+      <div className='flex items-center justify-center w-full gap-2'>
+        <IconRouteLeft />
+        <div className='text-text_secondary_color'>22h,14m</div>
+        <IconRouteRigth />
+      </div>
 
-      <ul className="space-y-10 tablet:hidden body_medium text-text_seconddary_color">
-        <li>{departureName}</li>
-        <li>{arrivalName}</li>
-      </ul>
+      <div className='space-y-2'>
+        <h3 className='h5 text-text_secondary_color'>{format(arrival || new Date(), 'HH:mm')}</h3>
+
+        <div className='space-y-2 truncate text-wrap'>
+          <div className='h3 laptop:h4 text-text_prymery_color'>{arrivalName}</div>
+          <div className='text-sm leading-4 text-text_secondary_color'>{arrivalPoin}</div>
+        </div>
+      </div>
     </div>
   );
 };

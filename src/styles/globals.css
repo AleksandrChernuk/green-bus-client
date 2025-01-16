@@ -15,7 +15,7 @@ body,
 
 @layer base {
   :root {
-     --primary_1: #088537;
+    --primary_1: #088537;
     --background_card: #0D5A2B;
     --primary_2: #7AF2A6;
     --light_primary: #B4FFD0;
@@ -48,14 +48,14 @@ body,
     --white: #ffffff;
     --icons: #000000;
     --text_prymery_color: #334155;
-    --text_seconddary_color: #6F8B90;
+    --text_secondary_color: #6F8B90;
     --prymery_btn_color: #FFFF;
     --label_color: #334155;
     --search_color: #000000;
 
 
-     --card_bg_primery: #ffffff;
-    --background: 210 40% 98%;
+    --card_bg_primery: #ffffff;
+  --background: 0, 0%, 100%;
       --foreground: 215 25% 27%;
       --card: 0 0% 100%;
       --card-foreground: 215 25% 27%;
@@ -94,8 +94,8 @@ body,
     --label_color: #E2E8F0;
     --search_color: #F8FAFC;
 
-    --background: 224 45% 11%;
-      --foreground: 210 40% 98%;
+      --background: 222, 47%, 11%;
+        --foreground: 215, 25%, 27%, 1;
       --card: 216 32% 17%;
       --card-foreground: 0 0% 95%;
       --popover: 216 32% 17%;
@@ -183,6 +183,9 @@ body,
     @apply text-sm font-bold tracking-normal leading-[16.8px]
   }
 
+.samll_button {
+  @apply text-[12px] font-bold tracking-normal leading-[18px]
+}
   .button_underline_text {
     @apply text-sm font-normal underline tracking-normal leading-[19.2px]
   }

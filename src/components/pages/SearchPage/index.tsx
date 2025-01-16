@@ -2,7 +2,7 @@ import MainSearch from "@/components/modules/main-search";
 import { Container } from "@/components/shared/Container";
 import { ResultList } from "./modules/ResultList";
 import DateTabs from "./modules/DatePicker";
-import { DestopFilter } from "./modules/DesctopFilter";
+import DestopFilter from './modules/DesctopFilter';
 import { Information } from "./modules/Information";
  
  export default async function SearchModule() {

@@ -1,7 +1,7 @@
 "use client";
 
- import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { useTranslation } from "react-i18next";
+import { usePathname, useRouter, useSearchParams } from 'next/navigation';
+import { useTranslation } from 'react-i18next';
 import {
   Select,
   SelectContent,
@@ -9,17 +9,17 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select-locale";
- 
+} from '@/components/ui/select-locale';
 
- 
- 
-import { IconFlagUA } from "../icons/IconFlagUA";
-import { IconFlagEnglish } from "../icons/IconFlagEnglish";
-import { IconFlagRus } from "../icons/IconFlagRus";
-import i18NextConfig from "@/i18next.config";
- 
- 
+
+
+
+import { IconFlagUA } from '../icons/IconFlagUA';
+import { IconFlagEnglish } from '../icons/IconFlagEnglish';
+import { IconFlagRus } from '../icons/IconFlagRus';
+import i18NextConfig from '@/i18next.config';
+
+
 type Props = {
   isMobile?: boolean;
 };
@@ -121,4 +121,3 @@ export default function SelectLocale ({ isMobile }: Props)   {
   );
 };
 
- 

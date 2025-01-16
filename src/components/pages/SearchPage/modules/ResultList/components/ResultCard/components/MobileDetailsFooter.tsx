@@ -12,7 +12,7 @@
 //   return (
 //     <div className="flex items-center justify-between gap-2">
 //       <div className="w-full text-center">
-//         <div className="small_text text-text_seconddary_color">{`${adult + children} Пасажир`}</div>
+//         <div className="small_text text-text_secondary_color">{`${adult + children} Пасажир`}</div>
 //         <div className="main_text text-text-text_prymery_color">{`${price} грн`}</div>
 //       </div>
 

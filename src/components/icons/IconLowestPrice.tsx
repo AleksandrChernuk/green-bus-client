@@ -1,26 +1,26 @@
 export const IconLowestPrice = () => {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+    <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'>
       <path
-        d="M16 10.6665C22.6274 10.6665 28 8.87564 28 6.6665C28 4.45736 22.6274 2.6665 16 2.6665C9.37258 2.6665 4 4.45736 4 6.6665C4 8.87564 9.37258 10.6665 16 10.6665Z"
-        stroke="#088537"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M12 8C16.9706 8 21 6.65685 21 5C21 3.34315 16.9706 2 12 2C7.02944 2 3 3.34315 3 5C3 6.65685 7.02944 8 12 8Z'
+        stroke='#088537'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
-        d="M28 16C28 18.2133 22.6667 20 16 20C9.33333 20 4 18.2133 4 16"
-        stroke="#088537"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M21 12C21 13.66 17 15 12 15C7 15 3 13.66 3 12'
+        stroke='#088537'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
       <path
-        d="M4 6.6665V25.3332C4 27.5465 9.33333 29.3332 16 29.3332C22.6667 29.3332 28 27.5465 28 25.3332V6.6665"
-        stroke="#088537"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
+        d='M3 5V19C3 20.66 7 22 12 22C17 22 21 20.66 21 19V5'
+        stroke='#088537'
+        strokeWidth='2'
+        strokeLinecap='round'
+        strokeLinejoin='round'
       />
     </svg>
   );

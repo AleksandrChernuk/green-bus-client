@@ -1,0 +1,67 @@
+'use client';
+
+import { CustomDarwer } from '@/components/shared/CustomDarwer';
+import { DrawerClose } from '@/components/ui/drawer';
+import { ScrollArea } from '@/components/ui/scroll-area';
+import { SlidersHorizontal, X } from 'lucide-react';
+import { useState } from 'react';
+import FilterSortByList from '../../components/FilterRadioGroup';
+import { Button } from '@/components/ui/button';
+import { Separator } from '@/components/ui/separator';
+
+export const MobileFilter = () => {
+  const [open, setOpen] = useState<boolean>(false);
+
+  return (
+    <CustomDarwer
+      open={open}
+      toggleOpen={() => {
+        setOpen((p) => !p);
+      }}
+      trigger={
+        <Button variant={'outline'} className='p-2 rounded-lg'>
+          <SlidersHorizontal color='#098537' size={16} />
+        </Button>
+      }
+    >
+      <div className='flex items-center justify-between px-5 py-4 border-b border-b-gray_1 dark:border-b-black_2_for_text dark:bg-dark_mode_main1'>
+        <h3 className='font-medium h4 text-primary_1'>Filter</h3>
+        <DrawerClose asChild>
+          <Button
+            variant={'default'}
+            className='flex items-center gap-1 p-1 rounded-md h5 bg-primary_1'
+          >
+            <X color='#ffffff' />
+          </Button>
+        </DrawerClose>
+      </div>
+      <ScrollArea className='relative flex-grow px-5 pt-6 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
+        <ul>
+          <li>
+            <h5 className='mb-4 h5 text-text_prymery_color'>Сортувати за:</h5>
+            <FilterSortByList />
+          </li>
+          <Separator className='h-1 my-6 rounded-lg bg-gray_0 dark:bg-black_2_for_text' />
+          <li>
+            <h5 className='mb-4 h5 text-text_prymery_color'>Bus Companies:</h5>
+          </li>
+        </ul>
+      </ScrollArea>
+      <div className='flex items-center justify-between gap-4 px-5 py-4 border-t border-t-gray_1 dark:border-t-black_2_for_text dark:bg-dark_mode_main1'>
+        <DrawerClose asChild>
+          <Button
+            variant={'outline'}
+            className='w-full px-5 py-3 button_mobile text-primary bg-inherit'
+          >
+            Clear all
+          </Button>
+        </DrawerClose>
+        <DrawerClose asChild>
+          <Button variant={'default'} className='w-full px-5 py-3 button_mobile'>
+            View trips
+          </Button>
+        </DrawerClose>
+      </div>
+    </CustomDarwer>
+  );
+};
