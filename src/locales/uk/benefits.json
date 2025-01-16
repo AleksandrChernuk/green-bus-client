@@ -1,0 +1,17 @@
+{
+  "payment_title": "Без готівки та черг",
+  "payment_description": "Купуйте квитки онлайн у будь-який час прямо на сайті. Забудьте про черги та готівку — подорожуйте комфортно та зручно.",
+  "destinations_title": "50 000 напрямків",
+  "destinations_description": "Обери свій напрямок серед 50 000 варіантів, не залежно від того, чи подорожуєш ти бізнесом чи для відпочинку.",
+  "secure_title": "Безпечний платіж",
+  "secure_description": "Стандарти безпеки PCI DSS для надійного захисту платіжних даних під час їх обробки та зберігання.",
+  "refunds_title": "Повернення квитків",
+  "refunds_description": "Швидке повернення коштів у вашому особистому кабінеті, без зайвих затримок.",
+  "mainNavAboutLink": "О нас",
+  "mainNavSupportLink": "Поддержка",
+   "mainNavProfileLink": "Личный кабинет",
+   "mobileNavChangeLanguage": "Искать",
+   "profileNavSettingsLink": "Профиль",
+   "profileNavBookingLink": "Ваши бронирования",
+   "profileNavFeaturedLink": "Избранное"
+}

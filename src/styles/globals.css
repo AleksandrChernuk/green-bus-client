@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body,
+:root {
+  height: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+}
+
+ 
+
+@layer base {
+  :root {
+     --primary_1: #088537;
+    --background_card: #0D5A2B;
+    --primary_2: #7AF2A6;
+    --light_primary: #B4FFD0;
+    --hover: #05B446;
+    --focused: #0D6E32;
+    --red: #DE2A1A;
+    --light_red: #EF958D;
+    --red_input: #FFE7E5;
+    --for_payment_icons: linear-gradient(#62F1B0, #33C6EA);
+    --black: #000000;
+    --background_black_mode: #0F172A;
+    --dark_mode_main1: #1E293B;
+    --blackmode: #475569;
+    --black_2_for_text: #334155;
+    --gray_2_for_body: #6F8B90;
+    --gray_3: #8E8E8E;
+    --gray_5: #212529;
+    --gray_1: #E2E8F0;
+    --gray_0: #E6E6E6;
+    --gray_11: #0000004b;
+    --grayy: #F8FAFC;
+    --button-pay-gradient: linear-gradient(#62F1B0, #33C6EA);
+    --additional-red: #DE2A1A;
+    --additional-pink: #EF958D;
+    --additional-pink: #EF958D;
+    --gray-dark: #334155;
+
+    --gray-blue: #6F8B90;
+    --bw: #000000;
+    --white: #ffffff;
+    --icons: #000000;
+    --text_prymery_color: #334155;
+    --text_seconddary_color: #6F8B90;
+    --prymery_btn_color: #FFFF;
+    --label_color: #334155;
+    --search_color: #000000;
+
+
+     --card_bg_primery: #ffffff;
+    --background: 210 40% 98%;
+      --foreground: 215 25% 27%;
+      --card: 0 0% 100%;
+      --card-foreground: 215 25% 27%;
+      --popover: 210 40% 98%;
+      --popover-foreground: 215 25% 27%;
+      --primary: 142 87% 28%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 142 81% 71%;
+      --secondary-foreground: 0 0% 100%;
+      --muted: 0 0% 90%;
+      --muted-foreground: 0 0% 60%;
+      --accent: 214 32% 91%;
+      --accent-foreground: 0 0% 0%;
+      --destructive: 5 74% 74%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 210 40% 98%;
+      --input: 216 20% 95%;
+      --ring: 216 24% 96%;
+      --chart-1: 143 80% 24%;
+      --chart-2: 143 97% 85%;
+      --chart-3: 5 100% 95%;
+      --chart-4: 0 0% 90%;
+      --chart-5: 173 47% 36%;
+      --radius: 0.75rem;
+  }
+
+  .dark {
+     --primary_1: #088537;
+    --primary_2: #7af2a6;
+    --bw: #ffffff;
+    --icons: #F8FAFC;
+    --card_bg_primery: #0F172A;
+    --text_seconddary_color: #E2E8F0;
+    --text_prymery_color: #F8FAFC;
+    --prymery_btn_color: #F8FAFC;
+    --label_color: #E2E8F0;
+    --search_color: #F8FAFC;
+
+    --background: 224 45% 11%;
+      --foreground: 210 40% 98%;
+      --card: 216 32% 17%;
+      --card-foreground: 0 0% 95%;
+      --popover: 216 32% 17%;
+      --popover-foreground: 0 0% 95%;
+      --primary: 142 87% 28%;
+      --primary-foreground: 0 0% 100%;
+      --secondary: 142 81% 71%;
+      --secondary-foreground: 215 25% 27%;
+      --muted: 215 25% 27%;
+      --muted-foreground: 210 40% 98%;
+      --accent: 215 25% 27%;
+      --accent-foreground: 210 40% 98%;
+      --destructive: 5 74% 74%;
+      --destructive-foreground: 210 40% 98%;
+      --border: 224 45% 11%;
+      --input: 224 45% 11%;
+      --ring: 224 45% 11%;
+      --chart-1: 143 47% 36%;
+      --chart-2: 293 47% 36%;
+      --chart-3: 353 47% 36%;
+      --chart-4: 113 47% 36%;
+      --chart-5: 173 47% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .h1 {
+    @apply text-[32px] font-bold tracking-normal leading-[38.4px]
+  }
+
+  .h2 {
+    @apply text-[32px] font-medium tracking-normal leading-[38.4px]
+  }
+
+  .h3 {
+    @apply text-2xl font-bold tracking-normal leading-[28.8px]
+  }
+
+  .h4 {
+    @apply text-2xl font-medium tracking-normal leading-[28.8px]
+  }
+
+  .h5 {
+    @apply text-base font-bold tracking-normal leading-6
+  }
+
+  .h6 {
+    @apply text-base font-bold tracking-normal leading-[18px]
+  }
+
+  .main_text_body {
+    @apply text-base font-normal tracking-normal leading-6
+  }
+
+  .navigation_text_body {
+    @apply text-base font-medium tracking-tighter leading-[19.2px]
+  }
+
+  .button_underline_bolt_text {
+    @apply text-sm font-medium underline tracking-normal leading-[19.2px]
+  }
+
+  .body_medium {
+    @apply text-base font-medium tracking-normal leading-[24px]
+  }
+
+  .logo_small {
+    @apply text-[26.838px] font-extrabold tracking-normal leading-normal
+  }
+
+  .logo_large {
+    @apply text-[31.88px] font-extrabold tracking-normal leading-[33.68px]
+  }
+
+  .button_mobile {
+    @apply text-sm font-bold tracking-normal leading-[16.8px]
+  }
+
+  .button_underline_text {
+    @apply text-sm font-normal underline tracking-normal leading-[19.2px]
+  }
+
+  .button_large_text {
+    @apply text-lg font-bold tracking-tighter leading-[21.6px]
+  }
+
+  .filter_input_medium_text {
+    @apply text-lg font-medium tracking-tighter leading-[21.6px]
+  }
+
+  .filter_input_normal_text {
+    @apply text-lg font-normal tracking-normal leading-[27px]
+  }
+
+  .addional_regular_text {
+    @apply text-sm font-normal tracking-normal leading-4
+  }
+
+  .addional_medium_text {
+    @apply text-base font-medium tracking-normal leading-4
+  }
+
+  .button_mobile_bolt_text {
+    @apply text-sm font-bold tracking-normal leading-[16.8px]
+  }
+
+  .secondary_2_bolt_text {
+    @apply text-sm font-bold tracking-normal leading-[16.8px]
+  }
+
+  .small_2_bolt_text {
+    @apply text-xs font-bold tracking-normal leading-[18px]
+  }
+
+  .small_text {
+    @apply text-xs font-normal tracking-normal leading-[18px]
+  }
+
+  .secondary_text {
+    @apply text-sm font-normal tracking-normal leading-[21px]
+  }
+
+  .flex_center {
+    @apply flex items-center
+  }
+
+  .flex_col {
+    @apply flex flex-col
+  }
+
+  .p_drawer_content {
+    @apply px-5 py-6
+  }
+
+   
+
+  .select_input_error {
+    @apply border-[2px] border-additional_red;
+  }
+
+  .jorney_search_submit_btn {
+    @apply h5 grow-0 text-black text-wrap inline-flex items-center justify-center min-h-full py-4 px-6 w-full rounded-none rounded-br-[16px] tablet:min-w-[108px] tablet:max-w-[108px] laptop:min-w-[187px] laptop:max-w-[187px] rounded-bl-[16px] tablet:rounded-tl-none tablet:rounded-tr-[16px] tablet:rounded-bl-none
+  }
+
+
+}
