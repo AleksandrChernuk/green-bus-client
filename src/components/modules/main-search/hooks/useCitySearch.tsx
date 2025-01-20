@@ -21,11 +21,11 @@ export const useCitySearch = ({ name }: Props) => {
   const city = useSearchStore((state) => state[name]);
   const setCity = useSearchStore((state) => state.setCity);
 
-    const { i18n:{language} } = useTranslation();
-  
-  
+  const {
+    i18n: { language },
+  } = useTranslation();
 
-  const [value, setValue] = useState("");
+  const [value, setValue] = useState('');
   const [open, setOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
 
@@ -39,38 +39,40 @@ export const useCitySearch = ({ name }: Props) => {
       setCity(name, newCity);
       const cityIndex = cities?.findIndex((el) => el.id === newCity.id) || 0;
       setHighlightedIndex(cityIndex);
-      setValue("");
+      setValue('');
       setOpen(false);
       inputRef.current?.blur();
     },
-    [name, setCity, cities],
+    [name, setCity, cities]
   );
 
   const handleBlur = useCallback((event: React.FocusEvent<HTMLDivElement>) => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
-      setValue("");
+      setValue('');
       setOpen(false);
     }
   }, []);
 
   const handleCloseDrawer = useCallback(() => {
-    setValue("");
+    setValue('');
   }, []);
 
   const onKeyDown = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
       if (cities) {
-        if (["ArrowDown", "ArrowUp"].includes(event.key)) {
-          const step = event.key === "ArrowDown" ? 1 : -1;
-          setHighlightedIndex((prevIndex) => Math.min(Math.max(prevIndex + step, 0), cities.length - 1));
+        if (['ArrowDown', 'ArrowUp'].includes(event.key)) {
+          const step = event.key === 'ArrowDown' ? 1 : -1;
+          setHighlightedIndex((prevIndex) =>
+            Math.min(Math.max(prevIndex + step, 0), cities.length - 1)
+          );
         }
 
-        if (event.key === "Enter" && cities[highlightedIndex]) {
+        if (event.key === 'Enter' && cities[highlightedIndex]) {
           onSelectCity(cities[highlightedIndex]);
         }
       }
     },
-    [cities, highlightedIndex, onSelectCity],
+    [cities, highlightedIndex, onSelectCity]
   );
 
   const onInputChange = useCallback((newValue: string) => {
@@ -82,9 +84,8 @@ export const useCitySearch = ({ name }: Props) => {
   }, []);
 
   const handleClearMobileInput = useCallback(() => {
-    setCity(name, null);
-    setValue("");
-  }, [name, setCity]);
+    setValue('');
+  }, []);
 
   useEffect(() => {
     const cityIndex = cities?.findIndex((el) => el.id === city?.id) || 0;

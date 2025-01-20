@@ -43,8 +43,8 @@ export const MobilePassengers = memo(() => {
         </div>
       }
     >
-      <div className='flex items-center justify-between border-b p_drawer_content border-b-grayy_0 dark:border-b-black_2_for_text dark:bg-dark_mode_main1'>
-        <DrawerClose className='flex items-center gap-1 h5'>
+      <div className='flex items-center justify-between border-b-[2px] px-5 py-6  border-b-gray_1 dark:border-b-black_2_for_text dark:bg-dark_mode_main1'>
+        <DrawerClose className='flex items-center gap-1 h5 text-text_prymery_color'>
           <IconBack />
           {t('backBtn')}
         </DrawerClose>

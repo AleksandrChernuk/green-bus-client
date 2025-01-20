@@ -1,123 +1,51 @@
 "use client";
 
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useTranslation } from 'react-i18next';
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select-locale';
+import useChangeLocale from '@/hooks/useChangeLocale';
+import useToggleOpen from '@/hooks/useToggleOpen';
+import { ChevronDown } from 'lucide-react';
+import { Button } from '../ui/button';
+import { supportLocalesList } from '@/constans/constans.support.locales';
 
-
-
-
-import { IconFlagUA } from '../icons/IconFlagUA';
-import { IconFlagEnglish } from '../icons/IconFlagEnglish';
-import { IconFlagRus } from '../icons/IconFlagRus';
-import i18NextConfig from '@/i18next.config';
-
-
-type Props = {
-  isMobile?: boolean;
-};
-
-export default function SelectLocale ({ isMobile }: Props)   {
-  const { i18n } = useTranslation();
-  const currentLocale = i18n.language;
-  const router = useRouter();
-  const currentPathname = usePathname();
-  const searchParams = useSearchParams();
-
-  const handleChange = async (value: string) => {
-    if (value === currentLocale) return;
-
-    await i18n.changeLanguage(value);
-
-    const queryString = searchParams?.toString();
-    const query = queryString ? `?${queryString}` : "";
-
-    if (currentLocale === i18NextConfig.i18n.defaultLocale) {
-      router.push("/" + value + currentPathname + query);
-    } else if (currentPathname) {
-      const newPath = currentPathname.replace(`/${currentLocale}`, `/${value}`);
-      router.push(newPath + query);
-    }
-  };
-
-  const displayedValue = (key: string) => {
-    switch (key) {
-      case "uk":
-        return isMobile ? (
-          <>
-            <IconFlagUA className={"w-7 h-7"} />
-            Українська
-          </>
-        ) : (
-          <IconFlagUA className={"w-7 h-7"} />
-        );
-
-      case "en":
-        return isMobile ? (
-          <>
-            <IconFlagEnglish className={"w-7 h-7"} />
-            English
-          </>
-        ) : (
-          <IconFlagEnglish className={"w-7 h-7"} />
-        );
-
-      case "ru":
-        return isMobile ? (
-          <>
-            <IconFlagRus className={"w-7 h-7"} />
-            ПидаРасия
-          </>
-        ) : (
-          <IconFlagRus className={"w-7 h-7"} />
-        );
-
-      default:
-        return isMobile ? (
-          <>
-            <IconFlagUA className={"w-7 h-7"} />
-            Українська
-          </>
-        ) : (
-          <IconFlagUA className={"w-7 h-7"} />
-        );
-    }
-  };
-
+export default function SelectLocale() {
+  const { dispalyIcon, handleChange } = useChangeLocale();
+  const { open, handleToggleOpen } = useToggleOpen();
   return (
-    <Select
-      value={currentLocale}
-      onValueChange={(value) => {
-        handleChange(value);
-      }}
-    >
-      <SelectTrigger className="w-full p-0 border-none ring-offset-0 ring-0 focus:ring-0 focus:ring-offset-0 bg-inherit">
-        <SelectValue>{displayedValue(currentLocale)}</SelectValue>
-      </SelectTrigger>
-      <SelectContent>
-        <SelectGroup>
-          <SelectItem value="uk">
-            <IconFlagUA />
-            Українська
-          </SelectItem>
-          <SelectItem value="en">
-            <IconFlagEnglish />
-            English
-          </SelectItem>
-          <SelectItem value="ru">
-            <IconFlagRus />
-            ПидаРасия
-          </SelectItem>
-        </SelectGroup>
-      </SelectContent>
-    </Select>
+    <div className='relative flex items-center justify-center'>
+      <Button
+        className={`text-text_prymery_color gap-0.5`}
+        variant={'link'}
+        onClick={handleToggleOpen}
+        onBlur={() => handleToggleOpen()}
+      >
+        <div className='w-7 h-7'>{dispalyIcon?.icon}</div>
+        <ChevronDown
+          size={24}
+          className={`stroke-text_prymery_color ${open && 'rotate-180'} transition-all duration-300 ease-in-out`}
+        />
+      </Button>
+      {open && (
+        <ul
+          className={`  absolute top-10  z-50 p-4 border border-black dark:border-dark_mode_main1 dark:bg-black_2_for_text  rounded-2xl   bg-white  overflow-hidden max-h-fit min-w-fit space-y-2 `}
+        >
+          {supportLocalesList.map((el) => (
+            <li key={el.name}>
+              <Button
+                key={el.name}
+                variant={'link'}
+                className='justify-start text-text_prymery_color body_medium'
+                onClick={() => {
+                  handleChange(el.value);
+                  handleToggleOpen();
+                }}
+              >
+                <div className='w-6 h-6'> {el.icon} </div>
+                {el.shortName}
+              </Button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };
 

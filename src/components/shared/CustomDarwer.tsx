@@ -26,21 +26,4 @@ export const CustomDarwer = ({ open, toggleOpen, title, description, trigger, ch
   );
 };
 
-{
-  /* <div className="flex items-center justify-between border-b p_drawer_content border-b-grayy_0 dark:border-b-black_2_for_text dark:bg-dark_mode_main1">
-          <DrawerClose className="flex items-center gap-1 h5">
-            <IconBack />
-            backBtn
-          </DrawerClose>
-        </div>
-
-        <ScrollArea className="relative flex-grow px-5 overflow-y-scroll bg-grayy dark:bg-background_black_mode">
-          {children}
-        </ScrollArea>
-
-        {footerContent && (
-          <div className="relative border-t p_drawer_content border-t-grayy_0 dark:border-t-black_2_for_text dark:bg-dark_mode_main1">
-            {footerContent}
-          </div>
-        )} */
-}
+ 

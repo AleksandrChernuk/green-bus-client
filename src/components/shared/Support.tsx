@@ -9,38 +9,48 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 import { IconsPhone } from "../icons/IconsPhone";
-import { supportNavlinks } from "@/constans/constans.supportNavlinks";
-import { SupportItem } from "../ui/SupportItem";
-import { useTranslation } from "react-i18next";
- 
+import { supportNavlinks } from '@/constans/constans.supportNavlinks';
+import { useTranslation } from 'react-i18next';
+import Link from 'next/link';
+import useToggleOpen from '@/hooks/useToggleOpen';
+import { Button } from '../ui/button';
+import { Phone } from 'lucide-react';
+
 export const Support = () => {
-    const { t } = useTranslation(["common"]);
+  const { open, handleToggleOpen } = useToggleOpen();
+  const { t } = useTranslation(['common']);
 
   return (
-    <DropdownMenu>
-      <DropdownMenuTrigger
-        asChild
-        className="flex flex-row items-center gap-2 group"
+    <div className='relative flex items-center justify-center'>
+      <Button
+        className={`text-text_prymery_color body_medium gap-0.5`}
+        variant={'link'}
+        onClick={handleToggleOpen}
+        onBlur={() => handleToggleOpen()}
       >
-        <div>
-          <div className="p-1 rounded-full w-7 h-7 bg-gray_1 dark:bg-grayy dark:fill-black group-hover:fill-gray_3 group-dark:hover:fill-gray_1 group-data-[state=open]:fill-gray_3 group-data-[state=open]:dark:fill-dark_mode_main1 transition-colors">
-            <IconsPhone />
-          </div>
-          <div className="navigation_text_body text-search_color group-hover:text-gray_3 group-dark:hover:text-gray_1 group-data-[state=open]:text-gray_2_for_body  group-data-[state=open]:dark:group-hover:text-grayy transition-colors">
-            {t("mainNavSupportLink")}
-          </div>
-        </div>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="p-4 space-y-4 bg-white border-black rounded-2xl dark:bg-background_black_mode dark:border-black_2_for_text">
-        {supportNavlinks?.map((item, idx) => (
-          <DropdownMenuItem
-            key={`${item.title}+${idx}`}
-            className="p-0 secondary_text hover:underline hover:bg-transparent focus:bg-transparent"
-          >
-            <SupportItem title={item.title} src={item.src} icon={item?.icon} />
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+        <Phone size={24} className='stroke-text_prymery_color' />
+        {t('mainNavSupportLink')}
+      </Button>
+
+      {open && (
+        <ul
+          className={`absolute top-10  z-50 p-4 border border-black dark:border-dark_mode_main1 dark:bg-black_2_for_text  rounded-2xl   bg-white  overflow-hidden max-h-fit min-w-fit space-y-2 `}
+        >
+          {supportNavlinks.map((item, idx) => (
+            <li key={`${item.title}+${idx}`}>
+              <Link
+                href={item.src}
+                className='flex flex-row items-center justify-start gap-2 p-1 body_medium'
+              >
+                <span className='w-[22.5px] h-[22.5px]'>{item.icon && item.icon}</span>
+                <span className='text-base font-normal text-black dark:text-grayy'>
+                  {item.title}
+                </span>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 };

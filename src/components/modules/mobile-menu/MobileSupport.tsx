@@ -1,39 +1,49 @@
-import { IconsPhone } from "@/components/icons/IconsPhone";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { supportNavlinks } from "@/constans/constans.supportNavlinks";
+'use client';
 
- import Link from "next/link";
+import { Button } from '@/components/ui/button';
+import { supportNavlinks } from '@/constans/constans.supportNavlinks';
+import useToggleOpen from '@/hooks/useToggleOpen';
+import { ChevronDown, Phone } from 'lucide-react';
+import Link from 'next/link';
+import { useTranslation } from 'react-i18next';
 
-const MobileSupport = () => {
+export default function MobileSupport() {
+  const { open, handleToggleOpen } = useToggleOpen();
+  const { t } = useTranslation(['common']);
+
   return (
-    <Accordion type="single" collapsible className="w-full ">
-      <AccordionItem value="item-1" className="border-none">
-        <AccordionTrigger
-          className={`flex flex-row items-center justify-between gap-2 p-0 transition-all  text-black text-base font-medium dark:text-grayy dark:fill-black data-[state=open]:fill-gray_3 dark:data-[state=open]:fill-gray_3 data-[state=open]:text-gray_3  hover:text-gray_3 hover:underline hover:fill-gray_3 active:fill-gray_3 dark:active:fill-gray_3 dark:hover:fill-gray_3 active:text-gray_3 `}
-        >
-          <div className="flex flex-row items-center gap-2">
-            <span>
-              <IconsPhone className={"fill-primary_1"} />
-            </span>
-            <span>Support</span>
-          </div>
-        </AccordionTrigger>
+    <div>
+      <Button
+        className={`justify-between w-full text-text_prymery_color body_medium`}
+        variant={'link'}
+        onClick={handleToggleOpen}
+      >
+        <div className='flex items-center gap-2'>
+          <Phone size={24} className='stroke-primary' />
+          {t('mainNavSupportLink')}
+        </div>
+        <ChevronDown
+          className={`stroke-primary ${open && 'rotate-180'} transition-all duration-300 ease-in-out`}
+        />
+      </Button>
 
-        <AccordionContent className="inline-flex flex-col gap-2 p-4 ">
-          {supportNavlinks.map((item, idx) => (
+      <ul
+        className={`transition-all duration-300 ease-in-out overflow-hidden ${
+          open ? 'max-h-96  pt-2 opacity-100' : 'max-h-0 pt-0 opacity-100'
+        } flex flex-col gap-2 `}
+      >
+        {supportNavlinks.map((item, idx) => (
+          <li key={`${item.title}+${idx}`}>
             <Link
-              key={`${item.title}+${idx}`}
               href={item.src}
-              className="flex flex-row items-center justify-start gap-2 p-1"
+              className='flex flex-row items-center justify-start gap-2 p-1 body_medium'
             >
-              <span>{item.icon && item.icon}</span>
-              <span className="text-base font-normal text-black dark:text-grayy">{item.title}</span>
+              <span className='w-[22.5px] h-[22.5px]'>{item.icon && item.icon}</span>
+              <span className='text-base font-normal text-black dark:text-grayy'>{item.title}</span>
             </Link>
-          ))}
-        </AccordionContent>
-      </AccordionItem>
-    </Accordion>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
-};
-
-export default MobileSupport;
+}

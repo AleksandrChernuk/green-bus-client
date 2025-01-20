@@ -2,7 +2,7 @@
 
 import { IconCalendar } from "@/components/icons/IconCalendar";
 import React, { memo } from "react";
-import { format, isBefore, toDate } from 'date-fns';
+import { addMonths, format, isBefore, toDate } from 'date-fns';
 import { Calendar } from '@/components/ui/calendar';
 import { useDate } from '../../hooks/useDate';
 import { DropdownWrapper, InputError, StartIcon } from '../../ui';
@@ -45,7 +45,7 @@ export const DesktopDate = memo(() => {
           mode='single'
           month={month}
           onMonthChange={(e) => {
-            if (isBefore(e, new Date())) return;
+            if (isBefore(addMonths(e, 1), new Date())) return;
             if (isBefore(month, e)) {
               return incrementMonth();
             }

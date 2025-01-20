@@ -1,62 +1,59 @@
 'use client'
 
-import { Separator } from "@radix-ui/react-dropdown-menu";
-import { IconsMenu } from "@/components/icons/IconsMenu";
-import { IconGlobus } from "@/components/icons/IconGlobus";
-import Logo from "@/components/shared/Logo";
-import MobileSupport from "./MobileSupport";
- import { SwitchTheme } from "@/components/shared/SwitchTheme";
-// import { ProfileLink } from "@/components/shared/ProfileLink";
-import { CustomDarwer } from "@/components/shared/CustomDarwer";
-import { useState } from "react";
+import { Separator } from '@radix-ui/react-dropdown-menu';
+import Logo from '@/components/shared/Logo';
+import MobileSupport from './MobileSupport';
+import { SwitchTheme } from '@/components/shared/SwitchTheme';
+import { CustomDarwer } from '@/components/shared/CustomDarwer';
+import { Globe, Menu, X } from 'lucide-react';
+import { DrawerClose } from '@/components/ui/drawer';
+import MobileLanguageChanger from './MobileLanguageChanger';
+import useToggleOpen from '@/hooks/useToggleOpen';
+import MobileProfileLink from './MobileProfileLink';
+import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
-import { X } from "lucide-react";
-import { DrawerClose } from "@/components/ui/drawer";
+export const MobileMenu = () => {
+  const { t } = useTranslation(['common']);
 
+  const { open, handleToggleOpen } = useToggleOpen();
 
-export const MobileMenu = ( ) => {
-  const [open, setOpen] = useState(false)
-
-
-
-     const toggleOpen =  () => {
-       setOpen((prev) => !prev);
-     } 
   return (
-    <div className="block tablet:hidden">
+    <div className='block tablet:hidden'>
       <CustomDarwer
         open={open}
-        toggleOpen={toggleOpen}
+        toggleOpen={handleToggleOpen}
         trigger={
-          <div className="p-2 rounded-md bg-primary_1">
-            <IconsMenu />
-          </div>
+          <Button variant={'default'} size={'icon'} className='p-2 rounded-md'>
+            <Menu size={24} className='stroke-white' />
+          </Button>
         }
       >
-        <div className="sticky top-0 z-50 px-5 py-4  bg-white dark:bg-dark_mode_main1 border-b-[1px] border-gray_0 dark:border-black_2_for_text flex items-center justify-between">
+        <div className='sticky top-0 z-50 px-5 py-4  bg-white dark:bg-dark_mode_main1 border-b-[1px] border-gray_0 dark:border-black_2_for_text flex items-center justify-between'>
           <DrawerClose>
             <Logo />
           </DrawerClose>
-          <DrawerClose>
-            <div className="p-2 rounded-md bg-primary_1">
-              <X className="stroke-white"/>
-            </div>
+          <DrawerClose asChild>
+            <Button variant={'default'} size={'icon'} className='p-2 rounded-md'>
+              <X size={24} className='stroke-white' />
+            </Button>
           </DrawerClose>
         </div>
-        <div className="flex flex-col w-full h-full p-0 overflow-auto">
-          <div className="flex flex-col gap-4 p-5">
-            {/* <ProfileLink isMobile   /> */}
+
+        <div className='flex flex-col w-full h-full p-0 overflow-auto'>
+          <div className='flex flex-col gap-4 p-5'>
+            <MobileProfileLink />
             <MobileSupport />
           </div>
-          <Separator className="h-[1px] bg-gray_0 dark:bg-black_2_for_text" />
-          <div className="flex flex-col gap-4 p-5">
-            {/* <MobileSwitchLocale /> */}
+          <Separator className='h-[1px] bg-gray_0 dark:bg-black_2_for_text' />
+          <div className='flex flex-col gap-4 p-5'>
+            <MobileLanguageChanger />
 
-            <div className="flex flex-row items-center justify-between">
-              <div className="flex flex-row items-center gap-2">
-                <IconGlobus />
-                <p className="text-base font-medium text-black_2_for_text dark:text-grayy">
-                  Site theme
+            <div className='flex flex-row items-center justify-between'>
+              <div className='flex flex-row items-center gap-2'>
+                <Globe size={24} className='stroke-primary' />
+                <p className='text-base font-medium text-black_2_for_text dark:text-grayy body_medium'>
+                  {t('site_theme')}
                 </p>
               </div>
               <SwitchTheme />
