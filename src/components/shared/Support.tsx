@@ -10,7 +10,7 @@ import { Button } from '../ui/button';
 import { Phone } from 'lucide-react';
 
 export const Support = () => {
-  const { open, handleToggleOpen } = useToggleOpen();
+  const { open, handleToggleOpen, handleSetOpen } = useToggleOpen();
   const { t } = useTranslation(['common']);
 
   return (
@@ -19,7 +19,7 @@ export const Support = () => {
         className={`text-text_prymery_color body_medium gap-0.5`}
         variant={'link'}
         onClick={handleToggleOpen}
-        onBlur={() => handleToggleOpen()}
+        onBlur={() => handleSetOpen(false)}
       >
         <Phone size={24} className='stroke-text_prymery_color' />
         {t('mainNavSupportLink')}

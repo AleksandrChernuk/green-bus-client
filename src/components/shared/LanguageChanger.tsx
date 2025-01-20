@@ -8,14 +8,14 @@ import { supportLocalesList } from '@/constans/constans.support.locales';
 
 export default function SelectLocale() {
   const { dispalyIcon, handleChange } = useChangeLocale();
-  const { open, handleToggleOpen } = useToggleOpen();
+  const { open, handleToggleOpen, handleSetOpen } = useToggleOpen();
   return (
     <div className='relative flex items-center justify-center'>
       <Button
         className={`text-text_prymery_color gap-0.5`}
         variant={'link'}
         onClick={handleToggleOpen}
-        onBlur={() => handleToggleOpen()}
+        onBlur={() => handleSetOpen(false)}
       >
         <div className='w-7 h-7'>{dispalyIcon?.icon}</div>
         <ChevronDown
@@ -35,7 +35,7 @@ export default function SelectLocale() {
                 className='justify-start text-text_prymery_color body_medium'
                 onClick={() => {
                   handleChange(el.value);
-                  handleToggleOpen();
+                  handleSetOpen(false);
                 }}
               >
                 <div className='w-6 h-6'> {el.icon} </div>

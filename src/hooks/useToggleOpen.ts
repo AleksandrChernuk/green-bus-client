@@ -8,5 +8,9 @@ export default function useToggleOpen() {
   const handleToggleOpen = () => {
     setOpen(!open);
   };
-  return { open, handleToggleOpen };
+
+    const handleSetOpen = (isOpen: boolean) => {
+      setOpen(isOpen);
+    };
+    return { open, handleToggleOpen, handleSetOpen };
 }
