@@ -6,9 +6,11 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 export default function MobileDetails() {
   const [open, setOpen] = useState<boolean>(false);
+  const { t } = useTranslation(['common']);
 
   return (
     <CustomDarwer
@@ -18,7 +20,7 @@ export default function MobileDetails() {
       }}
       trigger={
         <Button variant={'link'} className='items-center justify-center text-xs font-bold '>
-          Детальніше
+          {t('details')}
         </Button>
       }
     >

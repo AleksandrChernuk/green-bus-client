@@ -1,10 +1,15 @@
+import SecondFooter from '@/components/modules/footer/SecondFooter';
 import SearchModule from '@/components/pages/SearchPage';
-import React from 'react'
+import React from 'react';
 
-export default function SearchPage() {
+export default async function SearchPage({ params }: { params: Promise<{ locales: string }> }) {
+  const { locales } = await params;
   return (
-    <main role='main' className='flex-grow pb-16 bg-grayy dark:bg-dark_mode_main1'>
-      <SearchModule />
-    </main>
+    <>
+      <main role='main' className='flex-grow pb-16 bg-grayy dark:bg-dark_mode_main1'>
+        <SearchModule locale={locales} />
+      </main>
+      <SecondFooter />
+    </>
   );
 }

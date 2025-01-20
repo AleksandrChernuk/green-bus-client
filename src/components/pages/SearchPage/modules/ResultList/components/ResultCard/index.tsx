@@ -3,8 +3,8 @@
 import { memo, useState } from 'react';
 import { IRouteResponse } from '@/types/route.types';
 import { extractLocationDetails } from '@/lib/extractLocationDetails';
-import { Route } from './components/Route';
-import { Carrier } from './components/Carrier';
+import { DesctopRoute } from './components/DesctopRoute';
+import { Carriers } from './components/Carriers';
 import { OpenDetailsButton } from './components/OpenDetailsButton';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
@@ -27,7 +27,7 @@ export const ResultCard = memo(({ element }: Props) => {
     <CustomCard className='shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
       <div className='flex flex-row items-center justify-between gap-1 tablet:gap-14'>
         {!matches ? (
-          <Route
+          <DesctopRoute
             arrival={element.arrival.date_time ?? ''}
             departure={element.departure.date_time ?? ''}
             departurePoint={element.departure?.station_address ?? ''}
@@ -70,7 +70,7 @@ export const ResultCard = memo(({ element }: Props) => {
 
       <div className='relative flex items-center gap-2'>
         <div className='flex items-center gap-2 truncate ...'>
-          <Carrier>{element.carrier.name}</Carrier>
+          <Carriers>{element.carrier.name}</Carriers>
           <div className='font-bold'>{element.provider_name}</div>
         </div>
 

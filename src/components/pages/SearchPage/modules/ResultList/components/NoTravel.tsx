@@ -4,7 +4,7 @@ import { CustomCard } from '@/components/shared/CustomCard';
 
 export const NoTravel = () => {
   return (
-    <CustomCard className='flex flex-col items-center self-center gap-8 p-5 text-center w-fit shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
+    <CustomCard className='mx-auto flex flex-col items-center self-center gap-8 p-5 text-center w-fit shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
       <Image
         src={noTravelImg}
         placeholder='blur'

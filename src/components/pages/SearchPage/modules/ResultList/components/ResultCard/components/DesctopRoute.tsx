@@ -6,14 +6,12 @@ type Props = {
   arrival: string;
   arrivalName: string;
   arrivalPoin: string;
-
   departurePoint: string;
   departureName: string;
-
   departure: string;
 };
 
-export const Route = ({
+export const DesctopRoute = ({
   arrival,
   departure,
   departureName,

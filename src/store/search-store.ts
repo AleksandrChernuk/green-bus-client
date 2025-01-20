@@ -1,12 +1,12 @@
 import { ILocation } from "@/types/location.types";
 
-import { format } from "date-fns";
-import { create } from "zustand";
-import { persist } from "zustand/middleware";
-import { devtools } from "zustand/middleware";
+import { addMonths, format } from 'date-fns';
+import { create } from 'zustand';
+import { persist } from 'zustand/middleware';
+import { devtools } from 'zustand/middleware';
 
-export type TpassengerType = "adult" | "children";
-export type TcityKey = "from" | "to";
+export type TpassengerType = 'adult' | 'children';
+export type TcityKey = 'from' | 'to';
 export type Terrors = {
   from: string | null;
   to: string | null;
@@ -16,6 +16,7 @@ export type SearchState = {
   from?: ILocation;
   to?: ILocation;
   date: string;
+  month: Date;
   adult: number;
   children: number;
   errors: Terrors;
@@ -27,13 +28,17 @@ export type MainSearchActions = {
   setCity: (cityKey: TcityKey, newCity: ILocation | null) => void;
   incrementPassenger: (passengerType: TpassengerType) => void;
   decrementPassenger: (passengerType: TpassengerType) => void;
+  incrementMonth: () => void;
+  decrementMonth: () => void;
+  setMonth: (newMonth: Date) => void;
   swap: () => void;
 };
 
 export type SearchStore = SearchState & MainSearchActions;
 
 export const defaultInitState: SearchState = {
-  date: format(new Date(), "yyyy-MM-dd"),
+  date: format(new Date(), 'yyyy-MM-dd'),
+  month: new Date(),
   adult: 1,
   children: 0,
   errors: {
@@ -45,7 +50,7 @@ export const defaultInitState: SearchState = {
 export const useSearchStore = create<SearchStore>()(
   devtools(
     persist(
-      (set) => ({
+      (set, get) => ({
         ...defaultInitState,
         setDate: (newDate: string) =>
           set((state) => ({
@@ -70,6 +75,29 @@ export const useSearchStore = create<SearchStore>()(
             ...state,
             [passengerType]: state[passengerType] > 0 ? state[passengerType] - 1 : 0,
           })),
+        incrementMonth: () => {
+          const { month } = get();
+
+          set((state) => ({
+            ...state,
+            month: addMonths(month, 1),
+          }));
+        },
+
+        decrementMonth: () => {
+          const { month } = get();
+
+          set((state) => ({
+            ...state,
+            month: addMonths(month, -1),
+          }));
+        },
+
+        setMonth: (newMonth) =>
+          set((state) => ({
+            ...state,
+            month: newMonth,
+          })),
 
         swap: () =>
           set((state) => ({
@@ -85,10 +113,10 @@ export const useSearchStore = create<SearchStore>()(
           })),
       }),
       {
-        name: "main-search-new",
-      },
-    ),
-  ),
+        name: 'main-search-new',
+      }
+    )
+  )
 );
 
 // export interface IMainSearchStoreProps {

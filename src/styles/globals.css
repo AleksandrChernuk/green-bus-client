@@ -179,6 +179,9 @@ body,
     @apply text-[31.88px] font-extrabold tracking-normal leading-[33.68px]
   }
 
+.large_button {
+  @apply text-lg font-bold tracking-normal leading-[21.6px]
+}
   .button_mobile {
     @apply text-sm font-bold tracking-normal leading-[16.8px]
   }

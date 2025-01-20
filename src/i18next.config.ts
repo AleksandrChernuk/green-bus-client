@@ -1,14 +1,14 @@
 const i18NextConfig = {
   // debug: false,
   i18n: {
-    locales: ["en", "ru", "uk"],
-    defaultLocale: "uk",
+    locales: ['en', 'ru', 'uk'],
+    defaultLocale: 'uk',
   },
-  fallbackNS: "common",
-  defaultNS: "common",
-  ns: ["common"],
-  load: "all",
-  preload: ["en", "ru", "uk"],
+  fallbackNS: 'common',
+  defaultNS: 'common',
+  ns: ['common'],
+  load: 'all',
+  preload: ['en', 'ru', 'uk'],
 };
 
 export const getOptions = (lang: string, ns: string | string[]) => {

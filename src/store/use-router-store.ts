@@ -3,42 +3,45 @@ import { IRouteResponse } from "@/types/route.types";
  import { devtools } from "zustand/middleware";
 import { sortedRoutes } from "./helpers";
 
-export type TsortBy =
-  | 'rating'
-  | 'price'
-  | 'popularity'
-  | 'arrival_time'
-  | 'time_on_road'
-  | 'departure_time';
+export type TsortBy = 'price' | 'popularity' | 'arrival_time' | 'time_on_road' | 'departure_time';
 
 export interface IuseRoutesStoreProps {
   routes: IRouteResponse[];
-  filterRoutes: IRouteResponse[];
+  filteredRoutes: IRouteResponse[];
   sortBy: TsortBy;
   setRoutes: (routes: IRouteResponse[]) => void;
   setSortBy: (sortBy: TsortBy) => void;
+  resetSortBy: (sortBy: TsortBy) => void;
 }
 
 export const useRoutesStore = create<IuseRoutesStoreProps>()(
   devtools((set, get) => ({
-    filterRoutes: [],
-    sortBy: 'price',
+    filteredRoutes: [],
+    sortBy: 'popularity',
 
     setRoutes: (routes) => {
       const { sortBy } = get();
-
-      set(() => ({
-        filterRoutes: sortedRoutes({ sortBy, data: routes }),
-      }));
+      set({
+        routes,
+        filteredRoutes: sortedRoutes({ sortBy, data: routes }),
+      });
     },
 
     setSortBy: (sortBy) => {
-      const { filterRoutes } = get();
+      const { routes } = get();
 
-      set(() => ({
+      set({
         sortBy,
-        filterRoutes: sortedRoutes({ sortBy, data: filterRoutes }),
-      }));
+        filteredRoutes: sortedRoutes({ sortBy, data: routes }),
+      });
+    },
+
+    resetSortBy: () => {
+      const { routes } = get();
+      set({
+        sortBy: 'popularity',
+        filteredRoutes: sortedRoutes({ sortBy: 'popularity', data: routes }),
+      });
     },
   }))
 );

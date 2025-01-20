@@ -1,49 +1,29 @@
 "use client";
 
-import { getRoutes } from "@/actions/route-actions";
-import { useQuery,   } from "@tanstack/react-query";
-import { useShallow } from "zustand/react/shallow";
-import { Loader } from "./components/Loader";
-import { ResultCard } from "./components/ResultCard";
-import { NoTravel } from "./components/NoTravel";
-import { useSearchStore } from "@/store/search-store";
-import { useRoutesStore } from "@/store/use-router-store";
-import { useEffect } from "react";
-  
+import { Loader } from './components/Loader';
+import { ResultCard } from './components/ResultCard';
+import { NoTravel } from './components/NoTravel';
+import { useRoutesStore } from '@/store/use-router-store';
+import useSearchResult from '../../hooks/useSearchResult';
+
 export const ResultList = () => {
-  const setRoutes = useRoutesStore((state) => state.setRoutes);
-  const filterRoutes = useRoutesStore((state) => state.filterRoutes);
+  const { isFetching, error, data } = useSearchResult();
 
-  const from = useSearchStore(useShallow((state) => state.from));
-  const to = useSearchStore(useShallow((state) => state.to));
-  const date = useSearchStore(useShallow((state) => state.date));
+  const filteredRoutes = useRoutesStore((state) => state.filteredRoutes);
 
-  const { isLoading, data, error } = useQuery({
-    queryKey: ['routes-search', from?.id, to?.id, date],
+  if (isFetching) {
+    return <Loader />;
+  }
 
-    queryFn: () =>
-      getRoutes({
-        fromCityId: from?.id ?? 0,
-        toCityId: to?.id ?? 0,
-        travelDate: date,
-      }),
+  if (error) return null;
 
-    enabled: !!from && !!to,
-  });
-
-  useEffect(() => {
-    if (data) {
-      setRoutes(data);
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [data]);
+  if (!isFetching && data && !data.length) return <NoTravel />;
 
   return (
-    <div className='flex flex-col space-y-4'>
-      {!isLoading &&
-        filterRoutes?.map((el, i) => <ResultCard key={`${el.route_id}_${i}`} element={el} />)}
-      {isLoading && <Loader />}
-      {!error && !isLoading && !data?.length && <NoTravel />}
-    </div>
+    <ul className='flex flex-col space-y-8'>
+      {filteredRoutes.map((route) => (
+        <ResultCard key={route.route_id} element={route} />
+      ))}
+    </ul>
   );
 };

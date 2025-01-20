@@ -22,5 +22,12 @@
   "forPassengersBookingLink": "Ваши бронирования",
   "forPassengersAccountLink": "Создайть аккаунт",
   "forPassengersAppLink": "Загрузить приложение",
-  "forPassengersAffiliateLink": "Партнерская программа"
+  "forPassengersAffiliateLink": "Партнерская программа",
+  "sort_by": "Сортировать по",
+  "bus_companies": "Автобусные компании",
+  "clear_all": "Очистить все",
+  "view_trips": "Показать маршруты",
+  "filter": "Фильтр",
+  "details": "Детальнее",
+  "date_picker_title": "Когда вы планируете ехать?"
 }

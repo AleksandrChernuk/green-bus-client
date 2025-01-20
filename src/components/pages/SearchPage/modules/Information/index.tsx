@@ -9,6 +9,8 @@ import { useShallow } from 'zustand/react/shallow';
 import { MobileFilter } from '../MobileFilter';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useRoutesStore } from '@/store/use-router-store';
+import useDateLocale from '@/hooks/useDateLocale';
+import { useTranslation } from 'react-i18next';
 
 const ArrowIcon = () => {
   return (
@@ -32,13 +34,15 @@ export const Information = () => {
   const date = useSearchStore(useShallow((state) => state.date));
   const from = useSearchStore(useShallow((state) => state.from));
   const to = useSearchStore(useShallow((state) => state.to));
-  const filterRoutes = useRoutesStore((state) => state.filterRoutes);
+  const filterRoutes = useRoutesStore((state) => state.filteredRoutes);
+  const { i18n, t } = useTranslation(['search']);
+  const { locale } = useDateLocale();
 
   return (
     <CustomCard className='p-5 space-y-4 shadow-[0_4px_10px_0_rgba(0,0,0,0.2)] '>
       <div className='flex items-center justify-between'>
-        <h3 className='h3 laptop:h1 text-text_prymery_color'>
-          {format(toDate(date), 'eee ,d MMM.')}
+        <h3 className='h3 laptop:h1 text-text_prymery_color first-letter:uppercase'>
+          {format(toDate(date), 'eee ,d MMM', { locale })}
         </h3>
         <div className='laptop:hidden'>
           <MobileFilter />
@@ -48,26 +52,26 @@ export const Information = () => {
         <div className='flex items-center gap-2 main_text_body text-text_secondary_color text-[12px] leading-4 tetx-black_2_for_text tablet:text-sm  dark:text-gray_1 text-nowrap truncate'>
           {from ? (
             <div>
-              {from && extractLocationDetails(from, 'ru').locationName},{' '}
-              {from && extractLocationDetails(from, 'ru').countryName}
+              {from && extractLocationDetails(from, i18n.language).locationName},{' '}
+              {from && extractLocationDetails(from, i18n.language).countryName}
             </div>
           ) : (
-            <Skeleton className='h-3 bg-light_primary dark:bg-gray_1 min-w-20' />
+            <Skeleton className='h-3 bg-light_primary dark:bg-black_2_for_text min-w-20' />
           )}
           <div className='w-3 h-3 grow'>
             <ArrowIcon />
           </div>
           {to ? (
             <div className='flex items-center'>
-              {to && extractLocationDetails(to, 'ru').locationName},{' '}
-              {to && extractLocationDetails(to, 'ru').countryName}
+              {to && extractLocationDetails(to, i18n.language).locationName},{' '}
+              {to && extractLocationDetails(to, i18n.language).countryName}
             </div>
           ) : (
-            <Skeleton className='h-3 bg-light_primary dark:bg-gray_1 min-w-20' />
+            <Skeleton className='h-3 bg-light_primary dark:bg-black_2_for_text min-w-20' />
           )}
         </div>
         <div className='text-[12px]  tablet:text-sm leading-6  text-primary_1 text-nowrap truncate'>
-          {`${filterRoutes?.length} results`}
+          {`${filterRoutes?.length} ${t('resul_count')}`}
         </div>
       </div>
     </CustomCard>

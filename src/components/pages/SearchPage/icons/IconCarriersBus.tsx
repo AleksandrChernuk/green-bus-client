@@ -1,4 +1,4 @@
-export const IconBus = () => {
+export const IconCarriersBus = () => {
   return (
     <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 45 16' fill='none'>
       <path

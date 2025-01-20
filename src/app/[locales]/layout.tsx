@@ -25,7 +25,7 @@ export function generateStaticParams() {
   return i18NextConfig.i18n.locales.map((locale) => ({ locale }));
 }
 
-const i18nNamespaces = ["common"];
+const i18nNamespaces = ['common', 'search'];
 
 export default async function RootLayout({
   children,

@@ -7,7 +7,7 @@ import { useSearchStore } from "@/store/search-store";
 export const useDate = () => {
   const [open, setOpen] = useState<boolean>(false);
   const [month, setMonth] = useState<Date>(new Date());
- 
+
   const setDate = useSearchStore((state) => state.setDate);
 
   const toggleOpen = useCallback(() => {
@@ -22,8 +22,8 @@ export const useDate = () => {
 
   const handleSelectDate = (data: Date) => {
     setOpen(false);
-    setDate(format(data || new Date(), "yyyy-MM-dd"));
-   };
+    setDate(format(data || new Date(), 'yyyy-MM-dd'));
+  };
 
   const incrementMonth = useCallback(() => {
     setMonth((prevMonth) => addMonths(prevMonth, 1));
@@ -44,5 +44,5 @@ export const useDate = () => {
     incrementMonth,
     decrementMonth,
     setMonth,
-   };
+  };
 };

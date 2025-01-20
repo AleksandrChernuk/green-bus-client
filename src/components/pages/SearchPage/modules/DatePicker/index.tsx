@@ -1,15 +1,18 @@
 "use client";
 
 import { addDays, format, toDate, isBefore, isEqual } from "date-fns";
-
-import { useDateTabs } from "../../hooks/useDateTabs";
-import { Button } from "@/components/ui/button";
+ 
+import { useDateTabs } from '../../hooks/useDateTabs';
+import { Button } from '@/components/ui/button';
+import useDateLocale from '@/hooks/useDateLocale';
 
 export default function DateTabs() {
+  const { locale } = useDateLocale();
   const { tabDate, handleUpdateDate, datesArray } = useDateTabs();
+
   return (
     <div>
-      <div className='flex items-center justify-around gap-2 overflow-x-scroll tablet:gap-8'>
+      <div className='flex items-center justify-around gap-4 overflow-x-scroll tablet:gap-8 [&::-webkit-scrollbar]:hidden'>
         {datesArray.map((date) => {
           return (
             <Button
@@ -26,8 +29,12 @@ export default function DateTabs() {
               }`}
             >
               <ul className='flex flex-col items-center'>
-                <li className='small_text tablet:main_text_body'>{format(date, 'EEE')}</li>
-                <li className='small_2_bolt_text tablet:h5'>{format(date, 'dd MMM')}</li>
+                <li className='small_text tablet:main_text_body first-letter:uppercase'>
+                  {format(date, 'EEE', { locale })}
+                </li>
+                <li className='small_2_bolt_text tablet:h5'>
+                  {format(date, 'dd MMM', { locale })}
+                </li>
               </ul>
             </Button>
           );

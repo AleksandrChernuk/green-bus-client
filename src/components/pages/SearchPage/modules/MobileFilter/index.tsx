@@ -8,9 +8,12 @@ import { useState } from 'react';
 import FilterSortByList from '../../components/FilterRadioGroup';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { useTranslation } from 'react-i18next';
 
 export const MobileFilter = () => {
   const [open, setOpen] = useState<boolean>(false);
+
+  const { t } = useTranslation(['common']);
 
   return (
     <CustomDarwer
@@ -25,7 +28,7 @@ export const MobileFilter = () => {
       }
     >
       <div className='flex items-center justify-between px-5 py-4 border-b border-b-gray_1 dark:border-b-black_2_for_text dark:bg-dark_mode_main1'>
-        <h3 className='font-medium h4 text-primary_1'>Filter</h3>
+        <h3 className='font-medium h4 text-primary_1'>{t('filter')}</h3>
         <DrawerClose asChild>
           <Button
             variant={'default'}
@@ -38,12 +41,12 @@ export const MobileFilter = () => {
       <ScrollArea className='relative flex-grow px-5 pt-6 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
         <ul>
           <li>
-            <h5 className='mb-4 h5 text-text_prymery_color'>Сортувати за:</h5>
+            <h5 className='mb-4 h5 text-text_prymery_color'>{t('sort_by')}:</h5>
             <FilterSortByList />
           </li>
           <Separator className='h-1 my-6 rounded-lg bg-gray_0 dark:bg-black_2_for_text' />
           <li>
-            <h5 className='mb-4 h5 text-text_prymery_color'>Bus Companies:</h5>
+            <h5 className='mb-4 h5 text-text_prymery_color'>{t('bus_companies')}:</h5>
           </li>
         </ul>
       </ScrollArea>
@@ -53,12 +56,12 @@ export const MobileFilter = () => {
             variant={'outline'}
             className='w-full px-5 py-3 button_mobile text-primary bg-inherit'
           >
-            Clear all
+            {t('clear_all')}
           </Button>
         </DrawerClose>
         <DrawerClose asChild>
           <Button variant={'default'} className='w-full px-5 py-3 button_mobile'>
-            View trips
+            {t('view_trips')}
           </Button>
         </DrawerClose>
       </div>

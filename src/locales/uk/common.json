@@ -22,5 +22,15 @@
   "forPassengersBookingLink": "Ваші бронювання",
   "forPassengersAccountLink": "Створити аккаунт",
   "forPassengersAppLink": "Завантажити додаток",
-  "forPassengersAffiliateLink": "Партнерська програма"
+  "forPassengersAffiliateLink": "Партнерська програма",
+  "sort_by": "Сортувати за",
+  "bus_companies": "Автобусні компанії",
+  "clear_all": "Очистити все",
+  "view_trips": "Показати маршрути",
+  "filter": "Фільтр",
+  "sort_buy_price": "Ціною",
+  "sort_buy_departure_time": "Часом відправлення",
+  "sort_buy_arrival_time": "Часом прибуття",
+  "sort_buy_shortest_journeye": "Коротшим маршрутом",
+  "date_picker_title": "Коли ви плануєте їхати?"
 }
