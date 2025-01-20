@@ -1,15 +1,8 @@
 'use client' 
 
+ 
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-
-import { IconsPhone } from "../icons/IconsPhone";
-import { supportNavlinks } from '@/constans/constans.supportNavlinks';
+ import { supportNavlinks } from '@/constans/constans.supportNavlinks';
 import { useTranslation } from 'react-i18next';
 import Link from 'next/link';
 import useToggleOpen from '@/hooks/useToggleOpen';
