@@ -7,22 +7,24 @@ import loaderdark from "../../../images/loaderdark.gif";
 
 export const Loader = () => {
   return (
-    <div className="flex items-center justify-center my-2">
+    <div className='flex items-center justify-center my-2'>
       <Image
         src={loader}
-        alt="Loading..."
+        alt='Loading...'
         height={200}
         width={200}
         priority
-        className="dark:hidden"
+        unoptimized
+        className='dark:hidden'
       />
       <Image
         src={loaderdark}
-        alt="Loading..."
+        alt='Loading...'
         priority
+        unoptimized
         height={200}
         width={200}
-        className="hidden dark:block"
+        className='hidden dark:block'
       />
     </div>
   );

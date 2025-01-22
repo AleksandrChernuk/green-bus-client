@@ -11,7 +11,7 @@ import { useSearchStore } from '@/store/search-store';
 import useDateLocale from '@/hooks/useDateLocale';
 
 export const DesktopDate = memo(() => {
-  const { open, toggleOpen, handleSelectDate, handleBlur } = useDate();
+  const { open, handleToggleOpen, handleSelectDate, handleBlur, inputRef } = useDate();
   const currentDate = useSearchStore(useShallow((state) => state.date));
 
   const month = useSearchStore((state) => state.month);
@@ -30,11 +30,12 @@ export const DesktopDate = memo(() => {
       >
         <StartIcon icon={<IconCalendar />} />
         <input
+          ref={inputRef}
           type='button'
           value={format(currentDate || new Date(), 'dd MMMM ', { locale })}
           className='z-0 min-h-10 rounded-md size-full h-auto px-4 py-2 pl-8 tablet:px-9 laptop:px-12 tablet:py-4 outline-none bg-transparent focus:bg-gray_1 active:bg-gray_1 dark:focus:bg-black_2_for_text dark:active:bg-black_2_for_text placeholder-black dark:placeholder-gray_0 body_medium laptop:filter_input_medium_text text-black dark:text-grayy text-left text-nowrap truncate border-[1px] border-transparent'
           onClick={() => {
-            toggleOpen();
+            handleToggleOpen();
           }}
         />
         <InputError inputError={null} />
@@ -57,7 +58,7 @@ export const DesktopDate = memo(() => {
             if (value) {
               setMonth(toDate(value));
             }
-
+            inputRef.current?.blur();
             handleSelectDate(value || new Date());
           }}
           disabled={{ before: new Date() }}

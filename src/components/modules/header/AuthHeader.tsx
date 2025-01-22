@@ -1,14 +1,13 @@
 import { Container } from '@/components/shared/Container';
 import SelectLocale from '@/components/shared/LanguageChanger';
-import Logo from '@/components/shared/Logo'
-import { ProfileLink } from '@/components/shared/ProfileLink';
+import Logo from '@/components/shared/Logo';
 import { Support } from '@/components/shared/Support';
 import { SwitchTheme } from '@/components/shared/SwitchTheme';
 import { MobileMenu } from '../mobile-menu/MobileMenu';
 
-export default async function MainHeader({ locale }: { locale: string }) {
+export default async function AuthHeader() {
   return (
-    <header className='bg-white border-b-2 dark:bg-dark_mode_main1'>
+    <header className='bg-white border-b-[1px] border-b-gray_0 dark:border-b-dark_mode_main1 dark:bg-dark_mode_main1'>
       <Container size='l' className='flex items-center justify-between py-4'>
         <Logo />
 
@@ -27,13 +26,9 @@ export default async function MainHeader({ locale }: { locale: string }) {
             <li className='hidden laptop:block'>
               <Support />
             </li>
-
-            <li>
-              <ProfileLink locale={locale} />
-            </li>
           </ul>
         </nav>
-        <MobileMenu />
+        <MobileMenu isAuthHeader />
       </Container>
     </header>
   );

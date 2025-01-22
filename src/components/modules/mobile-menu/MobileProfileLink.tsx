@@ -13,10 +13,14 @@ export default function MobileProfileLink() {
 
   if (!isAuth) {
     return (
-      <Button variant={'link'} className='justify-start text-text_prymery_color body_medium'>
-        <User size={24} className='stroke-primary' />
+      <Button
+        asChild
+        variant={'link'}
+        className='justify-start text-text_prymery_color body_medium'
+      >
         <Link href={'/login'} replace>
           {t('mainNavProfileLink')}
+          <User size={24} className='stroke-primary' />
         </Link>
       </Button>
     );
@@ -24,11 +28,15 @@ export default function MobileProfileLink() {
 
   if (isAuth) {
     return (
-      <Button variant={'link'} className='justify-start text-text_prymery_color body_medium'>
-        <User size={24} className='stroke-primary' />
+      <Button
+        asChild
+        variant={'link'}
+        className='justify-start text-text_prymery_color body_medium'
+      >
         <Link href={'/profile'} replace>
           {t('mainNavProfileLink')}
         </Link>
+        <User size={24} className='stroke-primary' />
       </Button>
     );
   }

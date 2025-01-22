@@ -1,23 +1,23 @@
 "use client";
 
- import { useCallback, useState } from "react";
+import useToggleOpen from '@/hooks/useToggleOpen';
+import { useCallback } from 'react';
 
- export const usePassengers = () => {
-   const [open, setOpen] = useState<boolean>(false);
+export const usePassengers = () => {
+  const { open, handleSetOpen, handleToggleOpen } = useToggleOpen();
 
-   const handleBlur = useCallback((event: React.FocusEvent<HTMLDivElement>) => {
-     if (!event.currentTarget.contains(event.relatedTarget)) {
-       setOpen(false);
-     }
-   }, []);
+  const handleBlur = useCallback(
+    (event: React.FocusEvent<HTMLDivElement>) => {
+      if (!event.currentTarget.contains(event.relatedTarget)) {
+        handleSetOpen(false);
+      }
+    },
+    [handleSetOpen]
+  );
 
-   const toggleOpen = useCallback(() => {
-     setOpen((prev) => !prev);
-   }, []);
-
-   return {
-     toggleOpen,
-     handleBlur,
-     open,
-   };
- };
+  return {
+    handleToggleOpen,
+    handleBlur,
+    open,
+  };
+};

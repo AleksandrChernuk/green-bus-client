@@ -10,14 +10,17 @@ import useDebounce from "./useDebounce";
 import { useLocationsQuery } from "./useLocationsQuery";
 import { useSearchStore } from "@/store/search-store";
 import { useTranslation } from "react-i18next";
+import useToggleOpen from '@/hooks/useToggleOpen';
 
-type Tname = "from" | "to";
+type Tname = 'from' | 'to';
 
 type Props = {
   name: Tname;
 };
 
 export const useCitySearch = ({ name }: Props) => {
+  const { open, handleSetOpen, handleToggleOpen } = useToggleOpen();
+
   const city = useSearchStore((state) => state[name]);
   const setCity = useSearchStore((state) => state.setCity);
 
@@ -26,7 +29,6 @@ export const useCitySearch = ({ name }: Props) => {
   } = useTranslation();
 
   const [value, setValue] = useState('');
-  const [open, setOpen] = useState(false);
   const [highlightedIndex, setHighlightedIndex] = useState(0);
 
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -40,18 +42,21 @@ export const useCitySearch = ({ name }: Props) => {
       const cityIndex = cities?.findIndex((el) => el.id === newCity.id) || 0;
       setHighlightedIndex(cityIndex);
       setValue('');
-      setOpen(false);
+      handleSetOpen(false);
       inputRef.current?.blur();
     },
-    [name, setCity, cities]
+    [setCity, name, cities, handleSetOpen]
   );
 
-  const handleBlur = useCallback((event: React.FocusEvent<HTMLDivElement>) => {
-    if (!event.currentTarget.contains(event.relatedTarget)) {
-      setValue('');
-      setOpen(false);
-    }
-  }, []);
+  const handleBlur = useCallback(
+    (event: React.FocusEvent<HTMLDivElement>) => {
+      if (!event.currentTarget.contains(event.relatedTarget)) {
+        setValue('');
+        handleSetOpen(false);
+      }
+    },
+    [handleSetOpen]
+  );
 
   const handleCloseDrawer = useCallback(() => {
     setValue('');
@@ -77,10 +82,6 @@ export const useCitySearch = ({ name }: Props) => {
 
   const onInputChange = useCallback((newValue: string) => {
     setValue(newValue);
-  }, []);
-
-  const toggleOpen = useCallback(() => {
-    setOpen((prev) => !prev);
   }, []);
 
   const handleClearMobileInput = useCallback(() => {
@@ -115,14 +116,12 @@ export const useCitySearch = ({ name }: Props) => {
         {loading && <LoaderCity />}
       </>
     ),
-    [cities, city?.id, highlightedIndex, language, loading, onSelectCity],
+    [cities, city?.id, highlightedIndex, language, loading, onSelectCity]
   );
 
   const getPlaceholder = useCallback(() => {
-    const locationName = city
-      ? extractLocationDetails(city, language).locationName
-      : null;
-    return locationName || (name === "from" ? "Звідки" : "Куди");
+    const locationName = city ? extractLocationDetails(city, language).locationName : null;
+    return locationName || (name === 'from' ? 'Звідки' : 'Куди');
   }, [city, language, name]);
 
   return {
@@ -132,8 +131,7 @@ export const useCitySearch = ({ name }: Props) => {
     onSelectCity,
     inputRef,
     onKeyDown,
-    setOpen,
-    toggleOpen,
+    handleToggleOpen,
     onInputChange,
     handleBlur,
     value,

@@ -33,5 +33,10 @@
   "sort_buy_arrival_time": "Часом прибуття",
   "sort_buy_shortest_journeye": "Коротшим маршрутом",
   "date_picker_title": "Коли ви плануєте їхати?",
-  "site_theme": "Тема сайту"
+  "site_theme": "Тема сайту",
+  "continue": "Продовжити",
+  "required": "Обов'язкове поле",
+  "signupTitle": "Реєстрація",
+  "signinTitle": "Вхід",
+  "authYouCan": "У особистому кабінеті ви можете:"
 }

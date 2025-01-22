@@ -1,48 +1,36 @@
 "use client";
 
-import { useCallback,  useState } from "react";
-import { addMonths, format } from "date-fns";
-import { useSearchStore } from "@/store/search-store";
+import { useCallback, useRef } from 'react';
+import { format } from 'date-fns';
+import { useSearchStore } from '@/store/search-store';
+import useToggleOpen from '@/hooks/useToggleOpen';
 
 export const useDate = () => {
-  const [open, setOpen] = useState<boolean>(false);
-  const [month, setMonth] = useState<Date>(new Date());
+  const { open, handleSetOpen, handleToggleOpen } = useToggleOpen();
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
   const setDate = useSearchStore((state) => state.setDate);
 
-  const toggleOpen = useCallback(() => {
-    setOpen((prev) => !prev);
-  }, []);
-
-  const handleBlur = useCallback((event: React.FocusEvent<HTMLDivElement>) => {
-    if (!event.currentTarget.contains(event.relatedTarget)) {
-      setOpen(false);
-    }
-  }, []);
+  const handleBlur = useCallback(
+    (event: React.FocusEvent<HTMLDivElement>) => {
+      if (!event.currentTarget.contains(event.relatedTarget)) {
+        handleSetOpen(false);
+      }
+    },
+    [handleSetOpen]
+  );
 
   const handleSelectDate = (data: Date) => {
-    setOpen(false);
+    handleSetOpen(false);
     setDate(format(data || new Date(), 'yyyy-MM-dd'));
   };
 
-  const incrementMonth = useCallback(() => {
-    setMonth((prevMonth) => addMonths(prevMonth, 1));
-  }, []);
-
-  const decrementMonth = useCallback(() => {
-    setMonth((prevMonth) => addMonths(prevMonth, -1));
-  }, []);
-
   return {
     open,
-    setOpen,
-    toggleOpen,
+    handleToggleOpen,
     setDate,
     handleSelectDate,
     handleBlur,
-    month,
-    incrementMonth,
-    decrementMonth,
-    setMonth,
+    inputRef,
   };
 };

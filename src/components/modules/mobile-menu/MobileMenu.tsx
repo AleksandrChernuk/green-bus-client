@@ -13,7 +13,7 @@ import MobileProfileLink from './MobileProfileLink';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 
-export const MobileMenu = () => {
+export const MobileMenu = ({ isAuthHeader }: { isAuthHeader?: boolean }) => {
   const { t } = useTranslation(['common']);
 
   const { open, handleToggleOpen } = useToggleOpen();
@@ -42,7 +42,7 @@ export const MobileMenu = () => {
 
         <div className='flex flex-col w-full h-full p-0 overflow-auto'>
           <div className='flex flex-col gap-4 p-5'>
-            <MobileProfileLink />
+            {!isAuthHeader && <MobileProfileLink />}
             <MobileSupport />
           </div>
           <Separator className='h-[1px] bg-gray_0 dark:bg-black_2_for_text' />

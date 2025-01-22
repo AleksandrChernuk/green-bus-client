@@ -18,11 +18,12 @@ import { DrawerClose } from '@/components/ui/drawer';
 import { IconBack } from '@/components/icons/IconBack';
 
 export const MobileDate = memo(() => {
-  const { open, toggleOpen, handleSelectDate } = useDate();
-  const currentDate = useSearchStore(useShallow((state) => state.date));
+  const { open, handleToggleOpen, handleSelectDate } = useDate();
   const { t } = useTranslation(['common']);
   const { locale } = useDateLocale();
-  const month = useSearchStore((state) => state.month);
+
+  const currentDate = useSearchStore(useShallow((state) => state.date));
+  const month = useSearchStore(useShallow((state) => state.month));
   const incrementMonth = useSearchStore((state) => state.incrementMonth);
   const decrementMonth = useSearchStore((state) => state.decrementMonth);
   const setMonth = useSearchStore((state) => state.setMonth);
@@ -32,7 +33,7 @@ export const MobileDate = memo(() => {
   return (
     <CustomDarwer
       open={open}
-      toggleOpen={toggleOpen}
+      toggleOpen={handleToggleOpen}
       trigger={
         <div className='relative'>
           <StartIcon icon={<IconCalendar />} />
@@ -41,7 +42,7 @@ export const MobileDate = memo(() => {
             value={format(currentDate || new Date(), 'dd MMMM', { locale })}
             className='z-0 min-h-10 rounded-md size-full h-auto px-4 py-2 pl-8 tablet:px-9 laptop:px-12 tablet:py-4 outline-none bg-transparent focus:bg-gray_1 active:bg-gray_1 dark:focus:bg-black_2_for_text dark:active:bg-black_2_for_text placeholder-black dark:placeholder-gray_0 body_medium laptop:filter_input_medium_text text-black dark:text-grayy text-left text-nowrap truncate border-[1px] border-transparent'
             onFocus={() => {
-              toggleOpen();
+              handleToggleOpen();
             }}
           />
           <InputError inputError={null} />

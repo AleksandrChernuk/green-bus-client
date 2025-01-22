@@ -10,12 +10,18 @@ export default function SelectLocale() {
   const { dispalyIcon, handleChange } = useChangeLocale();
   const { open, handleToggleOpen, handleSetOpen } = useToggleOpen();
   return (
-    <div className='relative flex items-center justify-center'>
+    <div
+      className='relative flex items-center justify-center'
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          handleSetOpen(false);
+        }
+      }}
+    >
       <Button
         className={`text-text_prymery_color gap-0.5`}
         variant={'link'}
         onClick={handleToggleOpen}
-        onBlur={() => handleSetOpen(false)}
       >
         <div className='w-7 h-7'>{dispalyIcon?.icon}</div>
         <ChevronDown

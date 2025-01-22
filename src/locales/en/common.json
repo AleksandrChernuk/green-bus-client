@@ -33,5 +33,13 @@
   "sort_buy_arrival_time": "Часом прибуття",
   "sort_buy_shortest_journeye": "Коротшим маршрутом",
   "date_picker_title": "When are you planning to leave?",
-  "site_theme": "Site theme"
+  "site_theme": "Site theme",
+  "continue": "Continue",
+  "required": "Required field",
+  "signupTitle": "Register",
+  "signinTitle": "Login",
+  "authActionsBuy": "In personal account you can:",
+  "authActionsReturn": "In personal account you can:",
+  "authActionsDownload": "In personal account you can:",
+  "authActionsReview": "In personal account you can:"
 }

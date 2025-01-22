@@ -12,9 +12,11 @@ import { useSearchStore } from '@/store/search-store';
 import { DrawerClose } from '@/components/ui/drawer';
 import { IconBack } from '@/components/icons/IconBack';
 import { useTranslation } from 'react-i18next';
+import { Separator } from '@/components/ui/separator';
+import { Button } from '@/components/ui/button';
 
 export const MobilePassengers = memo(() => {
-  const { open, toggleOpen } = usePassengers();
+  const { open, handleToggleOpen } = usePassengers();
   const { t } = useTranslation(['common']);
 
   const adult = useSearchStore(useShallow((state) => state.adult));
@@ -25,7 +27,7 @@ export const MobilePassengers = memo(() => {
   return (
     <CustomDarwer
       open={open}
-      toggleOpen={toggleOpen}
+      toggleOpen={handleToggleOpen}
       trigger={
         <div className='relative'>
           <StartIcon icon={<IconPass />} />
@@ -49,13 +51,21 @@ export const MobilePassengers = memo(() => {
           {t('backBtn')}
         </DrawerClose>
       </div>
-      <ScrollArea className='relative flex-grow px-5 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
-        <h3 className='mt-4 mb-6 h3'> {t('placeholderPassengers')}</h3>
-        <div className='space-y-4'>
+      <ScrollArea className='relative flex-grow px-5 pt-4 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
+        <h3 className='mb-6 h3 text-text_prymery_color'> {t('placeholderPassengers')}</h3>
+        <div>
           <PassengersButton type='adult' value={adult} />
+          <Separator className='h-[1px] my-4 rounded-lg bg-gray_0 dark:bg-black_2_for_text' />
           <PassengersButton type='children' value={children} />
         </div>
       </ScrollArea>
+      <div className='p-4'>
+        <DrawerClose asChild>
+          <Button variant={'default'} className='w-full p-4 rounded-full h5'>
+            {t('continue')}
+          </Button>
+        </DrawerClose>
+      </div>
     </CustomDarwer>
   );
 });

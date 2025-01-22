@@ -209,6 +209,9 @@ body,
     @apply text-sm font-normal tracking-normal leading-4
   }
 
+.addional {
+  @apply text-lg font-normal tracking-normal leading-[27px]
+}
   .addional_medium_text {
     @apply text-base font-medium tracking-normal leading-4
   }

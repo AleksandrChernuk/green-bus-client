@@ -39,17 +39,11 @@ export default async function RootLayout({
 
   return (
     <html lang={locales} suppressHydrationWarning>
-      <TranslationsProvider
-        namespaces={i18nNamespaces}
-        locale={locales}
-        resources={resources}
-      >
-        <body
-          className={`${noto_sans.variable} ${mulish.variable} antialiased`}
-        >
+      <TranslationsProvider namespaces={i18nNamespaces} locale={locales} resources={resources}>
+        <body className={`${noto_sans.variable} ${mulish.variable} antialiased`}>
           <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
+            attribute='class'
+            defaultTheme='dark'
             enableSystem
             disableTransitionOnChange
           >

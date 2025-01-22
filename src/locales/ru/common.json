@@ -30,5 +30,10 @@
   "filter": "Фильтр",
   "details": "Детальнее",
   "date_picker_title": "Когда вы планируете ехать?",
-  "site_theme": "Тема сайта"
+  "site_theme": "Тема сайта",
+  "continue": "Продолжить",
+  "required": "Обязательное поле",
+  "signupTitle": "Регистрация",
+  "signinTitle": "Вход",
+  "authYouCan": "В личном кабинете вы можете:"
 }

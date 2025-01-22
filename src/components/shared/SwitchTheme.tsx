@@ -11,25 +11,25 @@ export const SwitchTheme = () => {
   const { theme, setTheme } = useTheme();
 
   useEffect(() => {
-    const localtheme = localStorage.getItem("theme");
+    const localtheme = localStorage.getItem('theme');
 
     if (localtheme && theme) {
       setTheme(localtheme);
-      setChecked(localtheme === "dark");
+      setChecked(localtheme === 'dark');
     } else if (theme) {
-      setChecked(theme === "dark");
+      setChecked(theme === 'dark');
     }
     setLoading(false);
   }, [theme, setTheme]);
 
   const handleChecked = () => {
-    const newTheme = checked ? "light" : "dark";
+    const newTheme = checked ? 'light' : 'dark';
     setTheme(newTheme);
     setChecked(!checked);
   };
 
   return loading ? (
-    <Skeleton className="h-[32px] w-[56px] bg-light_primary dark:bg-black_2_for_text rounded-full" />
+    <Skeleton className='h-[32px] w-[56px] bg-light_primary dark:bg-black_2_for_text rounded-full' />
   ) : (
     <Switch checked={checked} onCheckedChange={handleChecked} />
   );
