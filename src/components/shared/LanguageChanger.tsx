@@ -31,7 +31,7 @@ export default function SelectLocale() {
       </Button>
       {open && (
         <ul
-          className={`  absolute top-10  z-50 p-4 border border-black dark:border-dark_mode_main1 dark:bg-black_2_for_text  rounded-2xl   bg-white  overflow-hidden max-h-fit min-w-fit space-y-2 `}
+          className={`absolute top-10  z-50 p-4 border border-black dark:border-dark_mode_main1 dark:bg-black_2_for_text  rounded-2xl   bg-white  overflow-hidden max-h-fit min-w-fit space-y-2 `}
         >
           {supportLocalesList.map((el) => (
             <li key={el.name}>

@@ -35,5 +35,18 @@
   "required": "Обязательное поле",
   "signupTitle": "Регистрация",
   "signinTitle": "Вход",
-  "authYouCan": "В личном кабинете вы можете:"
+  "authYouCan": "В личном кабинете вы можете:",
+  "authActionsBuy": "Купить забронированный билет",
+  "authActionsReturn": "Вернуть билеты",
+  "authActionsDownload": "Скачать купленный билет",
+  "authActionsReview": "Оставить отзыв о поездке",
+  "auth_terms_of_the": "Условия",
+  "auth_public_offer": "публичной оферты",
+  "auth_and": "и",
+  "auth_returns_policy": "политика возврата.",
+  "auth_google_btn": "Войти через Google",
+  "placeholderName": "Введите имя",
+  "authName": "Имя",
+  "authEmail": "Электронная почта",
+  "authPassword": "Пароль"
 }

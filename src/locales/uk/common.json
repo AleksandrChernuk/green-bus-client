@@ -38,5 +38,18 @@
   "required": "Обов'язкове поле",
   "signupTitle": "Реєстрація",
   "signinTitle": "Вхід",
-  "authYouCan": "У особистому кабінеті ви можете:"
+  "authYouCan": "У особистому кабінеті ви можете:",
+  "authActionsBuy": "Купити заброньований квиток",
+  "authActionsReturn": "Повернути квитки",
+  "authActionsDownload": "Завантажити куплений квиток",
+  "authActionsReview": "Залишити відгук про подорож",
+  "auth_terms_of_the": "Умови",
+  "auth_public_offer": "публічної оферти",
+  "auth_and": "та",
+  "auth_returns_policy": "політика повернення.",
+  "auth_google_btn": "Увійти через Google",
+  "placeholderName": "Введіть ім'я",
+  "authName": "Ім'я",
+  "authEmail": "Електронна пошта",
+  "authPassword": "Пароль"
 }

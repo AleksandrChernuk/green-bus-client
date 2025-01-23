@@ -1,17 +1,24 @@
 'use client';
 
-// import { FcGoogle } from 'react-icons/fc';
-
-// import { Button } from "../ui/button";
-// import GoogleButton from "../shared/GoogleButton";
+import { IconGoogle } from '@/components/icons/IconGoogle';
+import { Button } from '@/components/ui/button';
+import { useTranslation } from 'react-i18next';
 
 const AuthSocial = () => {
-  // const t = useScopedI18n("AuthPage");
-
+  const { t } = useTranslation(['common']);
   return (
     <form className='flex items-center w-full'>
       <div className='flex items-center w-full gap-x-2'>
-        {/* <GoogleButton>{t("authGoogle")}</GoogleButton> */}
+        <Button
+          variant={'outline'}
+          type='button'
+          className='w-full py-4 text-black border-black rounded-full h5 dark:text-grayy dark:border-inherit max-h-[52px]'
+        >
+          <div className='w-6 h-6'>
+            <IconGoogle />
+          </div>
+          {t('auth_google_btn')}
+        </Button>
       </div>
     </form>
   );

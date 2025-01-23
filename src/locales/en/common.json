@@ -38,8 +38,18 @@
   "required": "Required field",
   "signupTitle": "Register",
   "signinTitle": "Login",
-  "authActionsBuy": "In personal account you can:",
-  "authActionsReturn": "In personal account you can:",
-  "authActionsDownload": "In personal account you can:",
-  "authActionsReview": "In personal account you can:"
+  "authYouCan": "In personal account you can:",
+  "authActionsBuy": "Buy a reserved ticket",
+  "authActionsReturn": "Return tickets",
+  "authActionsDownload": "Download the purchased ticket",
+  "authActionsReview": "Leave a review about the trip",
+  "auth_terms_of_the": "Terms of the",
+  "auth_public_offer": "public offer",
+  "auth_and": "and",
+  "auth_returns_policy": "returns policy.",
+  "auth_google_btn": "Login in with Google",
+  "placeholderName": "Enter name",
+  "authName": "Name",
+  "authEmail": "Email",
+  "authPassword": "Password"
 }

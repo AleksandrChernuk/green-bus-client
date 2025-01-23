@@ -12,10 +12,10 @@ import { Input } from '@/components/ui/input';
 import ViewPassword from './ViewPassword';
 import FormError from './FormError';
 import { Button } from '@/components/ui/button';
-// import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 
 const SigninForm = () => {
-  // const { t } = useTranslation(['common']);
+  const { t } = useTranslation(['common']);
 
   const [error, setError] = useState<string | undefined>('');
   const [isPending, startTransition] = useTransition();
@@ -92,7 +92,7 @@ const SigninForm = () => {
 
         <Button
           type='submit'
-          className='w-full py-4 text-white rounded-full h5'
+          className='w-full py-4 text-white rounded-full h5 max-h-[52px]'
           disabled={isPending}
         >
           Login
