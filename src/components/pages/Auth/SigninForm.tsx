@@ -12,11 +12,8 @@ import { Input } from '@/components/ui/input';
 import ViewPassword from './ViewPassword';
 import FormError from './FormError';
 import { Button } from '@/components/ui/button';
-import { useTranslation } from 'react-i18next';
-
+ 
 const SigninForm = () => {
-  const { t } = useTranslation(['common']);
-
   const [error, setError] = useState<string | undefined>('');
   const [isPending, startTransition] = useTransition();
   const [isViewPassword, setIsViewPassword] = useState(false);
