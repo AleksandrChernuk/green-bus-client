@@ -32,7 +32,6 @@
   "date_picker_title": "Когда вы планируете ехать?",
   "site_theme": "Тема сайта",
   "continue": "Продолжить",
-  "required": "Обязательное поле",
   "signupTitle": "Регистрация",
   "signinTitle": "Вход",
   "authYouCan": "В личном кабинете вы можете:",
@@ -48,5 +47,14 @@
   "placeholderName": "Введите имя",
   "authName": "Имя",
   "authEmail": "Электронная почта",
-  "authPassword": "Пароль"
+  "authPassword": "Пароль",
+  "authOr": "Или",
+  "authDontHaveAccount": "Нет аккаунта?",
+  "authAlreadyHaveAccount": "Уже есть аккаунт?",
+  "authCreateAccount": "Создать аккаунт",
+  "authLogin": "Войти",
+  "required": "Обязательное поле.",
+  "emailRequired": "Электронная почта обязательна.",
+  "emailNotValid": "Это недействительный адрес электронной почты.",
+  "passwordLength": "Пароль должен быть не менее 6 символов."
 }

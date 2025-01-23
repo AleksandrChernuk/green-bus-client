@@ -35,7 +35,6 @@
   "date_picker_title": "Коли ви плануєте їхати?",
   "site_theme": "Тема сайту",
   "continue": "Продовжити",
-  "required": "Обов'язкове поле",
   "signupTitle": "Реєстрація",
   "signinTitle": "Вхід",
   "authYouCan": "У особистому кабінеті ви можете:",
@@ -51,5 +50,14 @@
   "placeholderName": "Введіть ім'я",
   "authName": "Ім'я",
   "authEmail": "Електронна пошта",
-  "authPassword": "Пароль"
+  "authPassword": "Пароль",
+  "authOr": "Або",
+  "authDontHaveAccount": "Немає облікового запису?",
+  "authAlreadyHaveAccount": "Вже маєте акаунт?",
+  "authCreateAccount": "Створити обліковий запис",
+  "authLogin": "Увійти",
+  "required": "Обов'язкове поле",
+  "emailRequired": "Електронна пошта обов’язкова.",
+  "emailNotValid": "Це недійсна електронна пошта.",
+  "passwordLength": "Пароль має бути не менше 6 символів."
 }

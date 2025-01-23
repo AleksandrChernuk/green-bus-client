@@ -6,14 +6,27 @@ import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 
-import { SigninSchema } from '@/schemas/auth-schemas';
-import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
+import { createSigninSchema } from '@/schemas/auth-schemas';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import ViewPassword from './ViewPassword';
 import FormError from './FormError';
 import { Button } from '@/components/ui/button';
- 
+import { useTranslation } from 'react-i18next';
+import { CircleAlert } from 'lucide-react';
+
 const SigninForm = () => {
+  const { t } = useTranslation(['common', 'zod']);
+
+  const SigninSchema = createSigninSchema(t);
+
   const [error, setError] = useState<string | undefined>('');
   const [isPending, startTransition] = useTransition();
   const [isViewPassword, setIsViewPassword] = useState(false);
@@ -26,45 +39,52 @@ const SigninForm = () => {
     },
   });
 
-  // const onSubmit = (values: z.infer<typeof SigninSchema>) => {
-  //   setError('');
-
-  //   startTransition(() => {});
-  // };
-
-  const onSubmit = () => {
+  const onSubmit = (values: z.infer<typeof SigninSchema>) => {
+    console.log(values);
     setError('');
     startTransition(() => {});
   };
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6'>
+      <form onSubmit={form.handleSubmit(onSubmit)} className='space-y-6' noValidate>
         <div className='space-y-4'>
           <FormField
             control={form.control}
             name='email'
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <FormItem>
-                {/* <FormLabel>{t("authEmail")}</FormLabel> */}
+                <FormLabel className='mb-2 secondary_text text-black_2_for_text dark:text-white'>
+                  {t('authEmail')}
+                </FormLabel>
                 <FormControl>
-                  <Input
-                    {...field}
-                    disabled={isPending}
-                    type='email'
-                    placeholder='user@example.com'
-                  />
+                  <div className='relative'>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      type='email'
+                      placeholder='user@example.com'
+                      className={`${Boolean(fieldState?.error) && 'border-red focus:border-red  bg-red_input placeholder:text-red  dark:bg-background_black_mode'}`}
+                    />
+                    {Boolean(fieldState?.invalid) && (
+                      <div className='absolute inset-y-0 flex items-center cursor-pointer pointer-events-none right-4'>
+                        <CircleAlert className='stroke-red' />
+                      </div>
+                    )}
+                  </div>
                 </FormControl>
-                <FormMessage />
+                <FormMessage className='text-red' />
               </FormItem>
             )}
           />
           <FormField
             control={form.control}
             name='password'
-            render={({ field }) => (
+            render={({ field, fieldState }) => (
               <FormItem>
-                {/* <FormLabel>{t("authPassword")}</FormLabel> */}
+                <FormLabel className='mb-2 secondary_text text-black_2_for_text dark:text-white'>
+                  {t('authPassword')}
+                </FormLabel>
                 <FormControl>
                   <div className='relative'>
                     <Input
@@ -72,14 +92,16 @@ const SigninForm = () => {
                       disabled={isPending}
                       type={!isViewPassword ? 'password' : 'text'}
                       placeholder='******'
+                      className={`${Boolean(fieldState?.error) && 'border-red focus:border-red  bg-red_input placeholder:text-red  dark:bg-background_black_mode'}`}
                     />
                     <ViewPassword
+                      error={Boolean(fieldState?.error)}
                       isViewPassword={isViewPassword}
                       setIsViewPassword={() => setIsViewPassword((prev) => !prev)}
                     />
                   </div>
                 </FormControl>
-                <FormMessage />
+                <FormMessage className='text-red' />
               </FormItem>
             )}
           />
@@ -89,10 +111,10 @@ const SigninForm = () => {
 
         <Button
           type='submit'
-          className='w-full py-4 text-white rounded-full h5 max-h-[52px]'
+          className='w-full py-[14px] px-6  tablet:py-4 text-white rounded-full h5 max-h-[48px] tablet:max-h-[52px] '
           disabled={isPending}
         >
-          Login
+          {t('signinTitle')}
         </Button>
       </form>
     </Form>

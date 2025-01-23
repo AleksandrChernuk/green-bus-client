@@ -35,7 +35,6 @@
   "date_picker_title": "When are you planning to leave?",
   "site_theme": "Site theme",
   "continue": "Continue",
-  "required": "Required field",
   "signupTitle": "Register",
   "signinTitle": "Login",
   "authYouCan": "In personal account you can:",
@@ -51,5 +50,14 @@
   "placeholderName": "Enter name",
   "authName": "Name",
   "authEmail": "Email",
-  "authPassword": "Password"
+  "authPassword": "Password",
+  "authOr": "Or",
+  "authDontHaveAccount": "No account?",
+  "authAlreadyHaveAccount": "Already have an account?",
+  "authCreateAccount": "Create an account",
+  "authLogin": "Login",
+  "required": "Required field.",
+  "emailRequired": "Email is required.",
+  "emailNotValid": "This is not a valid email.",
+  "passwordLength": "Password must be at least 6 characters long."
 }
