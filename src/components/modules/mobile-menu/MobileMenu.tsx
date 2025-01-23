@@ -12,6 +12,7 @@ import useToggleOpen from '@/hooks/useToggleOpen';
 import MobileProfileLink from './MobileProfileLink';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
+import { Suspense } from 'react';
 
 export const MobileMenu = ({ isAuthHeader }: { isAuthHeader?: boolean }) => {
   const { t } = useTranslation(['common']);
@@ -47,7 +48,9 @@ export const MobileMenu = ({ isAuthHeader }: { isAuthHeader?: boolean }) => {
           </div>
           <Separator className='h-[1px] bg-gray_0 dark:bg-black_2_for_text' />
           <div className='flex flex-col gap-4 p-5'>
-            <MobileLanguageChanger />
+            <Suspense>
+              <MobileLanguageChanger />
+            </Suspense>
 
             <div className='flex flex-row items-center justify-between'>
               <div className='flex flex-row items-center gap-2'>
