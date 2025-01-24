@@ -2,7 +2,7 @@
 
 import { useCallback, useRef } from 'react';
 import { format } from 'date-fns';
-import { useSearchStore } from '@/store/search-store';
+import { useSearchStore } from '@/store/useSearch';
 import useToggleOpen from '@/hooks/useToggleOpen';
 
 export const useDate = () => {

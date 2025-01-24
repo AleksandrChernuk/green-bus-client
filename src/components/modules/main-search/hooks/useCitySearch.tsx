@@ -8,7 +8,7 @@ import { extractLocationDetails } from "@/lib/extractLocationDetails";
 import { NotFoundCity } from "../components/CitySearch/NotFoundCity";
 import useDebounce from "./useDebounce";
 import { useLocationsQuery } from "./useLocationsQuery";
-import { useSearchStore } from "@/store/search-store";
+import { useSearchStore } from '@/store/useSearch';
 import { useTranslation } from "react-i18next";
 import useToggleOpen from '@/hooks/useToggleOpen';
 

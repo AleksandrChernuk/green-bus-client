@@ -8,7 +8,7 @@ import { memo } from "react";
 import { useCitySearch } from "../../hooks/useCitySearch";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { EndIcon, StartIcon, InputError } from '../../ui';
-import { useSearchStore } from '@/store/search-store';
+import { useSearchStore } from '@/store/useSearch';
 import { CustomDarwer } from '@/components/shared/CustomDarwer';
 import { DrawerClose } from '@/components/ui/drawer';
 import { IconBack } from '@/components/icons/IconBack';

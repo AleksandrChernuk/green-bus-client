@@ -11,7 +11,7 @@ import { CustomDarwer } from '@/components/shared/CustomDarwer';
 import { Calendar } from '@/components/ui/calendar';
 import { Button } from '@/components/ui/button';
 import { memo } from 'react';
-import { useSearchStore } from '@/store/search-store';
+import { useSearchStore } from '@/store/useSearch';
 import useDateLocale from '@/hooks/useDateLocale';
 import { useTranslation } from 'react-i18next';
 import { DrawerClose } from '@/components/ui/drawer';

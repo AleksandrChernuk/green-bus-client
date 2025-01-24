@@ -2,7 +2,7 @@
 
 import { IconDecrement } from "@/components/icons/IconDecrement";
 import { IconIncrement } from "@/components/icons/IconIncrement";
-import { useSearchStore } from "@/store/search-store";
+import { useSearchStore } from '@/store/useSearch';
 import { memo } from "react";
 import { useTranslation } from 'react-i18next';
 

@@ -15,13 +15,13 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-
- import ViewPassword from './ViewPassword';
- import FormError from './FormError';
+ 
  import { Button } from '@/components/ui/button';
  import { CircleAlert } from 'lucide-react';
  import { useTranslation } from 'react-i18next';
  import { createSignupSchema } from '@/schemas/auth-schemas';
+ import ViewPassword from './components/ViewPassword';
+ import FormError from './components/FormError';
 
  const SignupForm = () => {
    const { t } = useTranslation(['common']);

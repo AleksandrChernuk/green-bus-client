@@ -6,7 +6,7 @@ import { PassengersButton } from "./PassengersButton";
 import { usePassengers } from "../../hooks/usePassengers";
 import { DropdownWrapper, StartIcon } from "../../ui";
 import { useShallow } from "zustand/react/shallow";
-import { useSearchStore } from "@/store/search-store";
+import { useSearchStore } from '@/store/useSearch';
 import { useTranslation } from 'react-i18next';
 import { Separator } from '@radix-ui/react-dropdown-menu';
 

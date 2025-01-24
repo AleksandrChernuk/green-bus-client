@@ -2,6 +2,6 @@
   "sort_buy_price": "Price",
   "sort_buy_departure_time": "Departure time",
   "sort_buy_arrival_time": "Arrival time",
-  "sort_buy_shortest_journeye": "Shortest journey",
+  "sort_buy_time_on_road": "Shortest journey",
   "resul_count": "results"
 }

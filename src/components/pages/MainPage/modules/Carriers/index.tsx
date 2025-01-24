@@ -1,11 +1,11 @@
-import { Container } from "@/components/shared/Container";
- import { CarriersList } from "./CarriersList";
-import { Button } from "@/components/ui/button";
-import initTranslations from "@/app/i18n";
+import { Container } from '@/components/shared/Container';
+import { CarriersList } from './CarriersList';
+import { Button } from '@/components/ui/button';
+import initTranslations from '@/app/i18n';
 
 export default async function Carriers({ locale }: { locale: string }) {
-      const { t } = await initTranslations(locale, ["home"]);
-  
+  const { t } = await initTranslations(locale, ['home']);
+
   return (
     <section className='my-12'>
       <Container size='m'>
@@ -38,4 +38,4 @@ export default async function Carriers({ locale }: { locale: string }) {
       </Container>
     </section>
   );
-};
+}

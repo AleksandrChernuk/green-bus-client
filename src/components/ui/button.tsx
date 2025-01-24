@@ -19,7 +19,8 @@ const buttonVariants = cva(
       },
       size: {
         default: '',
-        secondary: 'py-2 px-6 min-w-[168px]',
+        secondary:
+          'py-2 px-6 tablet:py-4 rounded-full tablet:h5 min-w-[168px] max-h-[48px] tablet:max-h-[52px]',
         sm: ' ',
         lg: ' ',
         icon: ' ',

@@ -9,6 +9,7 @@ import FilterSortByList from '../../components/FilterRadioGroup';
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { useTranslation } from 'react-i18next';
+import FilterCheckBoxList from '../../components/FilterCheckBoxList';
 
 export const MobileFilter = () => {
   const [open, setOpen] = useState<boolean>(false);
@@ -47,6 +48,7 @@ export const MobileFilter = () => {
           <Separator className='h-1 my-6 rounded-lg bg-gray_0 dark:bg-black_2_for_text' />
           <li>
             <h5 className='mb-4 h5 text-text_prymery_color'>{t('bus_companies')}:</h5>
+            <FilterCheckBoxList />
           </li>
         </ul>
       </ScrollArea>

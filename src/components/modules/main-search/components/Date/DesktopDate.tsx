@@ -7,7 +7,7 @@ import { Calendar } from '@/components/ui/calendar';
 import { useDate } from '../../hooks/useDate';
 import { DropdownWrapper, InputError, StartIcon } from '../../ui';
 import { useShallow } from 'zustand/react/shallow';
-import { useSearchStore } from '@/store/search-store';
+import { useSearchStore } from '@/store/useSearch';
 import useDateLocale from '@/hooks/useDateLocale';
 
 export const DesktopDate = memo(() => {

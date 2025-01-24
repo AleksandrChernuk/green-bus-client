@@ -3,8 +3,8 @@
 import { Loader } from './components/Loader';
 import { ResultCard } from './components/ResultCard';
 import { NoTravel } from './components/NoTravel';
-import { useRoutesStore } from '@/store/use-router-store';
 import useSearchResult from '../../hooks/useSearchResult';
+import { useRoutesStore } from '@/store/useRouter';
 
 export const ResultList = () => {
   const { isFetching, error, data } = useSearchResult();
@@ -21,9 +21,9 @@ export const ResultList = () => {
 
   return (
     <ul className='flex flex-col space-y-8'>
-      {filteredRoutes.map((route) => (
-        <ResultCard key={route.route_id} element={route} />
-      ))}
+      {filteredRoutes.map((route, i) => {
+        return <ResultCard key={`${route.route_id}_${i}`} element={route} />;
+      })}
     </ul>
   );
 };

@@ -1,6 +1,7 @@
 import initTranslations from '@/app/i18n';
-import AccountActions from '@/components/pages/Auth/AccountActions';
-import AuthCard from '@/components/pages/Auth/AuthCard';
+import AccountActions from '@/components/pages/Auth/components/AccountActions';
+import AuthCard from '@/components/pages/Auth/components/AuthCard';
+ 
 import SignupForm from '@/components/pages/Auth/SignupForm';
 import BackButton from '@/components/shared/BackButton';
 import { Container } from '@/components/shared/Container';

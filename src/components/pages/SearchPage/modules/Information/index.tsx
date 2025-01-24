@@ -2,15 +2,15 @@
 
 import { CustomCard } from "@/components/shared/CustomCard";
 import { extractLocationDetails } from '@/lib/extractLocationDetails';
-import { useSearchStore } from '@/store/search-store';
 import { format, toDate } from 'date-fns';
 import React from 'react';
 import { useShallow } from 'zustand/react/shallow';
 import { MobileFilter } from '../MobileFilter';
 import { Skeleton } from '@/components/ui/skeleton';
-import { useRoutesStore } from '@/store/use-router-store';
+import { useRoutesStore } from '@/store/useRouter';
 import useDateLocale from '@/hooks/useDateLocale';
 import { useTranslation } from 'react-i18next';
+import { useSearchStore } from '@/store/useSearch';
 
 const ArrowIcon = () => {
   return (
@@ -34,7 +34,7 @@ export const Information = () => {
   const date = useSearchStore(useShallow((state) => state.date));
   const from = useSearchStore(useShallow((state) => state.from));
   const to = useSearchStore(useShallow((state) => state.to));
-  const filterRoutes = useRoutesStore((state) => state.filteredRoutes);
+  const filterRoutes = useRoutesStore((state) => state.routes);
   const { i18n, t } = useTranslation(['search']);
   const { locale } = useDateLocale();
 

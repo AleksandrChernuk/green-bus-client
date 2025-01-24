@@ -3,8 +3,8 @@
 import { format, isEqual, toDate } from "date-fns";
 import { useState,   } from "react";
 import { createDateArr } from "../helpers";
-import { useSearchStore } from "@/store/search-store";
-
+import { useSearchStore } from '@/store/useSearch';
+ 
 export const useDateTabs = () => {
   const currentDate = useSearchStore((state) => state.date);
   const setDate = useSearchStore((state) => state.setDate);

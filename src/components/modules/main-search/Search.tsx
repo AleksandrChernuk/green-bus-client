@@ -11,7 +11,7 @@ import { DesctopCitySearch } from "./components/CitySearch/DesctopCitySearch";
 import { useRouter } from "next/navigation";
 
 import { z } from "zod";
-import { useSearchStore } from "@/store/search-store";
+import { useSearchStore } from '@/store/useSearch';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 
 export const formSchema = z.object({

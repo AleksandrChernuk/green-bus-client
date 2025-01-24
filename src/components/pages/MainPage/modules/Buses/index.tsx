@@ -1,12 +1,12 @@
-import Image from "next/image";
-import buses from "../images/buses.png";
-import { Container } from "@/components/shared/Container";
-import { Button } from "@/components/ui/button";
-import initTranslations from "@/app/i18n";
- 
+import Image from 'next/image';
+import buses from '../../images/buses.png';
+import { Container } from '@/components/shared/Container';
+import { Button } from '@/components/ui/button';
+import initTranslations from '@/app/i18n';
+
 export default async function Buses({ locale }: { locale: string }) {
-    const { t } = await initTranslations(locale, ["home"]);
-  
+  const { t } = await initTranslations(locale, ['home']);
+
   return (
     <section className='my-12'>
       <Container size='m'>
@@ -35,4 +35,4 @@ export default async function Buses({ locale }: { locale: string }) {
       </Container>
     </section>
   );
-};
+}

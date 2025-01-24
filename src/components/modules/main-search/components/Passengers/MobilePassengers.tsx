@@ -8,7 +8,7 @@ import { StartIcon } from '../../ui';
 import { CustomDarwer } from '@/components/shared/CustomDarwer';
 import { ScrollArea } from '@radix-ui/react-scroll-area';
 import { useShallow } from 'zustand/react/shallow';
-import { useSearchStore } from '@/store/search-store';
+import { useSearchStore } from '@/store/useSearch';
 import { DrawerClose } from '@/components/ui/drawer';
 import { IconBack } from '@/components/icons/IconBack';
 import { useTranslation } from 'react-i18next';

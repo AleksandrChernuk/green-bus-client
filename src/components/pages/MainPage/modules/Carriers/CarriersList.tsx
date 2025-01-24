@@ -1,5 +1,5 @@
- import { carriers } from "@/constans/constans.carriers";
- 
+import { carriers } from '@/constans/constans.carriers';
+
 export const normalizeCarriersList = (array: typeof carriers) => {
   const newArr = [];
   let currentLevel = 5;
@@ -17,13 +17,12 @@ export const normalizeCarriersList = (array: typeof carriers) => {
   return newArr;
 };
 
-
 export const CarriersList = () => {
   return (
-    <ul className="space-y-4">
+    <ul className='space-y-4'>
       {normalizeCarriersList(carriers).map((level, idx) => {
         return (
-          <ul key={idx} className="flex items-center justify-center gap-4">
+          <ul key={idx} className='flex items-center justify-center gap-4'>
             {level.map((el) => {
               return <li key={el.id}>{el.icon}</li>;
             })}
