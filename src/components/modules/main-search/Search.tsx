@@ -26,19 +26,20 @@ const Search = () => {
   const handleSubmit = () => {
     const { from, to, date, adult, children, setErrors } = useSearchStore.getState();
     const validationResult = formSchema.safeParse({ from, to });
-    console.log(validationResult);
 
     setIsSubmitting(true);
     if (!validationResult.success) {
       const formattedErrors = validationResult.error.format();
 
-      setErrors("from", formattedErrors.from?._errors[0] || null);
-      setErrors("to", formattedErrors.to?._errors[0] || null);
+      setErrors('from', formattedErrors.from?._errors[0] || null);
+      setErrors('to', formattedErrors.to?._errors[0] || null);
       setIsSubmitting(false);
 
       return;
     }
-    route.push(`/search?from=${from?.id}&to=${to?.id}&date=${date}&adult=${adult}&children=${children}`);
+    route.push(
+      `/search?from=${from?.id}&to=${to?.id}&date=${date}&adult=${adult}&children=${children}`
+    );
     setIsSubmitting(false);
   };
 

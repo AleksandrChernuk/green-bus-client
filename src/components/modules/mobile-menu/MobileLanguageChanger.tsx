@@ -63,7 +63,7 @@ export default function MobileLanguageChanger() {
       >
         <div className='flex items-center gap-2 body_medium'>
           <div className='w-6 h-6'>{dispalyIcon(currentLocale)?.icon}</div>
-          {dispalyIcon?.name}
+          {dispalyIcon(currentLocale)?.name}
         </div>
         <ChevronDown
           className={`stroke-primary ${open && 'rotate-180'} transition-all duration-300 ease-in-out`}

@@ -27,7 +27,7 @@ export default async function GetStarted({ locale }: { locale: string }) {
               {t('get_started_description')}
             </p>
             <div className=''>
-              <Button variant={'default'} className='h6 min-w-[159px] px-6 tablet:py-[14px]'>
+              <Button variant={'default'} size={'secondary'}>
                 {t('get_started_button')}
               </Button>
             </div>

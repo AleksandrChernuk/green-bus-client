@@ -27,7 +27,7 @@ export default async function Buses({ locale }: { locale: string }) {
               {t('buses_description')}
             </p>
 
-            <Button variant={'default'} className='h6 min-w-[159px] px-6 tablet:py-[14px]'>
+            <Button variant={'default'} size={'secondary'}>
               {t('buses_button')}
             </Button>
           </li>

@@ -28,8 +28,6 @@ export const MobileDate = memo(() => {
   const decrementMonth = useSearchStore((state) => state.decrementMonth);
   const setMonth = useSearchStore((state) => state.setMonth);
 
-  console.log(month);
-
   return (
     <CustomDarwer
       open={open}

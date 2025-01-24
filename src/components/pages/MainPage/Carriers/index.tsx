@@ -24,7 +24,11 @@ export default async function Carriers({ locale }: { locale: string }) {
               </p>
 
               <div className='mt-auto'>
-                <Button variant={'default'} className='h6 min-w-[159px] px-6 tablet:py-[14px]'>
+                <Button
+                  variant={'default'}
+                  size={'secondary'}
+                  className='h6 min-w-[159px] px-6 tablet:py-[14px]'
+                >
                   {t('сarriers_button')}
                 </Button>
               </div>

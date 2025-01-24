@@ -1,33 +1,57 @@
- import { nanoid } from "nanoid";
- 
- import {
-   DropdownMenu,
-   DropdownMenuContent,
-   DropdownMenuItem,
-   DropdownMenuTrigger,
- } from "@/components/ui/dropdown-menu";
- import { IconLocaleArrow } from "../icons/IconLocaleArrow";
- import { supportNavlinks } from "@/constans/constans.supportNavlinks";
-import { SupportItem } from "../ui/SupportItem";
+'use client';
+
+import { supportNavlinks } from '@/constans/constans.supportNavlinks';
+import useToggleOpen from '@/hooks/useToggleOpen';
+import { Input } from '../ui/input';
+import { ChevronDown } from 'lucide-react';
+import Link from 'next/link';
+import { Button } from '../ui/button';
 
 export default function FooterContacts() {
-  return (
-    <DropdownMenu>
-      <DropdownMenuTrigger className="text-sm tablet:text-base font-normal group px-4 py-3 rounded-lg transition-all flex flex-row items-center gap-[5px] border border-gray-light focus:bg-transparent data-[state=open]:bg-transparent ">
-        {supportNavlinks[0].icon}
+  const { open, handleToggleOpen, handleSetOpen } = useToggleOpen();
 
-        {supportNavlinks[0].title}
-        <span className={"group-data-[state=open]:rotate-180 transition-all ml-5"}>
-          <IconLocaleArrow className={"group-hover:stroke-gray_medium group-data-[state=open]:stroke-gray_medium"} />
-        </span>
-      </DropdownMenuTrigger>
-      <DropdownMenuContent className="flex flex-col w-full gap-2 p-3 font-normal bg-white rounded-lg border-gray-light dark:bg-background_black_mode ">
-        {supportNavlinks?.map((item) => (
-          <DropdownMenuItem key={nanoid()} className="relative ">
-            <SupportItem title={item.title} src={item.src} icon={item?.icon} />
-          </DropdownMenuItem>
-        ))}
-      </DropdownMenuContent>
-    </DropdownMenu>
+  return (
+    <div
+      className='relative space-y-4 max-w-[231px]'
+      onBlur={(e) => {
+        if (!e.currentTarget.contains(e.relatedTarget)) {
+          handleSetOpen(false);
+        }
+      }}
+    >
+      <div className='relative'>
+        <div className='absolute inset-y-0 flex items-center justify-center pointer-events-none left-2 tablet:left-2 laptop:left-5'>
+          <div className='w-6 h-6 '>{supportNavlinks[0].icon}</div>
+        </div>
+        <Input
+          type='button'
+          className={`text-left pl-10 w-full text-text_prymery_color secondary_text`}
+          onClick={handleToggleOpen}
+          value={supportNavlinks[0].title}
+          onChange={() => {}}
+        />
+        <div className='absolute inset-y-0 flex items-center justify-center right-2'>
+          <ChevronDown className={` stroke-text_prymery_color  ${open && 'rotate-180'}  `} />
+        </div>
+      </div>
+
+      {open && (
+        <ul className='absolute z-50 flex flex-col items-center justify-center p-4 overflow-hidden bg-white border border-black top-10 dark:border-dark_mode_main1 dark:bg-black_2_for_text rounded-2xl max-h-fit min-w-fit'>
+          {supportNavlinks.map((item, idx) => (
+            <li key={`${item.title}+${idx}`}>
+              <Button variant={'link'} asChild>
+                <Link
+                  href={item.src}
+                  className='flex flex-row items-center justify-start gap-2 p-1'
+                >
+                  <span className='w-4 h-4'>{item.icon && item.icon}</span>
+                  <span className='text-black secondary_text dark:text-grayy'>{item.title}</span>
+                </Link>
+              </Button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }

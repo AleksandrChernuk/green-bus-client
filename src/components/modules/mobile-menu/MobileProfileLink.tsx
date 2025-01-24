@@ -18,9 +18,9 @@ export default function MobileProfileLink() {
         variant={'link'}
         className='justify-start text-text_prymery_color body_medium'
       >
-        <Link href={'/login'} replace>
-          {t('mainNavProfileLink')}
+        <Link href={'/signin'} replace>
           <User size={24} className='stroke-primary' />
+          {t('mainNavProfileLink')}
         </Link>
       </Button>
     );

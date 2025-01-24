@@ -9,18 +9,22 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: 'bg-primary   hover:bg-primary/90',
-        destructive: 'bg-destructive   hover:bg-destructive/90',
+        default: 'bg-primary text-white button_mobile  hover:bg-primary/90',
+        destructive: 'bg-destructive hover:bg-destructive/90',
         outline: 'border border-input bg-background hover:bg-accent hover:text-accent-foreground',
-        secondary: 'bg-secondary  hover:bg-secondary/80',
+        secondary: 'bg-secondary text-black button_mobile  hover:bg-secondary/80',
         ghost: 'hover:bg-accent hover:text-accent-foreground',
         link: 'text-primary underline-offset-4 hover:underline',
+        main: 'bg-secondary hover:bg-secondary/80 h5 text-black rounded-none rounded-br-[16px] rounded-bl-[16px] tablet:rounded-tl-none tablet:rounded-tr-[16px] tablet:rounded-bl-none',
       },
       size: {
-        default: ' ',
+        default: '',
+        secondary: 'py-2 px-6 min-w-[168px]',
         sm: ' ',
         lg: ' ',
         icon: ' ',
+        mainSearch:
+          'h-auto px-6 py-4 tablet:min-w-[108px] tablet:max-w-[108px] laptop:min-w-[187px] laptop:max-w-[187px] grow-0 ',
       },
     },
     defaultVariants: {
