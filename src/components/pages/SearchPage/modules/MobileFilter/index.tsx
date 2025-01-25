@@ -10,9 +10,11 @@ import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { useTranslation } from 'react-i18next';
 import FilterCheckBoxList from '../../components/FilterCheckBoxList';
+import { useRoutesStore } from '@/store/useRouter';
 
 export const MobileFilter = () => {
   const [open, setOpen] = useState<boolean>(false);
+  const resetSortBy = useRoutesStore((state) => state.resetSortBy);
 
   const { t } = useTranslation(['common']);
 
@@ -57,6 +59,7 @@ export const MobileFilter = () => {
           <Button
             variant={'outline'}
             className='w-full px-5 py-3 button_mobile text-primary bg-inherit'
+            onClick={() => resetSortBy()}
           >
             {t('clear_all')}
           </Button>

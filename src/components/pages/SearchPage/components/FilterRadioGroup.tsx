@@ -5,20 +5,19 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { sortBuyItems } from '@/constans/sortbuylist.constans';
 import { useRoutesStore } from '@/store/useRouter';
 import { TsortBy } from '@/types/sortfilter.types';
-import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 export default function FilterSortByList() {
   const setSortBy = useRoutesStore((state) => state.setSortBy);
-  const [value, setValue] = useState('');
+  const sortBy = useRoutesStore((state) => state.sortBy);
+
   const { t } = useTranslation(['search']);
 
   return (
     <RadioGroup
       className='space-y-4'
-      value={value}
+      value={sortBy}
       onValueChange={(value) => {
-        setValue(value);
         setSortBy(value as TsortBy);
       }}
     >

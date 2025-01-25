@@ -34,12 +34,13 @@ export const useRoutesStore = create<RoutesStore>()(
         },
 
         resetSortBy: () => {
-          const { filteredRoutes } = get();
+          const { routes } = get();
           set({
+            sortCarriers: [],
             sortBy: 'sort_buy_popularity',
             filteredRoutes: sortedRoutes({
               sortBy: 'sort_buy_popularity',
-              data: filteredRoutes,
+              data: routes,
             }),
           });
         },
