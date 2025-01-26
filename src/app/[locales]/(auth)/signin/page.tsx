@@ -12,7 +12,7 @@ export default async function SigninPage({ params }: { params: Promise<{ locales
   const { t } = await initTranslations(locales, ['common']);
 
   return (
-    <main role='main' className='flex-grow bg-grayy dark:bg-background_black_mode'>
+    <main role='main' className='grow bg-grayy dark:bg-background_black_mode'>
       <section className='py-4 tablet:pb-7 tablet:pt-4 laptop:pt-28 laptop:pb-28'>
         <Container size='s' className='flex flex-col items-start justify-center'>
           <div className='mb-4 laptop:mb-8'>

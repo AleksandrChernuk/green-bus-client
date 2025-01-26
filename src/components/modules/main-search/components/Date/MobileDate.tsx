@@ -38,7 +38,7 @@ export const MobileDate = memo(() => {
           <input
             type='button'
             value={format(currentDate || new Date(), 'dd MMMM', { locale })}
-            className='z-0 min-h-10 rounded-md size-full h-auto px-4 py-2 pl-8 tablet:px-9 laptop:px-12 tablet:py-4 outline-none bg-transparent focus:bg-gray_1 active:bg-gray_1 dark:focus:bg-black_2_for_text dark:active:bg-black_2_for_text placeholder-black dark:placeholder-gray_0 body_medium laptop:filter_input_medium_text text-black dark:text-grayy text-left text-nowrap truncate border-[1px] border-transparent'
+            className='z-0 min-h-10 rounded-md size-full h-auto px-4 py-2 pl-8 tablet:px-9 laptop:px-12 tablet:py-4 outline-hidden bg-transparent focus:bg-gray_1 active:bg-gray_1 dark:focus:bg-black_2_for_text dark:active:bg-black_2_for_text placeholder-black dark:placeholder-gray_0 body_medium laptop:filter_input_medium_text text-black dark:text-grayy text-left text-nowrap truncate border-[1px] border-transparent'
             onFocus={() => {
               handleToggleOpen();
             }}
@@ -53,7 +53,7 @@ export const MobileDate = memo(() => {
           {t('backBtn')}
         </DrawerClose>
       </div>
-      <ScrollArea className='relative flex-grow px-5 pb-5 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
+      <ScrollArea className='relative grow px-5 pb-5 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
         <div className='sticky top-0 left-0 right-0 z-50 '>
           <div className='flex items-center justify-between w-full py-6 bg-grayy dark:bg-background_black_mode'>
             <h3 className='grow h3 text-text_prymery_color'>{t('date_picker_title')}</h3>

@@ -57,7 +57,7 @@ export const MobCitySeacrh = memo(({ name }: { name: 'from' | 'to' }) => {
           <input
             type='button'
             value={placeholder}
-            className={`${errors && 'border-red'} text-text_prymery_color z-0 min-h-10 rounded-md size-full h-auto px-4 py-2 pl-8 tablet:px-9 laptop:px-12 tablet:py-4 outline-none bg-transparent focus:bg-gray_1 active:bg-gray_1 dark:focus:bg-black_2_for_text dark:active:bg-black_2_for_text placeholder-text_prymery_color  body_medium laptop:filter_input_medium_text  text-left text-nowrap truncate border-[1px] border-transparent`}
+            className={`${errors && 'border-red'} text-text_prymery_color z-0 min-h-10 rounded-md size-full h-auto px-4 py-2 pl-8 tablet:px-9 laptop:px-12 tablet:py-4 outline-hidden bg-transparent focus:bg-gray_1 active:bg-gray_1 dark:focus:bg-black_2_for_text dark:active:bg-black_2_for_text placeholder-text_prymery_color  body_medium laptop:filter_input_medium_text  text-left text-nowrap truncate border-[1px] border-transparent`}
             onFocus={() => {
               if (errors) {
                 setErrors(name, null);
@@ -76,7 +76,7 @@ export const MobCitySeacrh = memo(({ name }: { name: 'from' | 'to' }) => {
           {t('backBtn')}
         </DrawerClose>
       </div>
-      <ScrollArea className='relative flex-grow px-5 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
+      <ScrollArea className='relative grow px-5 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
         <div className='sticky top-0 left-0 right-0 h-12 '>
           <div className='relative py-4 bg-grayy dark:bg-background_black_mode'>
             <input

@@ -9,7 +9,7 @@ import Benefits from './modules/Benefits';
 
 export default function MainPage({ locales }: { locales: string }) {
   return (
-    <main role='main' className='flex-grow bg-grayy dark:bg-background_black_mode'>
+    <main role='main' className='grow bg-grayy dark:bg-background_black_mode'>
       <Herow />
       <Benefits locale={locales} />
       <Buses locale={locales} />

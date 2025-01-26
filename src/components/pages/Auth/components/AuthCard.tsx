@@ -33,7 +33,7 @@ export default async function AuthCard({
       </div>
 
       <div className='tablet:w-1/2'>
-        <CardContent className='flex-grow p-0'>{children}</CardContent>
+        <CardContent className='grow p-0'>{children}</CardContent>
 
         <p className='my-2 text-center small_text text-gray_2_for_body tablet:h5'>{t('authOr')}</p>
 

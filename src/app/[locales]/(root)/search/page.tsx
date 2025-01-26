@@ -6,7 +6,7 @@ export default async function SearchPage({ params }: { params: Promise<{ locales
   const { locales } = await params;
   return (
     <>
-      <main role='main' className='flex-grow pb-16 bg-grayy dark:bg-dark_mode_main1'>
+      <main role='main' className='grow pb-16 bg-grayy dark:bg-dark_mode_main1'>
         <SearchModule locale={locales} />
       </main>
       <SecondFooter />

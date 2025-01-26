@@ -40,7 +40,7 @@ export const MobilePassengers = memo(() => {
                   ? `${passCount} ${t('placeholderPassengersGenitive')}`
                   : `${passCount} ${t('placeholderPassengers')}`
             }
-            className='z-0 min-h-10 rounded-md size-full h-auto px-4 py-2 pl-8 tablet:px-9 laptop:px-12 tablet:py-4 outline-none bg-transparent focus:bg-gray_1 active:bg-gray_1 dark:focus:bg-black_2_for_text dark:active:bg-black_2_for_text placeholder-black dark:placeholder-gray_0 body_medium laptop:filter_input_medium_text text-black dark:text-grayy text-left text-nowrap truncate border-[1px] border-transparent'
+            className='z-0 min-h-10 rounded-md size-full h-auto px-4 py-2 pl-8 tablet:px-9 laptop:px-12 tablet:py-4 outline-hidden bg-transparent focus:bg-gray_1 active:bg-gray_1 dark:focus:bg-black_2_for_text dark:active:bg-black_2_for_text placeholder-black dark:placeholder-gray_0 body_medium laptop:filter_input_medium_text text-black dark:text-grayy text-left text-nowrap truncate border-[1px] border-transparent'
           />
         </div>
       }
@@ -51,7 +51,7 @@ export const MobilePassengers = memo(() => {
           {t('backBtn')}
         </DrawerClose>
       </div>
-      <ScrollArea className='relative flex-grow px-5 pt-4 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
+      <ScrollArea className='relative grow px-5 pt-4 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
         <h3 className='mb-6 h3 text-text_prymery_color'> {t('placeholderPassengers')}</h3>
         <div>
           <PassengersButton type='adult' value={adult} />

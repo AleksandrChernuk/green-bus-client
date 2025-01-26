@@ -21,7 +21,7 @@
 
 //       <div
 //         className={`relative after:content-[''] before:absolute 
-//              after:rounded-full before:border-[2px]	${isLast ? "before:border-primary_1" : "before:border-blackmode before:bg-white before:dark:bg-dark_mode_main1 tablet:before:dark:bg-background_black_mode"}
+//              after:rounded-full before:border-[2px]	${isLast ? "before:border-primary_1" : "before:border-blackmode before:bg-white dark:before:bg-dark_mode_main1 tablet:dark:before:bg-background_black_mode"}
 //             before:w-4 before:h-4
 //              before:top-0 before:-left-[19px] before:-translate-x-1/2 before:rounded-full
 //              before:z-20`}

@@ -41,7 +41,7 @@ export const MobileFilter = () => {
           </Button>
         </DrawerClose>
       </div>
-      <ScrollArea className='relative flex-grow px-5 pt-6 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
+      <ScrollArea className='relative grow px-5 pt-6 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
         <ul>
           <li>
             <h5 className='mb-4 h5 text-text_prymery_color'>{t('sort_by')}:</h5>

@@ -35,7 +35,7 @@ export default function MobileDetails() {
           </Button>
         </DrawerClose>
       </div>
-      <ScrollArea className='relative flex-grow px-5 pt-6 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
+      <ScrollArea className='relative grow px-5 pt-6 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
         {/* { детали маршрута } */}
       </ScrollArea>
       <div className='flex items-center justify-between gap-4 px-5 py-4 border-t border-t-gray_1 dark:border-t-black_2_for_text dark:bg-dark_mode_main1'>
