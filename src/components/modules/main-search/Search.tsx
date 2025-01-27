@@ -24,10 +24,10 @@ const Search = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const route = useRouter();
   const handleSubmit = () => {
+    setIsSubmitting(true);
     const { from, to, date, adult, children, setErrors } = useSearchStore.getState();
     const validationResult = formSchema.safeParse({ from, to });
 
-    setIsSubmitting(true);
     if (!validationResult.success) {
       const formattedErrors = validationResult.error.format();
 

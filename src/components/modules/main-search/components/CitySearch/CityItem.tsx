@@ -15,7 +15,7 @@ type Props = {
 export const CityItem = memo(({ el, isSelected, handleSelectCity, isHighlighted }: Props) => {
   return (
     <div
-      className={`p-2 rounded-lg ${isSelected && 'bg-gray_1 dark:bg-black_2_for_text'} ${isHighlighted && 'bg-gray_1 dark:bg-black_2_for_text'}  min-w-[320px]  `}
+      className={`p-2 rounded-lg ${isSelected && 'bg-gray_1 dark:bg-black_2_for_text'} ${isHighlighted && 'bg-gray_1 dark:bg-black_2_for_text'}  min-w-[320px] cursor-pointer`}
       onClick={handleSelectCity}
     >
       <div className={`flex items-center justify-between gap-4`}>

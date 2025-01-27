@@ -10,7 +10,7 @@ export const CustomCard = ({ children, className }: Props) => {
   return (
     <div
       className={cn(
-        "p-4 tablet:p-6 bg-card_bg_primery shadow-custom_card rounded-2xl",
+        'p-4 tablet:p-6 bg-card_bg_primery shadow-(--shadow-custom) rounded-2xl',
         className
       )}
     >

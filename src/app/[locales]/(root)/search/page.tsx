@@ -1,5 +1,5 @@
 import SecondFooter from '@/components/modules/footer/SecondFooter';
-import SearchModule from '@/components/pages/SearchPage';
+ import SearchModule from '@/components/pages/SearchPage';
 import React from 'react';
 
 export default async function SearchPage({ params }: { params: Promise<{ locales: string }> }) {

@@ -1,72 +1,71 @@
-"use client";
+'use client';
 
 import { memo, useState } from 'react';
 import { IRouteResponse } from '@/types/route.types';
 import { extractLocationDetails } from '@/lib/extractLocationDetails';
-import { DesctopRoute } from './components/DesctopRoute';
 import { Carriers } from './components/Carriers';
 import { OpenDetailsButton } from './components/OpenDetailsButton';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
 import { CustomCard } from '@/components/shared/CustomCard';
 import MobileDetails from '../../../MobileDetails';
-import { MobileRoute } from './components/MobileRote';
-import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { Route } from './components/Route';
+import { useCurrentRouteStore } from '@/store/useCurrentRoute';
+import { useRouter } from 'next/navigation';
+import { LoaderCircle } from 'lucide-react';
 
 type Props = {
   element: IRouteResponse;
 };
 
-export const ResultCard = memo(({ element }: Props) => {
+export const RouteCard = memo(({ element }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const matches = useMediaQuery('(max-width: 767px)');
-  const { i18n } = useTranslation();
+  const [loading, setLoading] = useState<boolean>(false);
+  const route = useRouter();
+
+  const setCurrentRoute = useCurrentRouteStore((state) => state.setCurrentRoute);
+
+  const { t, i18n } = useTranslation();
   const locale = i18n.language;
 
   return (
     <CustomCard className='shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
       <div className='flex flex-row items-center justify-between gap-1 tablet:gap-14'>
-        {!matches ? (
-          <DesctopRoute
-            arrival={element.arrival.date_time ?? ''}
-            departure={element.departure.date_time ?? ''}
-            departurePoint={element.departure?.station_address ?? ''}
-            arrivalPoin={element.arrival?.station_address ?? ''}
-            arrivalName={
-              extractLocationDetails(element.arrival.toLocation, locale).locationName || ''
-            }
-            departureName={
-              extractLocationDetails(element.departure.fromLocation, locale).locationName || ''
-            }
-          />
-        ) : (
-          <MobileRoute
-            arrival={element.arrival.date_time ?? ''}
-            departure={element.departure.date_time ?? ''}
-            departurePoint={element.departure?.station_address ?? ''}
-            arrivalPoin={element.arrival?.station_address ?? ''}
-            arrivalName={
-              extractLocationDetails(element.arrival.toLocation, locale).locationName || ''
-            }
-            departureName={
-              extractLocationDetails(element.departure.fromLocation, locale).locationName || ''
-            }
-          />
-        )}
+        <Route
+          arrival={element.arrival.date_time ?? ''}
+          departure={element.departure.date_time ?? ''}
+          departurePoint={element.departure?.station_address ?? ''}
+          arrivalPoin={element.arrival?.station_address ?? ''}
+          arrivalName={
+            extractLocationDetails(element.arrival.toLocation, locale).locationName || ''
+          }
+          departureName={
+            extractLocationDetails(element.departure.fromLocation, locale).locationName || ''
+          }
+          duration={element.duration || ''}
+        />
 
         <div className='flex flex-col items-center gap-4'>
           <p className='h4 laptop:h2 text-text_prymery_color'>
-            {`${Math.floor(element.ticket_pricing.base_price)}`}
+            {`${Math.floor(element.ticket_pricing.base_price || 0)}`}
             <span className='text-xs ml-[2px]'>UAH</span>
           </p>
 
-          <Button variant={'default'} className='px-3 py-2 min-w-[90px] max-w-[107px] samll_button'>
-            Select
+          <Button
+            variant={'default'}
+            onClick={() => {
+              setLoading(true);
+              setCurrentRoute(element);
+              route.push('/checkout');
+            }}
+            className='px-3 py-2 tablet:py-3 tablet:px-4 laptop:py-[14px] laptop:px-[24px]  min-w-[108px] tablet:min-w-[205px] samll_button tablet:h5 max-h-[26.41px]  tablet:max-h-[44px]  laptop:max-h-[48px] rounded-full'
+          >
+            {loading ? <LoaderCircle className='animate-spin' /> : t('selectButton')}
           </Button>
         </div>
       </div>
 
-      <div className=' w-full h-[1px] bg-gray_0 dark:bg-black_2_for_text rounded-2xl relative my-4 '></div>
+      <div className='w-full h-[1px] bg-gray_0 dark:bg-black_2_for_text rounded-2xl relative my-4'></div>
 
       <div className='relative flex items-center gap-2'>
         <div className='flex items-center gap-2 truncate ...'>
@@ -89,4 +88,4 @@ export const ResultCard = memo(({ element }: Props) => {
   );
 });
 
-ResultCard.displayName = "ResultCard";
+RouteCard.displayName = 'RouteCard';

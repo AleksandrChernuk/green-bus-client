@@ -25,7 +25,7 @@ const buttonVariants = cva(
         lg: ' ',
         icon: ' ',
         mainSearch:
-          'h-auto px-6 py-4 tablet:min-w-[108px] tablet:max-w-[108px] laptop:min-w-[187px] laptop:max-w-[187px] grow-0 ',
+          'h-auto px-6 py-4   tablet:min-w-[120px] laptop:min-w-[187px] laptop:max-w-[187px] grow-0 ',
       },
     },
     defaultVariants: {

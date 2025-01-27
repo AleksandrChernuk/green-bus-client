@@ -6,20 +6,19 @@ import initTranslations from "../i18n";
 import TranslationsProvider from "@/providers/TranslationsProvider";
 import ThemeProvider from "@/providers/ThemeProvider";
 import ReactQueryContext from '@/providers/ReactQueryProvider';
-
+ 
 const noto_sans = Noto_Sans({
-  variable: "--font-geist-sans",
-  subsets: ["latin", "cyrillic"],
-  display: "swap",
+  variable: '--font-geist-sans',
+  subsets: ['latin', 'cyrillic'],
+  display: 'swap',
 });
 
 const mulish = Mulish({
-  variable: "--font-mulish",
-  subsets: ["latin"],
-  weight: "800",
-  display: "swap",
+  variable: '--font-mulish',
+  subsets: ['latin'],
+  weight: '800',
+  display: 'swap',
 });
-
 
 export function generateStaticParams() {
   return i18NextConfig.i18n.locales.map((locale) => ({ locale }));
@@ -35,7 +34,7 @@ export default async function RootLayout({
   params: Promise<{ locales: string }>;
 }) {
   const { locales } = await params;
-    const { resources } = await initTranslations(locales, i18nNamespaces);
+  const { resources } = await initTranslations(locales, i18nNamespaces);
 
   return (
     <html lang={locales} suppressHydrationWarning>

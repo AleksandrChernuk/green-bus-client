@@ -59,5 +59,10 @@
   "required": "Required field.",
   "emailRequired": "Email is required.",
   "emailNotValid": "This is not a valid email.",
-  "passwordLength": "Password must be at least 6 characters long."
+  "passwordLength": "Password must be at least 6 characters long.",
+  "shortHours": "h",
+  "shortMinutes": "m",
+  "selectButton": "Select",
+  "mainPageBtn": "Main page",
+  "errorTitle": "Something happend"
 }

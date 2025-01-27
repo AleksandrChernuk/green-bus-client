@@ -1,16 +1,13 @@
-import { Button } from '@/components/ui/button';
-import Link from "next/link";
+import NotFoundPage from '@/components/pages/NotFoundPage';
 
-export default function NotFound() {
+export default async function NotFound({ params }: { params: Promise<{ locales: string }> }) {
+  const { locales } = await params;
+
   return (
-    <div>
-      <h2>Not Found</h2>
-      <p>Could not find requested resource</p>
-      <Button size={"sm"} variant={"default"}>
-        <Link href="/" replace>
-          Return Home
-        </Link>
-      </Button>
-    </div>
+    <>
+      <main role='main' className='grow pt-16 bg-grayy dark:bg-background_black_mode'>
+        <NotFoundPage locales={locales} />
+      </main>
+    </>
   );
 }

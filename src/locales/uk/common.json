@@ -59,5 +59,10 @@
   "required": "Обов'язкове поле",
   "emailRequired": "Електронна пошта обов’язкова.",
   "emailNotValid": "Це недійсна електронна пошта.",
-  "passwordLength": "Пароль має бути не менше 6 символів."
+  "passwordLength": "Пароль має бути не менше 6 символів.",
+  "shortHours": "г",
+  "shortMinutes": "хв",
+  "selectButton": "Обрати",
+  "mainPageBtn": "На головну",
+  "errorTitle": "Щось сталося"
 }

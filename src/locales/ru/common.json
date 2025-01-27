@@ -56,5 +56,10 @@
   "required": "Обязательное поле.",
   "emailRequired": "Электронная почта обязательна.",
   "emailNotValid": "Это недействительный адрес электронной почты.",
-  "passwordLength": "Пароль должен быть не менее 6 символов."
+  "passwordLength": "Пароль должен быть не менее 6 символов.",
+  "shortHours": "ч",
+  "shortMinutes": "мин",
+  "selectButton": "Выбрать",
+  "mainPageBtn": "На главную",
+  "errorTitle": "Что-то случилось"
 }

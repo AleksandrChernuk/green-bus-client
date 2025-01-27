@@ -7,10 +7,12 @@ import { X } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
+import { useCurrentRouteStore } from '@/store/useCurrentRoute';
 
 export default function MobileDetails() {
   const [open, setOpen] = useState<boolean>(false);
   const { t } = useTranslation(['common']);
+  const setCurrentRoute = useCurrentRouteStore((state) => state.setCurrentRoute);
 
   return (
     <CustomDarwer
@@ -18,6 +20,7 @@ export default function MobileDetails() {
       toggleOpen={() => {
         setOpen((p) => !p);
       }}
+      onClose={() => setCurrentRoute(null)}
       trigger={
         <Button variant={'link'} className='items-center justify-center text-xs font-bold '>
           {t('details')}

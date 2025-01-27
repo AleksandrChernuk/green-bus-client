@@ -10,11 +10,11 @@ type Props = {
 
 export const DropdownWrapper = ({ children, open, position = "left" }: Props) => {
   const isLeft = position === "left";
-  return (
+  return open ? (
     <div
-      className={`absolute top-[86px] ${isLeft ? "left-0-0" : "right-0"} z-10 min-w-[310px] max-w-[440px] h-fit overflow-y-auto flex-col gap-2 p-4 rounded-2xl bg-grayy dark:bg-dark_mode_main1 shadow-[0_4px_10px_0_rgba(0,0,0,0.2)] 
-    transform transition-transform duration-100 ease-in-out opacity-0 translate-x-[-100%] pointer-events-none ${
-      open ? "opacity-100 translate-x-[0%] pointer-events-auto" : ""
+      className={`absolute top-[86px] ${isLeft ? 'left-0-0' : 'right-0'} z-10 min-w-[310px] max-w-[440px] h-fit overflow-y-auto flex-col gap-2 p-4 rounded-2xl bg-grayy dark:bg-dark_mode_main1 shadow-[0_4px_10px_0_rgba(0,0,0,0.2)] 
+    transform transition-transform duration-100 ease-in-out opacity-0 translate-x-[-100%]   ${
+      open ? 'opacity-100 translate-x-[0%] ' : ''
     }`}
       onMouseDown={(event) => {
         event.preventDefault();
@@ -23,5 +23,5 @@ export const DropdownWrapper = ({ children, open, position = "left" }: Props) =>
     >
       {children}
     </div>
-  );
+  ) : null;
 };
