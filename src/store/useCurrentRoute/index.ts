@@ -27,6 +27,7 @@ export const useCurrentRouteStore = create<CurrentRouteStore>()(
 
             let res: IRouteDetailsResponse | null = null;
             const providersRequiringExtraRequest = ['Octobus', 'KLR'];
+            console.log('сurrentRoute', route);
 
             // Проверяем, требуется ли дополнительный запрос
             if (providersRequiringExtraRequest.includes(route.provider_name)) {
@@ -57,7 +58,7 @@ export const useCurrentRouteStore = create<CurrentRouteStore>()(
               ...Object.fromEntries(
                 Object.entries(res || {}).map(([key, value]) => [
                   key,
-                  currentDetails[key as keyof IRouteDetailsResponse] !== null ? value : null,
+                  value !== null ? value : currentDetails[key as keyof IRouteDetailsResponse],
                 ])
               ),
             } as IRouteDetailsResponse;

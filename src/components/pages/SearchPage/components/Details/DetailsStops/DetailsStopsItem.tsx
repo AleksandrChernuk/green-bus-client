@@ -37,7 +37,8 @@ export default function DetailsStopsItem({ isFirst, isLast, point }: Props) {
         </div>
 
         <div className='text-text_secondary_color  text-[10px] mobile:small_text'>
-          {point.station.name}, {point.station.address}
+          {point.station.name && `${point.station.name}, `}
+          {point.station.address}
         </div>
       </div>
     </div>
