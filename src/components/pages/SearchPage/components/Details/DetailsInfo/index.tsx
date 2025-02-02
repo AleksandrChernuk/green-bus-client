@@ -1,0 +1,45 @@
+'use client';
+
+import { extractLocationDetails } from '@/lib/extractLocationDetails';
+import { useCurrentRouteStore } from '@/store/useCurrentRoute';
+import { format } from 'date-fns';
+import { ChevronRight, Clock3, Route } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
+
+export default function DetailsInfo() {
+  const { t, i18n } = useTranslation(['common']);
+  const сurrentRoute = useCurrentRouteStore((state) => state.сurrentRoute);
+
+  const durationArr = сurrentRoute?.duration?.split(':') ?? '';
+
+  return (
+    <div className='mb-4 space-y-2'>
+      <div className='gap-2 flex_center'>
+        <h5 className='h5 text-text_prymery_color'>{t('route')}:</h5>
+
+        <div className='flex_center gap-1 text-primary_1 text-text-text_secondary_color text-[10px] mobile:small_text'>
+          <span>
+            {` ${format(сurrentRoute?.departure.date_time || new Date(), 'EEE dd')}, 
+                  ${сurrentRoute && extractLocationDetails(сurrentRoute?.departure.fromLocation, i18n.language).locationName}`}
+          </span>
+          <ChevronRight size={16} className='stroke-primary_1' />
+          <span>
+            {` ${format(сurrentRoute?.arrival.date_time || new Date(), 'EEE dd')}, 
+                 ${сurrentRoute && extractLocationDetails(сurrentRoute?.arrival.toLocation, i18n.language).locationName}`}
+          </span>
+        </div>
+      </div>
+
+      <div className='gap-2 flex_center text-text_secondary_color text-[10px] mobile:small_text'>
+        <Route className='rotate-90 stroke-gray_2_for_body dark:stroke-gray_1' size={16} />
+        <span>{t('travel_time')}:</span>
+        <span>{`${durationArr[0]}${t('shortHours')},${durationArr[1]}${t('shortMinutes')}`}</span>
+      </div>
+
+      <div className='gap-2 flex_center text-text-text_secondary_color  text-[10px] mobile:small_text'>
+        <Clock3 className='stroke-gray_2_for_body dark:stroke-gray_1' size={16} />
+        <p className='text-wrap'>{t('local_time')}</p>
+      </div>
+    </div>
+  );
+}

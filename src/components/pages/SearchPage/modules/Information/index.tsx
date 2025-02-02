@@ -11,7 +11,7 @@ import { useRoutesStore } from '@/store/useRouter';
 import useDateLocale from '@/hooks/useDateLocale';
 import { useTranslation } from 'react-i18next';
 import { useSearchStore } from '@/store/useSearch';
-
+ 
 const ArrowIcon = () => {
   return (
     <div>

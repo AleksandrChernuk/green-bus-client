@@ -27,14 +27,14 @@ export const Route = ({
   const durationArr = duration.split(':');
   return (
     <>
-      <div className='flex flex-row items-center gap-2  tablet:hidden'>
-        <div className='flex flex-col  items-center gap-4'>
+      <div className='flex flex-row items-center gap-2 tablet:hidden'>
+        <div className='flex flex-col items-center gap-4'>
           <div className='button_mobile text-text_prymery_color'>
             {format(departure || new Date(), 'HH:mm')}
           </div>
 
           <div className='small_text text-black.2.for.text  dark:text-gray_1'>{`${durationArr[0]}${t('shortHours')},${durationArr[1]}${t('shortMinutes')}`}</div>
-          <div className='button_mobile  text-text_prymery_color'>
+          <div className='button_mobile text-text_prymery_color'>
             {format(arrival || new Date(), 'HH:mm')}
           </div>
         </div>
@@ -59,7 +59,8 @@ export const Route = ({
           </div>
         </div>
       </div>
-      <div className='hidden tablet:grid w-full grid-cols-3 gap-2'>
+
+      <div className='hidden w-full grid-cols-3 gap-2 tablet:grid'>
         <div className='space-y-2'>
           <h3 className='h5 text-text_secondary_color'>
             {format(departure || new Date(), 'HH:mm')}
@@ -72,9 +73,13 @@ export const Route = ({
         </div>
 
         <div className='flex items-center justify-center w-full gap-2'>
-          <IconRouteLeft />
+          <div className='w-[49px] h-[17px]'>
+            <IconRouteLeft />
+          </div>
           <div className='small_text text-black.2.for.text  dark:text-gray_1'>{`${durationArr[0]}${t('shortHours')},${durationArr[1]}${t('shortMinutes')}`}</div>
-          <IconRouteRigth />
+          <div className='w-[49px] h-[17px]'>
+            <IconRouteRigth />
+          </div>
         </div>
 
         <div className='space-y-2'>

@@ -1,13 +1,20 @@
 import SecondFooter from '@/components/modules/footer/SecondFooter';
 import CheckoutPage from '@/components/pages/CheckoutPage';
+import { cookies } from 'next/headers';
 
 export default async function Checkout() {
+  const cookieStore = await cookies();
+
+  const adult = cookieStore.get('adult')?.value;
+  const children = cookieStore.get('children')?.value;
+  console.log(adult);
+
   return (
     <>
-      <main role='main' className='grow pb-16 bg-grayy dark:bg-dark_mode_main1'>
-        <CheckoutPage />
+      <main role='main' className='pb-16 grow bg-grayy dark:bg-background_black_mode'>
+        <CheckoutPage adult={`${adult}`} childrenPass={`${children}`} />
       </main>
-      <SecondFooter />
+      <SecondFooter className='bg-grayy dark:bg-background_black_mode' />
     </>
   );
 }

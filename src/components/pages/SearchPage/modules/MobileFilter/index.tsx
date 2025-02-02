@@ -31,7 +31,7 @@ export const MobileFilter = () => {
       }
     >
       <div className='flex items-center justify-between px-5 py-4 border-b border-b-gray_1 dark:border-b-black_2_for_text dark:bg-dark_mode_main1'>
-        <h3 className='font-medium h4 text-primary_1'>{t('filter')}</h3>
+        <h3 className='font-medium h5 text-primary_1'>{t('filter')}</h3>
         <DrawerClose asChild>
           <Button
             variant={'default'}
@@ -41,7 +41,7 @@ export const MobileFilter = () => {
           </Button>
         </DrawerClose>
       </div>
-      <ScrollArea className='relative grow px-5 pt-6 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
+      <ScrollArea className='relative px-5 pt-6 overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
         <ul>
           <li>
             <h5 className='mb-4 h5 text-text_prymery_color'>{t('sort_by')}:</h5>

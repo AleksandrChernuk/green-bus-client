@@ -133,7 +133,7 @@
 }
 
 @utility h5 {
-  @apply text-base font-bold tracking-normal leading-6;
+  @apply text-base font-bold leading-6 tracking-normal;
 }
 
 @utility h6 {
@@ -141,7 +141,7 @@
 }
 
 @utility main_text_body {
-  @apply text-base font-normal tracking-normal leading-6;
+  @apply text-base font-normal leading-6 tracking-normal;
 }
 
 @utility navigation_text_body {
@@ -193,7 +193,7 @@
 }
 
 @utility addional_regular_text {
-  @apply text-sm font-normal tracking-normal leading-4;
+  @apply text-sm font-normal leading-4 tracking-normal;
 }
 
 @utility addional {
@@ -201,7 +201,7 @@
 }
 
 @utility addional_medium_text {
-  @apply text-base font-medium tracking-normal leading-4;
+  @apply text-base font-medium leading-4 tracking-normal;
 }
 
 @utility button_mobile_bolt_text {

@@ -1,4 +1,5 @@
 import { ILocation } from './location.types';
+import { IRouteDetailsResponse } from './routeDetails-interface';
 
 export interface IGetRoutesBody {
   fromCityId: number;
@@ -64,4 +65,5 @@ export interface IRouteResponse {
     logo: string | null;
     rating: number | null;
   };
+  details: IRouteDetailsResponse | null;
 }

@@ -20,12 +20,14 @@ export const formSchema = z.object({
 });
 
 const Search = () => {
-  const matches = useMediaQuery("(max-width: 767px)");
+  const matches = useMediaQuery('(max-width: 767px)');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const route = useRouter();
+
   const handleSubmit = () => {
     setIsSubmitting(true);
     const { from, to, date, adult, children, setErrors } = useSearchStore.getState();
+
     const validationResult = formSchema.safeParse({ from, to });
 
     if (!validationResult.success) {
@@ -45,13 +47,13 @@ const Search = () => {
 
   return (
     <SearchBox>
-      <div className="flex flex-col h-full tablet:flex-row ">
-        <div className="items-center grid-cols-4 p-4 tablet:grid tablet:gap-4 laptop:gap-10">
+      <div className='flex flex-col h-full tablet:flex-row '>
+        <div className='items-center grid-cols-4 p-4 tablet:grid tablet:gap-4 laptop:gap-10'>
           {matches ? (
             <>
-              <MobCitySeacrh name={"from"} />
+              <MobCitySeacrh name={'from'} />
               <Line />
-              <MobCitySeacrh name={"to"} />
+              <MobCitySeacrh name={'to'} />
               <Line />
               <MobileDate />
               <Line />
@@ -59,8 +61,8 @@ const Search = () => {
             </>
           ) : (
             <>
-              <DesctopCitySearch name={"from"} />
-              <DesctopCitySearch name={"to"} />
+              <DesctopCitySearch name={'from'} />
+              <DesctopCitySearch name={'to'} />
               <DesktopDate />
               <DesktopPassengers />
             </>

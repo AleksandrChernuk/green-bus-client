@@ -64,5 +64,8 @@
   "shortMinutes": "m",
   "selectButton": "Select",
   "mainPageBtn": "Main page",
-  "errorTitle": "Something happend"
+  "errorTitle": "Something happend",
+  "route": "Route",
+  "local_time": "Departure/arrival time is indicated in local time.",
+  "travel_time": "Travel time"
 }

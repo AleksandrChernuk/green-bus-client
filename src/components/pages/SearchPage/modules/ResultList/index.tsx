@@ -5,7 +5,7 @@ import { NoTravel } from './components/NoTravel';
 import useSearchResult from '../../hooks/useSearchResult';
 import { useRoutesStore } from '@/store/useRouter';
 import RoutersList from './components/RoutersList';
-
+ 
 export const ResultList = () => {
   const { isFetching, error, data } = useSearchResult();
 

@@ -1,9 +1,17 @@
 import Image from 'next/image';
 import secondFooter from './images/second-footer.png';
+import { cn } from '@/lib/utils';
 
-export default async function SecondFooter() {
+type Props = {
+  className?: string;
+};
+
+export default async function SecondFooter({ className }: Props) {
   return (
-    <footer role='footer' className='h-auto w-full bg-grayy dark:bg-dark_mode_main1'>
+    <footer
+      role='footer'
+      className={cn('w-full h-auto bg-grayy dark:bg-dark_mode_main1', className)}
+    >
       <Image
         src={secondFooter}
         priority={true}
