@@ -11,6 +11,7 @@ export type SetCurrentRoute = {
   passCount?: number;
   fromCityId?: number;
   toCityId?: number;
+  travelDate?:string
 };
 
 export type CurrentRouteActions = {

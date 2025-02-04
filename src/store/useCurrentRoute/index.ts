@@ -13,22 +13,31 @@ export const useCurrentRouteStore = create<CurrentRouteStore>()(
         (set) => ({
           сurrentRoute: null,
 
-          setCurrentRoute: async ({ route, fromCityId, toCityId, locale, passCount }) => {
+          setCurrentRoute: async ({
+            route,
+            fromCityId,
+            toCityId,
+            locale,
+            passCount,
+            travelDate,
+          }) => {
+            console.log(' providerId: ', route?.provider_id);
+            console.log(' routeId: ', route?.route_id);
+
             if (
               !route ||
               typeof fromCityId !== 'number' ||
               typeof toCityId !== 'number' ||
               !passCount ||
-              !locale
+              !locale ||
+              !travelDate
             ) {
               set({ сurrentRoute: null });
               return;
             }
 
             let res: IRouteDetailsResponse | null = null;
-            const providersRequiringExtraRequest = ['Octobus', 'KLR'];
-            console.log('сurrentRoute', route);
-
+            const providersRequiringExtraRequest = ['Octobus', 'KLR', 'TransTempo'];
             // Проверяем, требуется ли дополнительный запрос
             if (providersRequiringExtraRequest.includes(route.provider_name)) {
               set({ loadingDetails: true });
@@ -37,8 +46,11 @@ export const useCurrentRouteStore = create<CurrentRouteStore>()(
                 res = await getRouteDetails({
                   fromCityId,
                   toCityId,
+                  fromStationId: route.departure.station_id || 1,
+                  toStationId: route.arrival.station_id || 1,
                   providerId: route.provider_id,
                   routeId: route.route_id,
+                  travelDate,
                   locale,
                   passengersCount: passCount,
                 });

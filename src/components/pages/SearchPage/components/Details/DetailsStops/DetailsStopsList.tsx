@@ -1,70 +1,23 @@
 import { useCurrentRouteStore } from '@/store/useCurrentRoute';
 import DetailsStopsItem from './DetailsStopsItem';
-import { extractLocationDetails } from '@/lib/extractLocationDetails';
+import { getStopsProcessor } from '../../../helpers';
 
 export default function DetailsStopsList() {
-  const сurrentRoute = useCurrentRouteStore((state) => state.сurrentRoute);
-  const stops = сurrentRoute?.details?.stops;
-
-  console.log(сurrentRoute);
+  const currentRoute = useCurrentRouteStore((state) => state.сurrentRoute);
+  const stops = currentRoute?.details?.stops;
 
   if (!stops) return null;
 
-  switch (сurrentRoute?.provider_name) {
-    case 'KLR':
-      return stops
-        ?.slice(
-          stops.findIndex(
-            (el) => el.departure_date_time === `${сurrentRoute?.departure?.date_time}`
-          ),
-          stops.findIndex(
-            (el) =>
-              el.location.name ===
-              `${extractLocationDetails(сurrentRoute?.arrival?.toLocation, 'uk').locationName}`
-          )
-        )
-        .map((element, idx, array) => (
-          <DetailsStopsItem
-            point={element}
-            key={`${element.station.name}_${idx}`}
-            isFirst={idx === 0}
-            isLast={idx === array.length - 1}
-          />
-        ));
+  const processStops = getStopsProcessor(currentRoute);
+  const processedStops = processStops(stops);
+  console.log(processedStops);
 
-    case 'Octobus':
-      return stops
-        ?.slice(
-          stops.findIndex((el) => el.station.id === `${сurrentRoute?.departure?.station_id}`),
-          stops.findIndex((el) => el.station.id === `${сurrentRoute?.arrival?.station_id}`)
-        )
-        .map((element, idx, array) => (
-          <DetailsStopsItem
-            point={element}
-            key={`${element.station.name}_${idx}`}
-            isFirst={idx === 0}
-            isLast={idx === array.length - 1}
-          />
-        ));
-
-    case 'TransTempo':
-      return stops.map((element, idx, array) => (
-        <DetailsStopsItem
-          point={element}
-          key={`${element.station.name}_${idx}`}
-          isFirst={idx === 0}
-          isLast={idx === array.length - 1}
-        />
-      ));
-
-    default:
-      return stops.map((element, idx, array) => (
-        <DetailsStopsItem
-          point={element}
-          key={`${element.station.name}_${idx}`}
-          isFirst={idx === 0}
-          isLast={idx === array.length - 1}
-        />
-      ));
-  }
+  return processedStops.map((element, idx, array) => (
+    <DetailsStopsItem
+      point={element}
+      key={`${element.station.name}_${idx}`}
+      isFirst={idx === 0}
+      isLast={idx === array.length - 1}
+    />
+  ));
 }

@@ -1,5 +1,4 @@
 import React from 'react';
-import { format } from 'date-fns';
 import { IStops } from '@/types/stops-interface';
 
 type Props = {
@@ -8,8 +7,18 @@ type Props = {
   point: IStops;
 };
 
+// function formatTime(timeString: string | null): string {
+//   if (!timeString) return '';
+
+//   // if (timeString.length === 8) {
+//   //   return timeString.slice(0, 5);
+//   // }
+
+//   // const parsedDate = parseISO(timeString);
+//   // return format(parsedDate, 'HH:mm');
+// }
+
 export default function DetailsStopsItem({ isFirst, isLast, point }: Props) {
-  console.log(point);
   return (
     <div
       className={`relative flex items-start justify-start  ${isLast && 'overflow-hidden z-10 bg-white dark:bg-dark_mode_main1 tablet:dark:bg-card_bg_primery'}`}
@@ -17,15 +26,17 @@ export default function DetailsStopsItem({ isFirst, isLast, point }: Props) {
       <span
         className={`${isFirst || isLast ? 'button_mobile' : 'small_2_bolt_text'} text-text_prymery_color mr-9 min-w-[40px] max-w-[40px]`}
       >
-        {format(point?.departure_date_time || new Date(), 'HH:MM')}
+        {isFirst
+          ? point?.departure_date_time?.split(' ')[1].replace(':00', '')
+          : point?.arrival_date_time?.split(' ')[1].replace(':00', '')}
       </span>
 
       <div
         className={`relative after:content-[''] before:absolute 
-             after:rounded-full before:border-[2px]	${isLast ? 'before:border-primary_1' : 'before:border-blackmode before:bg-white dark:before:bg-dark_mode_main1 tablet:dark:before:bg-background_black_mode'}
+             after:rounded-full before:border-[2px]	${isLast ? 'before:border-primary_1' : 'before:border-blackmode before:bg-white dark:before:bg-background_black_mode tablet:dark:before:bg-background_black_mode'}
             before:w-4 before:h-4
              before:top-0 before:-left-[19px] before:-translate-x-1/2 before:rounded-full
-             before:z-20`}
+             before:z-20 `}
       >
         {isLast && (
           <span className='absolute w-[8px] h-[8px] rounded-full bg-primary_1 top-[4px] -left-[19px] -translate-x-1/2'></span>
@@ -40,6 +51,11 @@ export default function DetailsStopsItem({ isFirst, isLast, point }: Props) {
           {point.station.name && `${point.station.name}, `}
           {point.station.address}
         </div>
+        {!isLast && !isFirst && point.bus_changes && (
+          <div className='p-1 my-0.5  text-white bg-red-500 text-xs  font-bold  rounded-lg text-center'>
+            Організована пересадка
+          </div>
+        )}
       </div>
     </div>
   );

@@ -10,7 +10,11 @@ import { useTranslation } from 'react-i18next';
 import { useCurrentRouteStore } from '@/store/useCurrentRoute';
 import { IconLoader } from '@/components/icons/IconLoader';
 import RoteDetails from '../../components/Details/DetailsStops';
-import { CustomCard } from '@/components/shared/CustomCard';
+import DetailsInfo from '../../components/Details/DetailsInfo';
+import DetailsLuggage from '../../components/Details/DetailsLuggage';
+import DetailsReturnPolicy from '../../components/Details/DetailsReturnPolicy';
+import DetailsAmenities from '../../components/Details/DetailsAmenities';
+import DetailsDiscounts from '../../components/Details/DetailsDiscounts';
 
 export default function MobileDetails({
   handleSetCurretRoute,
@@ -25,7 +29,6 @@ export default function MobileDetails({
   const loadingDetails = useCurrentRouteStore((state) => state.loadingDetails);
 
   const [loading, setLoading] = useState<boolean>(false);
-
   return (
     <CustomDarwer
       open={open}
@@ -53,15 +56,23 @@ export default function MobileDetails({
           </Button>
         </DrawerClose>
       </div>
-      <ScrollArea className='relative px-5 pt-6 overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
+      <ScrollArea className='relative px-5   overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
         {loadingDetails ? (
           <div className='flex items-center justify-center gap-1 body_medium text-text_prymery_color tablet:min-w-[397px] py-4'>
             <IconLoader />
           </div>
         ) : (
-          <CustomCard>
-            <RoteDetails />
-          </CustomCard>
+          <div className='space-y-8 my-6'>
+            <div className='space-y-4'>
+              <DetailsInfo />
+              <RoteDetails />
+            </div>
+
+            <DetailsLuggage />
+            <DetailsReturnPolicy />
+            <DetailsAmenities />
+            <DetailsDiscounts />
+          </div>
         )}
       </ScrollArea>
       <div className='flex items-center justify-between gap-4 px-5 py-4 border-t border-t-gray_1 dark:border-t-black_2_for_text dark:bg-dark_mode_main1'>

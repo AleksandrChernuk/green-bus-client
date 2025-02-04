@@ -3,5 +3,7 @@
   "sort_buy_departure_time": "Временем отправления",
   "sort_buy_arrival_time": "Временем прибытия",
   "sort_buy_time_on_road": "Короткий маршрут",
-  "resul_count": "результатов"
+  "resul_count": "результатов",
+  "collapse_route": "Свернуть весь маршрут",
+  "show_route": "Показать весь маршрут"
 }

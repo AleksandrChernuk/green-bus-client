@@ -1,13 +1,28 @@
-import React from "react";
+import { useCurrentRouteStore } from '@/store/useCurrentRoute';
+import React from 'react';
 
-export const DetailsLuggage = () => {
+export default function DetailsLuggage({ hasCardWrapp }: { hasCardWrapp?: boolean }) {
+  const сurrentRoute = useCurrentRouteStore((state) => state.сurrentRoute);
+
+  if (!сurrentRoute?.details?.luggage_rules || сurrentRoute?.details?.luggage_rules.length === 0) {
+    return null;
+  }
+
   return (
-    <div className='space-y-2'>
-      <h5 className='h5'>Luggage:</h5>
-      <p className='small_text text-text_secondary_color'>
-        Free of charge, you can transport 1 item of luggage (up to 30 kg, 50x40x80 cm) in the
-        luggage compartment and 1 piece of hand luggage (up to 20x30x40 cm) in the bus cabin.
-      </p>
+    <div
+      className={`space-y-1 ${hasCardWrapp && 'p-4 tablet:p-6 bg-card_bg_primery shadow-(--shadow-custom) rounded-2xl dark:bg-dark_mode_main1'}`}
+    >
+      <h5 className='h5'>Багаж:</h5>
+      <ul className='flex flex-col gap-1'>
+        {сurrentRoute?.details?.luggage_rules.map((el) => (
+          <li
+            key={el}
+            className='text-wrap text-text_secondary_color  text-[10px] mobile:small_text'
+          >
+            {el}
+          </li>
+        ))}
+      </ul>
     </div>
   );
-};
+}

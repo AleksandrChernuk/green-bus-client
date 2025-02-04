@@ -1,15 +1,16 @@
 import { extractLocationDetails } from '@/lib/extractLocationDetails';
 import { useCurrentRouteStore } from '@/store/useCurrentRoute';
-import { format } from 'date-fns';
+import { format, parseISO } from 'date-fns';
 
 export default function DetailsStopsPreview() {
   const сurrentRoute = useCurrentRouteStore((state) => state.сurrentRoute);
+  console.log(сurrentRoute?.departure.date_time);
 
   return (
     <>
       <div className={`relative flex items-start justify-start  `}>
         <span className={`button_mobile text-text_prymery_color mr-9 min-w-[40px] max-w-[40px]`}>
-          {format(сurrentRoute?.departure.date_time || new Date(), 'HH:MM')}
+          {format(сurrentRoute?.departure.date_time || new Date(), 'HH:mm')}
         </span>
 
         <div
@@ -25,10 +26,10 @@ export default function DetailsStopsPreview() {
         </div>
       </div>
       <div
-        className={`relative flex items-start justify-start  overflow-hidden z-10 bg-white dark:bg-dark_mode_main1 tablet:dark:bg-card_bg_primery'}`}
+        className={`relative flex items-start justify-start  overflow-hidden z-10 bg-white dark:bg-background_black_mode tablet:dark:bg-card_bg_primery'}`}
       >
         <span className={`button_mobile text-text_prymery_color mr-9 min-w-[40px] max-w-[40px]`}>
-          {format(сurrentRoute?.departure.date_time || new Date(), 'HH:MM')}
+          {format(parseISO(сurrentRoute?.arrival.date_time || ''), 'HH:mm')}
         </span>
 
         <div
