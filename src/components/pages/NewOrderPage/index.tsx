@@ -9,10 +9,9 @@ import Passengers from './modules/Passengers';
 import { Button } from '@/components/ui/button';
 import { useMainForm } from './hooks/useCheckoutForm';
 import Contacts from './modules/Contacts';
-import { TPassengersProps } from './types';
- 
-export default function NewOrderPage({ adult, childrenPass }: TPassengersProps) {
-  const { handleSubmit, onSubmit, methods } = useMainForm({ adult, childrenPass });
+
+export default function NewOrderPage({ adult, child }: { adult: number; child: number }) {
+  const { handleSubmit, onSubmit, methods } = useMainForm({ adult, children: child });
 
   return (
     <section>
