@@ -10,9 +10,10 @@ import { Button } from '@/components/ui/button';
 import { useMainForm } from './hooks/useCheckoutForm';
 import Contacts from './modules/Contacts';
 import { TPassengersProps } from './types';
-
+ 
 export default function NewOrderPage({ adult, childrenPass }: TPassengersProps) {
   const { handleSubmit, onSubmit, methods } = useMainForm({ adult, childrenPass });
+
   return (
     <section>
       <h1 className='sr-only'>CheckoutPage</h1>
