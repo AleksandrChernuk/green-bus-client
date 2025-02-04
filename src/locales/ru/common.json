@@ -67,5 +67,9 @@
   "travel_time": "Время в пути",
   "collapse_route": "Свернуть весь маршрут",
   "show_route": "Показать весь маршрут",
-  "collapse_details": "Свернуть подробности"
+  "collapse_details": "Свернуть подробности",
+  "no_travel_dates": "В эту дату поездок нет",
+  "something_happend": "Что-то произошло",
+  "bus": "Автобус",
+  "discounts": "Скидки"
 }

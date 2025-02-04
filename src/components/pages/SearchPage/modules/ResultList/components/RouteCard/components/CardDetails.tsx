@@ -1,4 +1,5 @@
-import DetailsAmenities from '@/components/pages/SearchPage/components/Details/DetailsAmenities';
+ import DetailsAmenities from '@/components/pages/SearchPage/components/Details/DetailsAmenities';
+import DetailsBus from '@/components/pages/SearchPage/components/Details/DetailsBus';
 import DetailsDiscounts from '@/components/pages/SearchPage/components/Details/DetailsDiscounts';
 import DetailsInfo from '@/components/pages/SearchPage/components/Details/DetailsInfo';
 import DetailsLuggage from '@/components/pages/SearchPage/components/Details/DetailsLuggage';
@@ -13,11 +14,12 @@ export default function CardDetails() {
         <DetailsInfo />
         <DetailsStops />
       </div>
-      <div className='space-y-4'>
+      <div className='space-y-2'>
         <DetailsLuggage />
         <DetailsReturnPolicy />
         <DetailsAmenities />
         <DetailsDiscounts />
+        <DetailsBus />
       </div>
     </div>
   );

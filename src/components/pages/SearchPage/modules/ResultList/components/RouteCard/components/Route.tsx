@@ -1,41 +1,31 @@
+import LocationDisplay from '@/components/pages/SearchPage/components/LocationDisplay';
 import IconArrowRoteMobile from '@/components/pages/SearchPage/images/IconArrowRoteMobile';
 import { IconRouteLeft } from '@/components/pages/SearchPage/images/IconRouteLeft';
 import { IconRouteRigth } from '@/components/pages/SearchPage/images/IconRouteRigth';
+import { extractLocationDetails } from '@/lib/extractLocationDetails';
+import { IRouteResponse } from '@/types/route.types';
 import { format } from 'date-fns';
 import { useTranslation } from 'react-i18next';
 
 type Props = {
-  arrival: string;
-  arrivalName: string;
-  arrivalPoin: string;
-  duration: string;
-  departurePoint: string;
-  departureName: string;
-  departure: string;
+  route: IRouteResponse;
 };
-export const Route = ({
-  arrival,
-  departure,
-  departureName,
-  arrivalName,
-  departurePoint,
-  arrivalPoin,
-  duration,
-}: Props) => {
-  const { t } = useTranslation();
+export const Route = ({ route }: Props) => {
+  const { t, i18n } = useTranslation();
 
-  const durationArr = duration.split(':');
+  const durationArr = route?.duration ? route?.duration.split(':') : '';
+  console.log(extractLocationDetails(route.arrival.toLocation, i18n.language).locationName);
   return (
     <>
       <div className='flex flex-row items-center gap-2 tablet:hidden'>
         <div className='flex flex-col items-center gap-4'>
           <div className='button_mobile text-text_prymery_color'>
-            {format(departure || new Date(), 'HH:mm')}
+            {format(route.departure.date_time || new Date(), 'HH:mm')}
           </div>
 
           <div className='small_text text-black.2.for.text  dark:text-gray_1'>{`${durationArr[0]}${t('shortHours')},${durationArr[1]}${t('shortMinutes')}`}</div>
           <div className='button_mobile text-text_prymery_color'>
-            {format(arrival || new Date(), 'HH:mm')}
+            {format(route.arrival.date_time || new Date(), 'HH:mm')}
           </div>
         </div>
 
@@ -44,33 +34,31 @@ export const Route = ({
         </div>
 
         <div className='space-y-2'>
-          <div>
-            <div className='body_medium text-text_prymery_color'>{departureName}</div>
-            <div className='text-[10px] leading-4 text-text_secondary_color  text-wrap'>
-              {departurePoint}
-            </div>
-          </div>
+          <LocationDisplay
+            location={
+              extractLocationDetails(route.departure.fromLocation, i18n.language).locationName
+            }
+            address={route.departure.station_address || ''}
+            variant='mobile'
+          />
 
-          <div>
-            <div className='body_medium text-text_prymery_color'>{arrivalName}</div>
-            <div className='text-[10px] leading-4 text-text_secondary_color  text-wrap'>
-              {arrivalPoin}
-            </div>
-          </div>
+          <LocationDisplay
+            location={extractLocationDetails(route.arrival.toLocation, i18n.language).locationName}
+            address={route.arrival.station_address || ''}
+            variant='mobile'
+          />
         </div>
       </div>
 
       <div className='hidden w-full grid-cols-3 gap-2 tablet:grid'>
-        <div className='space-y-2'>
-          <h3 className='h5 text-text_secondary_color'>
-            {format(departure || new Date(), 'HH:mm')}
-          </h3>
-
-          <div className='space-y-2 truncate text-wrap'>
-            <div className='h3 laptop:h4 text-text_prymery_color'>{departureName}</div>
-            <div className='text-sm leading-4 text-text_secondary_color'>{departurePoint}</div>
-          </div>
-        </div>
+        <LocationDisplay
+          location={
+            extractLocationDetails(route.departure.fromLocation, i18n.language).locationName
+          }
+          address={route.departure.station_address || ''}
+          time={format(route.departure.date_time || new Date(), 'HH:mm')}
+          variant='desctop'
+        />
 
         <div className='flex items-center justify-center w-full gap-2'>
           <div className='w-[49px] h-[17px]'>
@@ -82,14 +70,12 @@ export const Route = ({
           </div>
         </div>
 
-        <div className='space-y-2'>
-          <h3 className='h5 text-text_secondary_color'>{format(arrival || new Date(), 'HH:mm')}</h3>
-
-          <div className='space-y-2 truncate text-wrap'>
-            <div className='h3 laptop:h4 text-text_prymery_color'>{arrivalName}</div>
-            <div className='text-sm leading-4 text-text_secondary_color'>{arrivalPoin}</div>
-          </div>
-        </div>
+        <LocationDisplay
+          location={extractLocationDetails(route.arrival.toLocation, i18n.language).locationName}
+          address={route.arrival.station_address || ''}
+          variant='desctop'
+          time={format(route.arrival.date_time || new Date(), 'HH:mm')}
+        />
       </div>
     </>
   );

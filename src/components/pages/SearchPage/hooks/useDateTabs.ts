@@ -1,21 +1,29 @@
 "use client";
 
-import { format, isEqual, toDate } from "date-fns";
-import { useState,   } from "react";
-import { createDateArr } from "../helpers";
+import { isEqual, toDate, format } from 'date-fns';
+import { useEffect, useState } from 'react';
+import { createDateArr } from '../helpers';
 import { useSearchStore } from '@/store/useSearch';
- 
+
 export const useDateTabs = () => {
   const currentDate = useSearchStore((state) => state.date);
   const setDate = useSearchStore((state) => state.setDate);
 
-  const [tabDate, setTabDate] = useState<Date>(toDate(currentDate));
+  const [tabDate, setTabDate] = useState<Date>(toDate(currentDate || new Date()));
+  const [datesArray, setDatesArray] = useState<Date[]>(
+    createDateArr(toDate(tabDate), 5, Math.floor(5 / 2))
+  );
 
-  const [datesArray, setDatesArray] = useState<Date[]>(createDateArr(toDate(tabDate), 7, Math.floor(7 / 2)));
+  useEffect(() => {
+    setTabDate(toDate(currentDate || new Date()));
+    setDatesArray(createDateArr(toDate(currentDate), 5, Math.floor(5 / 2)));
+  }, [currentDate]);
 
   const handleUpdateDate = (newDate: Date) => {
     setTabDate(newDate);
-    setDate(format(newDate, "yyyy-MM-dd"));
+    if (setDate) {
+      setDate(format(newDate, 'yyyy-MM-dd'));
+    }
 
     const firstDate = datesArray[0];
     const lastDate = datesArray[datesArray.length - 1];

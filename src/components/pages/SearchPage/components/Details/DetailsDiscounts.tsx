@@ -1,9 +1,11 @@
+'use client';
+
 import { useCurrentRouteStore } from '@/store/useCurrentRoute';
+import { useTranslation } from 'react-i18next';
 
 export default function DetailsDiscounts({ hasCardWrapp }: { hasCardWrapp?: boolean }) {
   const сurrentRoute = useCurrentRouteStore((state) => state.сurrentRoute);
-
-  console.log(сurrentRoute?.details);
+  const { t } = useTranslation();
 
   if (
     !сurrentRoute?.details?.discounts ||
@@ -12,11 +14,12 @@ export default function DetailsDiscounts({ hasCardWrapp }: { hasCardWrapp?: bool
   ) {
     return null;
   }
+
   return (
     <div
       className={`space-y-1 ${hasCardWrapp && 'p-4 tablet:p-6 bg-card_bg_primery shadow-(--shadow-custom) rounded-2xl'}`}
     >
-      <h5 className='h5'>Знижки:</h5>
+      <h5 className='h5 text-text_prymery_color'>{t('discounts')}:</h5>
       <ul className='flex flex-row flex-wrap gap-0.5'>
         {сurrentRoute?.details?.discounts.map((el) => (
           <li

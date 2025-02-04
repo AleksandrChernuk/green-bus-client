@@ -11,7 +11,7 @@ import { useRoutesStore } from '@/store/useRouter';
 import useDateLocale from '@/hooks/useDateLocale';
 import { useTranslation } from 'react-i18next';
 import { useSearchStore } from '@/store/useSearch';
- 
+  
 const ArrowIcon = () => {
   return (
     <div>
@@ -44,7 +44,7 @@ export const Information = () => {
         <h3 className='h3 laptop:h1 text-text_prymery_color first-letter:uppercase'>
           {format(toDate(date), 'eee ,d MMM', { locale })}
         </h3>
-        <div className='laptop:hidden'>
+        <div>
           <MobileFilter />
         </div>
       </div>

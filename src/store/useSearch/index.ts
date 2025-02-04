@@ -1,6 +1,6 @@
 import { addMonths, format } from 'date-fns';
 import { create } from 'zustand';
-import { createJSONStorage, persist } from 'zustand/middleware';
+import { persist } from 'zustand/middleware';
 import { devtools } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
 
@@ -11,6 +11,7 @@ export const useSearchStore = create<SearchStore>()(
     immer(
       persist(
         (set, get) => ({
+          isHydrated: false,
           date: format(new Date(), 'yyyy-MM-dd'),
           month: new Date(),
           adult: 1,
@@ -19,6 +20,7 @@ export const useSearchStore = create<SearchStore>()(
             from: null,
             to: null,
           },
+
           setDate: (newDate) =>
             set((state) => ({
               ...state,
@@ -90,7 +92,11 @@ export const useSearchStore = create<SearchStore>()(
         }),
         {
           name: 'main-search',
-          storage: createJSONStorage(() => localStorage),
+          onRehydrateStorage: () => (state) => {
+            if (state) {
+              state.isHydrated = true;
+            }
+          },
         }
       )
     )

@@ -10,7 +10,6 @@ export default function DetailsStopsList() {
 
   const processStops = getStopsProcessor(currentRoute);
   const processedStops = processStops(stops);
-  console.log(processedStops);
 
   return processedStops.map((element, idx, array) => (
     <DetailsStopsItem

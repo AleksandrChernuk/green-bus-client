@@ -2,7 +2,6 @@
 
 import { memo, useState } from 'react';
 import { IRouteResponse } from '@/types/route.types';
-import { extractLocationDetails } from '@/lib/extractLocationDetails';
 import { Carriers } from './components/Carriers';
 import { Button } from '@/components/ui/button';
 import { useTranslation } from 'react-i18next';
@@ -10,7 +9,7 @@ import { CustomCard } from '@/components/shared/CustomCard';
 import { Route } from './components/Route';
 import { useCurrentRouteStore } from '@/store/useCurrentRoute';
 import { useRouter } from 'next/navigation';
-import { LoaderCircle, User } from 'lucide-react';
+import { LoaderCircle } from 'lucide-react';
 import { useSearchStore } from '@/store/useSearch';
 import { setCookie } from 'cookies-next';
 import { IconLoader } from '@/components/icons/IconLoader';
@@ -56,7 +55,6 @@ export const RouteCard = memo(({ element }: Props) => {
   };
 
   const { t, i18n } = useTranslation();
-  const locale = i18n.language;
 
   const handleBlur = (event: React.FocusEvent<HTMLDivElement>) => {
     if (!event.currentTarget.contains(event.relatedTarget)) {
@@ -65,22 +63,15 @@ export const RouteCard = memo(({ element }: Props) => {
   };
 
   return (
-    <div tabIndex={0} onBlur={handleBlur}>
+    <div tabIndex={0} onBlur={handleBlur} className='relative'>
+      {element.bus_change && (
+        <div className='absolute top-0 right-0 p-1 text-xs rounded-lg text-red'>
+          Можлива пересадка
+        </div>
+      )}
       <CustomCard className='shadow-[0_4px_10px_0_rgba(0,0,0,0.2)]'>
         <div className='flex flex-row items-center justify-between gap-1 tablet:gap-2'>
-          <Route
-            arrival={element.arrival.date_time ?? ''}
-            departure={element.departure.date_time ?? ''}
-            departurePoint={element.departure?.station_address ?? ''}
-            arrivalPoin={element.arrival?.station_address ?? ''}
-            arrivalName={
-              extractLocationDetails(element.arrival.toLocation, locale).locationName || ''
-            }
-            departureName={
-              extractLocationDetails(element.departure.fromLocation, locale).locationName || ''
-            }
-            duration={element.duration || ''}
-          />
+          <Route route={element} />
 
           <div className='flex flex-col items-center gap-4'>
             <p className='h4 laptop:h2 text-text_prymery_color'>
@@ -109,13 +100,12 @@ export const RouteCard = memo(({ element }: Props) => {
           </div>
 
           <div className='justify-self-center flex items-start gap-0.5 tablet:order-3 tablet:justify-self-end'>
-            <User size={16} className='stroke-text_prymery_color' />
-            <span className='small_text break-all text-text_prymery_color'>
-              {element.seats.free_seats}
+            <span className='text-[10px] tablet:small_text break-all text-text_prymery_color'>
+              Вільних місць: {element.seats.free_seats}
             </span>
           </div>
 
-          <div className='items-center justify-center hidden  tablet:flex tablet:order-2 tablet:justify-self-center'>
+          <div className='items-center justify-center hidden tablet:flex tablet:order-2 tablet:justify-self-center'>
             <div>
               <DetailsOpenButton
                 isOpen={isOpen}

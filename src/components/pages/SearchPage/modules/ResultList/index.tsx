@@ -5,7 +5,8 @@ import { NoTravel } from './components/NoTravel';
 import useSearchResult from '../../hooks/useSearchResult';
 import { useRoutesStore } from '@/store/useRouter';
 import RoutersList from './components/RoutersList';
- 
+import { ErrorTravel } from './components/ErrorTravel';
+
 export const ResultList = () => {
   const { isFetching, error, data } = useSearchResult();
 
@@ -15,7 +16,7 @@ export const ResultList = () => {
     return <Loader />;
   }
 
-  if (error) return null;
+  if (error) return <ErrorTravel />;
 
   if (!isFetching && data && !data.length) return <NoTravel />;
 

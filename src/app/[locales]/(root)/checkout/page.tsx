@@ -7,7 +7,6 @@ export default async function Checkout() {
 
   const adult = cookieStore.get('adult')?.value;
   const children = cookieStore.get('children')?.value;
-  console.log(adult);
 
   return (
     <>

@@ -20,15 +20,11 @@ export default function DetailsInfo({ hasCardWrapp }: { hasCardWrapp?: boolean }
         <h5 className='h5 text-text_prymery_color'>{t('route')}:</h5>
 
         <div className='flex_center gap-1 text-primary_1 text-text-text_secondary_color text-[10px] mobile:small_text'>
-          <span>
-            {` ${format(сurrentRoute?.departure.date_time || new Date(), 'EEE dd')}, 
+          {` ${format(сurrentRoute?.departure.date_time || new Date(), 'EEE dd')}, 
                   ${сurrentRoute && extractLocationDetails(сurrentRoute?.departure.fromLocation, i18n.language).locationName}`}
-          </span>
           <ChevronRight size={16} className='stroke-primary_1' />
-          <span>
-            {` ${format(сurrentRoute?.arrival.date_time || new Date(), 'EEE dd')}, 
+          {` ${format(сurrentRoute?.arrival.date_time || new Date(), 'EEE dd')}, 
                  ${сurrentRoute && extractLocationDetails(сurrentRoute?.arrival.toLocation, i18n.language).locationName}`}
-          </span>
         </div>
       </div>
 

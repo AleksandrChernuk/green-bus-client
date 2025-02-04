@@ -21,9 +21,6 @@ export const useCurrentRouteStore = create<CurrentRouteStore>()(
             passCount,
             travelDate,
           }) => {
-            console.log(' providerId: ', route?.provider_id);
-            console.log(' routeId: ', route?.route_id);
-
             if (
               !route ||
               typeof fromCityId !== 'number' ||

@@ -3,15 +3,14 @@ import SecondFooter from '@/components/modules/footer/SecondFooter';
 // import SyncSearchParams from '@/components/shared/SyncSearchParams';
 import React from 'react';
 
-export default async function SearchPage({ params }: { params: Promise<{ locales: string }> }) {
-  const { locales } = await params;
+export default async function SearchPage() {
   return (
-    <>
-      {/* <SyncSearchParams /> */}
-      <main role='main' className='grow pb-16 bg-grayy dark:bg-dark_mode_main1'>
-        <SearchModule locale={locales} />
-      </main>
-      <SecondFooter />
-    </>
-  );
+     <>
+       {/* <SyncSearchParams /> */}
+       <main role='main' className='pb-16 grow bg-grayy dark:bg-dark_mode_main1'>
+         <SearchModule />
+       </main>
+       <SecondFooter />
+     </>
+   );
 }

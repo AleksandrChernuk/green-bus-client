@@ -244,6 +244,9 @@
   @apply h5 grow-0 text-black text-wrap inline-flex items-center justify-center min-h-full py-4 px-6 w-full rounded-none rounded-br-[16px] tablet:min-w-[108px] tablet:max-w-[108px] laptop:min-w-[187px] laptop:max-w-[187px] rounded-bl-[16px] tablet:rounded-tl-none tablet:rounded-tr-[16px] tablet:rounded-bl-none;
 }
 
+@utility details_stops_item {
+  @apply relative after:content-[''] before:absolute after:rounded-full before:border-[2px] before:w-4 before:h-4 before:top-0 before:-left-[19px] before:-translate-x-1/2 before:rounded-full before:z-20
+}
 @layer utilities {
   html,
   body,

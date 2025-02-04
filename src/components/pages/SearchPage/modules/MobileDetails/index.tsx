@@ -13,8 +13,8 @@ import RoteDetails from '../../components/Details/DetailsStops';
 import DetailsInfo from '../../components/Details/DetailsInfo';
 import DetailsLuggage from '../../components/Details/DetailsLuggage';
 import DetailsReturnPolicy from '../../components/Details/DetailsReturnPolicy';
-import DetailsAmenities from '../../components/Details/DetailsAmenities';
-import DetailsDiscounts from '../../components/Details/DetailsDiscounts';
+ import DetailsDiscounts from '../../components/Details/DetailsDiscounts';
+ import DetailsAmenities from '../../components/Details/DetailsAmenities';
 
 export default function MobileDetails({
   handleSetCurretRoute,

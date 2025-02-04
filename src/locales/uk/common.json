@@ -71,5 +71,9 @@
   "travel_time": "Час в дорозі",
   "collapse_route": "Згорнути весь маршрут",
   "show_route": "Показати весь маршрут",
-  "collapse_details": "Згорнути подробиці"
+  "collapse_details": "Згорнути подробиці",
+  "no_travel_dates": "Подорожі у цю дату немає",
+  "something_happend": "Щось сталося",
+  "bus": "Автобус",
+  "discounts": "Знижки"
 }
