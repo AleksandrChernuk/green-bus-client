@@ -2,7 +2,7 @@ import SecondFooter from '@/components/modules/footer/SecondFooter';
 import CheckoutPage from '@/components/pages/CheckoutPage';
 import { cookies } from 'next/headers';
 
-export default async function Checkout() {
+export default async function NewOrder() {
   const cookieStore = await cookies();
 
   const adult = cookieStore.get('adult')?.value;

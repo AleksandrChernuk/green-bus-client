@@ -51,7 +51,7 @@ export const RouteCard = memo(({ element }: Props) => {
 
     setCookie('adult', adult);
     setCookie('children', children);
-    route.push(`/checkout`);
+    route.push('/new-order');
   };
 
   const { t, i18n } = useTranslation();
