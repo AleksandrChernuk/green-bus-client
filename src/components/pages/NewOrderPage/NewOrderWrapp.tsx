@@ -4,7 +4,7 @@ import NewOrderPage from '.';
 import { unstable_noStore as noStore } from 'next/cache';
 
 export default async function NewOrderWrapp() {
-  noStore(); // Отключаем кеширование
+  noStore();  
 
   const cookieStore = cookies();
   const adult = (await cookieStore).get('adult')?.value;
