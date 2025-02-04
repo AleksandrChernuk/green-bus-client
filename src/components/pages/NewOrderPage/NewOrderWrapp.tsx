@@ -1,11 +1,15 @@
-import { getCookie } from 'cookies-next';
 import React from 'react';
 import { cookies } from 'next/headers';
 import NewOrderPage from '.';
+import { unstable_noStore as noStore } from 'next/cache';
 
 export default async function NewOrderWrapp() {
-  const adult = await getCookie('adult', { cookies });
-  const children = await getCookie('children', { cookies });
+  noStore(); // Отключаем кеширование
+
+  const cookieStore = cookies();
+  const adult = (await cookieStore).get('adult')?.value;
+  const children = (await cookieStore).get('children')?.value;
+
   console.log(adult);
   console.log(children);
 

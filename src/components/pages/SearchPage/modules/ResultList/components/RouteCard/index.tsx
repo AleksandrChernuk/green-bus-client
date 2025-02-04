@@ -49,8 +49,8 @@ export const RouteCard = memo(({ element }: Props) => {
       travelDate: date,
     });
 
-    setCookie('adult', adult, { httpOnly: true });
-    setCookie('children', children, { httpOnly: true });
+    setCookie('adult', adult);
+    setCookie('children', children);
     route.push('/new-order');
   };
 
