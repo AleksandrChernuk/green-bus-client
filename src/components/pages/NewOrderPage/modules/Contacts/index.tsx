@@ -11,7 +11,7 @@ export default function Contacts() {
 
   return (
     <div className='flex flex-col gap-4 tablet:flex-row'>
-      <div className='w-1/2'>
+      <div className='w-full tablet:w-1/2'>
         <FormField
           control={control}
           name={`email`}
@@ -27,7 +27,7 @@ export default function Contacts() {
         />
       </div>
 
-      <div className='w-1/2'>
+      <div className='w-full tablet:w-1/2'>
         <FormField
           control={control}
           name='phone'
