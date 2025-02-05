@@ -8,7 +8,6 @@ import { useTranslation } from 'react-i18next';
 import { CustomCard } from '@/components/shared/CustomCard';
 import { Route } from './components/Route';
 import { useCurrentRouteStore } from '@/store/useCurrentRoute';
-import { useRouter } from 'next/navigation';
 import { LoaderCircle } from 'lucide-react';
 import { useSearchStore } from '@/store/useSearch';
 import { useSetCookie } from 'cookies-next';
@@ -26,8 +25,6 @@ export const RouteCard = memo(({ element }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
   const setCookie = useSetCookie();
-
-  const route = useRouter();
 
   const setCurrentRoute = useCurrentRouteStore((state) => state.setCurrentRoute);
 
