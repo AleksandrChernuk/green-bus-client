@@ -45,8 +45,6 @@ export const RouteCard = memo(({ element }: Props) => {
       passCount: adult + children,
       travelDate: date,
     });
-
-    // route.push('/new-order', { scroll: true });
   };
 
   const { t, i18n } = useTranslation();
