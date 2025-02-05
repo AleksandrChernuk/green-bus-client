@@ -11,7 +11,7 @@ import { useCurrentRouteStore } from '@/store/useCurrentRoute';
 import { useRouter } from 'next/navigation';
 import { LoaderCircle } from 'lucide-react';
 import { useSearchStore } from '@/store/useSearch';
-import { setCookie } from 'cookies-next';
+import { useSetCookie } from 'cookies-next';
 import { IconLoader } from '@/components/icons/IconLoader';
 import MobileDetails from '../../../MobileDetails';
 import DetailsOpenButton from '../../../../components/DetailsOpenButton';
@@ -24,6 +24,7 @@ type Props = {
 export const RouteCard = memo(({ element }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
+  const setCookie = useSetCookie();
 
   const route = useRouter();
 
