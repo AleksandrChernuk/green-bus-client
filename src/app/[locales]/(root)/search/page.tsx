@@ -1,7 +1,7 @@
 import SecondFooter from '@/components/modules/footer/SecondFooter';
  import SearchModule from '@/components/pages/SearchPage';
-// import SyncSearchParams from '@/components/shared/SyncSearchParams';
-import React from 'react';
+ 
+ 
 
 export default async function SearchPage() {
   return (
