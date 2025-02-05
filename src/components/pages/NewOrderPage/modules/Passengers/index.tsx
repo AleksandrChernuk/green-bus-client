@@ -31,7 +31,7 @@ export default function Passengers() {
             <CustomCard key={passenger.id} className='space-y-4 dark:bg-dark_mode_main1'>
               <div>{passenger.isChildren ? `${i + 1} Дитячий` : `${i + 1} Дорослий`}</div>
               <div className='flex flex-col gap-4 tablet:flex-row'>
-                <div className='w-1/2'>
+                <div className='w-full tablet:w-1/2'>
                   <FormField
                     control={control}
                     name={`passengers.${i}.name`}
@@ -61,7 +61,7 @@ export default function Passengers() {
                   />
                 </div>
 
-                <div className='w-1/2'>
+                <div className='w-full tablet:w-1/2'>
                   <FormField
                     control={control}
                     name={`passengers.${i}.surname`}
@@ -79,7 +79,7 @@ export default function Passengers() {
               </div>
 
               <div className='flex flex-col gap-4 tablet:flex-row'>
-                <div className='w-1/2'>
+                <div className='w-full tablet:w-1/2'>
                   <FormField
                     control={control}
                     name={`passengers.${i}.notes`}
@@ -95,7 +95,7 @@ export default function Passengers() {
                   />
                 </div>
 
-                <div className='w-1/2'>
+                <div className='w-full tablet:w-1/2'>
                   <FormField
                     control={control}
                     name={`passengers.${i}.birthday`}
