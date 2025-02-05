@@ -1,11 +1,12 @@
 import { Noto_Sans, Mulish } from "next/font/google";
 
 import '@/styles/globals.css';
+import i18NextConfig from '@/i18next.config';
 import initTranslations from '../i18n';
 import TranslationsProvider from '@/providers/TranslationsProvider';
 import ThemeProvider from '@/providers/ThemeProvider';
 import ReactQueryContext from '@/providers/ReactQueryProvider';
-
+  
 const noto_sans = Noto_Sans({
   variable: '--font-geist-sans',
   subsets: ['latin', 'cyrillic'],
@@ -20,9 +21,10 @@ const mulish = Mulish({
 });
 
 export function generateStaticParams() {
-  return ['ru-RU', 'uk-UA', 'en-US'].map((locale) => ({ locale }));
+  return i18NextConfig.i18n.locales.map((locale) => ({ locale }));
 }
- 
+
+
 
 
 const i18nNamespaces = ['common'];
