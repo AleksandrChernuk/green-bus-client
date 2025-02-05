@@ -53,7 +53,7 @@ export const MobileDate = memo(() => {
           {t('backBtn')}
         </DrawerClose>
       </div>
-      <ScrollArea className='relative grow px-5 pb-5 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
+      <ScrollArea className='relative px-5 pb-5 overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
         <div className='sticky top-0 left-0 right-0 z-50 '>
           <div className='flex items-center justify-between w-full py-6 bg-grayy dark:bg-background_black_mode'>
             <h3 className='grow h3 text-text_prymery_color'>{t('date_picker_title')}</h3>

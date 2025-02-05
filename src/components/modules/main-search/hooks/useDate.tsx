@@ -2,8 +2,8 @@
 
 import { useCallback, useRef } from 'react';
 import { format } from 'date-fns';
-import { useSearchStore } from '@/store/useSearch';
 import useToggleOpen from '@/hooks/useToggleOpen';
+import { useSearchStore } from '@/store/useSearch';
 
 export const useDate = () => {
   const { open, handleSetOpen, handleToggleOpen } = useToggleOpen();

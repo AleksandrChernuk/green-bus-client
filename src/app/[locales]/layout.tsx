@@ -6,7 +6,7 @@ import initTranslations from "../i18n";
 import TranslationsProvider from "@/providers/TranslationsProvider";
 import ThemeProvider from "@/providers/ThemeProvider";
 import ReactQueryContext from '@/providers/ReactQueryProvider';
- 
+  
 const noto_sans = Noto_Sans({
   variable: '--font-geist-sans',
   subsets: ['latin', 'cyrillic'],

@@ -8,12 +8,12 @@ import { memo } from "react";
 import { useCitySearch } from "../../hooks/useCitySearch";
 import { ScrollArea } from "@radix-ui/react-scroll-area";
 import { EndIcon, StartIcon, InputError } from '../../ui';
-import { useSearchStore } from '@/store/useSearch';
 import { CustomDarwer } from '@/components/shared/CustomDarwer';
 import { DrawerClose } from '@/components/ui/drawer';
 import { IconBack } from '@/components/icons/IconBack';
 import { useTranslation } from 'react-i18next';
-
+import { useSearchStore } from '@/store/useSearch';
+ 
 const ClearButton = ({ handleClear }: { handleClear: () => void }) => {
   return (
     <div
@@ -76,7 +76,7 @@ export const MobCitySeacrh = memo(({ name }: { name: 'from' | 'to' }) => {
           {t('backBtn')}
         </DrawerClose>
       </div>
-      <ScrollArea className='relative grow px-5 overflow-y-scroll bg-grayy dark:bg-background_black_mode'>
+      <ScrollArea className='relative px-5 overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
         <div className='sticky top-0 left-0 right-0 h-12 '>
           <div className='relative py-4 bg-grayy dark:bg-background_black_mode'>
             <input

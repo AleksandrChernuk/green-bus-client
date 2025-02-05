@@ -5,10 +5,10 @@ import { IconFrom } from "@/components/icons/IconFrom";
 import { IconTo } from "@/components/icons/IconTo";
 import { IconSwap } from "@/components/icons/IconSwap";
 import { useCitySearch } from "../../hooks/useCitySearch";
-import { InputError, EndIcon, StartIcon, DropdownWrapper } from "../../ui";
-import { useSearchStore } from '@/store/useSearch';
+import { InputError, EndIcon, StartIcon, DropdownWrapper } from '../../ui';
 import { useTranslation } from 'react-i18next';
-
+import { useSearchStore } from '@/store/useSearch';
+ 
 export const DesctopCitySearch = memo(({ name }: { name: 'from' | 'to' }) => {
   const { t } = useTranslation(['common']);
 

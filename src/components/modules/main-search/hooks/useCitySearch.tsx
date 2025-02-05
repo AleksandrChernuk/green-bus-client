@@ -7,10 +7,10 @@ import { CityItem } from "../components/CitySearch/CityItem";
 import { extractLocationDetails } from "@/lib/extractLocationDetails";
 import { NotFoundCity } from "../components/CitySearch/NotFoundCity";
 import useDebounce from "./useDebounce";
-import { useLocationsQuery } from "./useLocationsQuery";
-import { useSearchStore } from '@/store/useSearch';
-import { useTranslation } from "react-i18next";
+import { useLocationsQuery } from './useLocationsQuery';
+import { useTranslation } from 'react-i18next';
 import useToggleOpen from '@/hooks/useToggleOpen';
+import { useSearchStore } from '@/store/useSearch';
 
 type Tname = 'from' | 'to';
 

@@ -11,8 +11,8 @@ export type Terrors = {
 
 export type SearchState = {
   isHydrated: boolean;
-  from?: ILocation;
-  to?: ILocation;
+  from: ILocation | null;
+  to: ILocation | null;
   date: string;
   month: Date;
   adult: number;

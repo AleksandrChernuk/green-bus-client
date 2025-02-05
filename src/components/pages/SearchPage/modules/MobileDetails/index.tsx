@@ -15,6 +15,7 @@ import DetailsLuggage from '../../components/Details/DetailsLuggage';
 import DetailsReturnPolicy from '../../components/Details/DetailsReturnPolicy';
  import DetailsDiscounts from '../../components/Details/DetailsDiscounts';
  import DetailsAmenities from '../../components/Details/DetailsAmenities';
+import Link from 'next/link';
 
 export default function MobileDetails({
   handleSetCurretRoute,
@@ -38,10 +39,11 @@ export default function MobileDetails({
       trigger={
         <Button
           variant={'link'}
+          asChild
           className='items-center justify-center text-xs font-bold'
           onClick={handleSetCurretRoute}
         >
-          {t('details')}
+          <Link href={'/new-order'}> {t('details')}</Link>
         </Button>
       }
     >
@@ -56,13 +58,13 @@ export default function MobileDetails({
           </Button>
         </DrawerClose>
       </div>
-      <ScrollArea className='relative px-5   overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
+      <ScrollArea className='relative px-5 overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
         {loadingDetails ? (
           <div className='flex items-center justify-center gap-1 body_medium text-text_prymery_color tablet:min-w-[397px] py-4'>
             <IconLoader />
           </div>
         ) : (
-          <div className='space-y-8 my-6'>
+          <div className='my-6 space-y-8'>
             <div className='space-y-4'>
               <DetailsInfo />
               <RoteDetails />

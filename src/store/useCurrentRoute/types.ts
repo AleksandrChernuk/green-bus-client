@@ -3,6 +3,7 @@ import { IRouteResponse } from '@/types/route.types';
 export type CurrentRouteState = {
   сurrentRoute: IRouteResponse | null;
   loadingDetails?: boolean;
+  isHydrated: boolean;
 };
 
 export type SetCurrentRoute = {
@@ -11,7 +12,7 @@ export type SetCurrentRoute = {
   passCount?: number;
   fromCityId?: number;
   toCityId?: number;
-  travelDate?:string
+  travelDate?: string;
 };
 
 export type CurrentRouteActions = {

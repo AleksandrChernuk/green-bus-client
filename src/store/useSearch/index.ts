@@ -3,7 +3,6 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import { devtools } from 'zustand/middleware';
 import { immer } from 'zustand/middleware/immer';
-
 import { SearchStore } from './types';
 
 export const useSearchStore = create<SearchStore>()(
@@ -11,6 +10,8 @@ export const useSearchStore = create<SearchStore>()(
     immer(
       persist(
         (set, get) => ({
+          from: null,
+          to: null,
           isHydrated: false,
           date: format(new Date(), 'yyyy-MM-dd'),
           month: new Date(),

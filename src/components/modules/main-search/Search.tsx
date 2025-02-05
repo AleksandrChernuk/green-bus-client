@@ -10,13 +10,13 @@ import { MobCitySeacrh } from "./components/CitySearch/MobileCitySearch";
 import { DesctopCitySearch } from "./components/CitySearch/DesctopCitySearch";
 import { useRouter } from "next/navigation";
 
-import { z } from "zod";
-import { useSearchStore } from '@/store/useSearch';
+import { z } from 'zod';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useSearchStore } from '@/store/useSearch';
 
 export const formSchema = z.object({
-  from: z.object({}, { message: "required" }),
-  to: z.object({}, { message: "required" }),
+  from: z.object({}, { message: 'required' }),
+  to: z.object({}, { message: 'required' }),
 });
 
 const Search = () => {
@@ -25,9 +25,9 @@ const Search = () => {
   const route = useRouter();
 
   const handleSubmit = () => {
-    setIsSubmitting(true);
-    const { from, to, date, adult, children, setErrors } = useSearchStore.getState();
+    const { to, from, adult, children, date, setErrors } = useSearchStore.getState();
 
+    setIsSubmitting(true);
     const validationResult = formSchema.safeParse({ from, to });
 
     if (!validationResult.success) {

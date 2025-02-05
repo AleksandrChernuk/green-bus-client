@@ -39,8 +39,6 @@ export const getStopsProcessor = (route: IRouteResponse) => {
         );
         const endIdx = stops.findIndex((el) => el.station.id === `${route?.arrival?.station_id}`);
 
-        console.log(route);
-
         return stops
           .map((el) => ({ ...el, arrival_date_time: el.departure_date_time }))
           .slice(startIdx === -1 ? 0 : startIdx, endIdx == -1 ? stops.length - 1 : endIdx + 1);

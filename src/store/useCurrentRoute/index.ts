@@ -12,6 +12,7 @@ export const useCurrentRouteStore = create<CurrentRouteStore>()(
       persist(
         (set) => ({
           сurrentRoute: null,
+          isHydrated: false,
 
           setCurrentRoute: async ({
             route,
@@ -82,6 +83,11 @@ export const useCurrentRouteStore = create<CurrentRouteStore>()(
         }),
         {
           name: 'current-route',
+          onRehydrateStorage: () => (state) => {
+            if (state) {
+              state.isHydrated = true;
+            }
+          },
         }
       )
     )

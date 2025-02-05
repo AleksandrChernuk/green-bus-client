@@ -13,7 +13,7 @@ export default function useSearchResult() {
   const from = useSearchStore(useShallow((state) => state.from));
   const to = useSearchStore(useShallow((state) => state.to));
   const date = useSearchStore(useShallow((state) => state.date));
-   const { i18n } = useTranslation();
+  const { i18n } = useTranslation();
 
   const { isFetching, data, error } = useQuery({
     queryKey: ['routes-search', from?.id, to?.id, date, i18n.language],
