@@ -10,7 +10,6 @@ import { Route } from './components/Route';
 import { useCurrentRouteStore } from '@/store/useCurrentRoute';
 import { LoaderCircle } from 'lucide-react';
 import { useSearchStore } from '@/store/useSearch';
-import { useSetCookie } from 'cookies-next';
 import { IconLoader } from '@/components/icons/IconLoader';
 import MobileDetails from '../../../MobileDetails';
 import DetailsOpenButton from '../../../../components/DetailsOpenButton';
@@ -24,7 +23,6 @@ type Props = {
 export const RouteCard = memo(({ element }: Props) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
-  const setCookie = useSetCookie();
 
   const setCurrentRoute = useCurrentRouteStore((state) => state.setCurrentRoute);
 
@@ -48,8 +46,6 @@ export const RouteCard = memo(({ element }: Props) => {
       travelDate: date,
     });
 
-    setCookie('adult', adult);
-    setCookie('children', children);
     // route.push('/new-order', { scroll: true });
   };
 
