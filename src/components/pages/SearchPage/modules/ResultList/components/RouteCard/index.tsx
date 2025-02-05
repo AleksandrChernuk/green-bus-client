@@ -44,7 +44,7 @@ import CardDetails from './components/CardDetails';
         passCount: adult + children,
         travelDate: date,
       });
-      router.push(`/new-order?adult=${adult}&children=${children}`);
+      router.push(`/${i18n.language}/new-order?adult=${adult}&children=${children}`);
     };
 
     const { t, i18n } = useTranslation();

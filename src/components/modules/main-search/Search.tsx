@@ -13,6 +13,7 @@ import { useRouter } from "next/navigation";
 import { z } from 'zod';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useSearchStore } from '@/store/useSearch';
+import { useTranslation } from 'react-i18next';
 
 export const formSchema = z.object({
   from: z.object({}, { message: 'required' }),
@@ -22,6 +23,7 @@ export const formSchema = z.object({
 const Search = () => {
   const matches = useMediaQuery('(max-width: 767px)');
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const { i18n } = useTranslation();
   const route = useRouter();
 
   const handleSubmit = () => {
@@ -40,7 +42,7 @@ const Search = () => {
       return;
     }
     route.push(
-      `/search?from=${from?.id}&to=${to?.id}&date=${date}&adult=${adult}&children=${children}`
+      `/${i18n.language}/search?from=${from?.id}&to=${to?.id}&date=${date}&adult=${adult}&children=${children}`
     );
     setIsSubmitting(false);
   };
