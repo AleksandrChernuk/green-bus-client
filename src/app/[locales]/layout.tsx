@@ -1,7 +1,6 @@
 import { Noto_Sans, Mulish } from "next/font/google";
 
 import '@/styles/globals.css';
-import i18NextConfig from '@/i18next.config';
 import initTranslations from '../i18n';
 import TranslationsProvider from '@/providers/TranslationsProvider';
 import ThemeProvider from '@/providers/ThemeProvider';
@@ -20,14 +19,14 @@ const mulish = Mulish({
   display: 'swap',
 });
 
-export function generateStaticParams() {
-  return i18NextConfig.i18n.locales.map((locale) => ({ locale }));
-}
+// export function generateStaticParams() {
+//   return i18NextConfig.i18n.locales.map((locale) => ({ locale }));
+// }
 
 
 
 
-const i18nNamespaces = ['common'];
+// const i18nNamespaces = ['common'];
 
 export default async function RootLayout({
   children,
@@ -37,11 +36,11 @@ export default async function RootLayout({
   params: Promise<{ locales: string }>;
 }) {
   const { locales } = await params;
-  const { resources } = await initTranslations(locales, i18nNamespaces);
+  const { resources } = await initTranslations(locales, ['common']);
 
   return (
     <html lang={locales} suppressHydrationWarning>
-      <TranslationsProvider namespaces={i18nNamespaces} locale={locales} resources={resources}>
+      <TranslationsProvider namespaces={['common']} locale={locales} resources={resources}>
         <body className={`${noto_sans.variable} ${mulish.variable} antialiased`}>
           <ThemeProvider
             attribute='class'
