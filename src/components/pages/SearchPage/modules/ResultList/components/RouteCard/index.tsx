@@ -16,6 +16,7 @@ import { IconLoader } from '@/components/icons/IconLoader';
 import MobileDetails from '../../../MobileDetails';
 import DetailsOpenButton from '../../../../components/DetailsOpenButton';
 import CardDetails from './components/CardDetails';
+import Link from 'next/link';
 
 type Props = {
   element: IRouteResponse;
@@ -50,9 +51,9 @@ export const RouteCard = memo(({ element }: Props) => {
       travelDate: date,
     });
 
-    setCookie('adult', adult, { maxAge: 600, sameSite: 'none' });
-    setCookie('children', children, { maxAge: 600, sameSite: 'none' });
-    route.push('/new-order');
+    setCookie('adult', adult);
+    setCookie('children', children);
+    // route.push('/new-order', { scroll: true });
   };
 
   const { t, i18n } = useTranslation();
@@ -82,12 +83,15 @@ export const RouteCard = memo(({ element }: Props) => {
 
             <Button
               variant={'default'}
+              asChild
               onClick={() => {
                 handleSelect();
               }}
               className='px-3 py-2 tablet:py-3 tablet:px-4 laptop:py-[14px] laptop:px-[24px]  min-w-[108px] tablet:min-w-[205px] samll_button tablet:h5 max-h-[26.41px]  tablet:max-h-[44px]  laptop:max-h-[48px] rounded-full'
             >
-              {loading ? <LoaderCircle className='animate-spin' /> : t('selectButton')}
+              <Link href={'/new-order'}>
+                {loading ? <LoaderCircle className='animate-spin' /> : t('selectButton')}
+              </Link>
             </Button>
           </div>
         </div>
