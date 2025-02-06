@@ -39,7 +39,7 @@ export const Information = () => {
    const { locale } = useDateLocale();
 
    return (
-     <CustomCard className='sticky top-0 left-0 z-50 p-5 space-y-4 shadow-xl'>
+     <CustomCard className='p-5 space-y-4 shadow-xl '>
        <div className='flex items-center justify-between'>
          <h3 className='h3 laptop:h1 text-text_prymery_color first-letter:uppercase'>
            {format(toDate(date), 'eee ,d MMM', { locale })}
