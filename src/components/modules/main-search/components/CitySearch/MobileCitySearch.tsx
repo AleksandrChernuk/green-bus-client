@@ -57,7 +57,7 @@ export const MobCitySeacrh = memo(({ name }: { name: 'from' | 'to' }) => {
           <input
             type='button'
             value={placeholder}
-            className={`${errors && 'border-red'} text-text_prymery_color z-0 min-h-10 rounded-md size-full h-auto px-4 py-2 pl-8 tablet:px-9 laptop:px-12 tablet:py-4 outline-hidden bg-transparent focus:bg-gray_1 active:bg-gray_1 dark:focus:bg-black_2_for_text dark:active:bg-black_2_for_text placeholder-text_prymery_color  body_medium laptop:filter_input_medium_text  text-left text-nowrap truncate border-[1px] border-transparent`}
+            className={`${errors && 'border-red'} text-text_prymery_color z-0 min-h-10 rounded-md size-full h-auto px-4 py-2 pl-8 tablet:px-9 laptop:px-12 tablet:py-4 outline-hidden bg-transparent focus:bg-gray_1 active:bg-gray_1 dark:focus:bg-black_2_for_text dark:active:bg-black_2_for_text placeholder-text_prymery_color  body_medium laptop:filter_input_medium_text  text-left text-nowrap truncate border-[1px] border-transparent `}
             onFocus={() => {
               if (errors) {
                 setErrors(name, null);
@@ -89,7 +89,7 @@ export const MobCitySeacrh = memo(({ name }: { name: 'from' | 'to' }) => {
               autoComplete='off'
               autoCapitalize='off'
               spellCheck='false'
-              className='p-4 pr-10 h-full w-full bg-white dark:bg-dark_mode_main1 rounded-lg border-[1px] border-black_2_for_text focus:border-primary_1 outline-primary_1 placeholder:italic'
+              className='text-text_prymery_color placeholder-text_prymery_color p-4 pr-10 h-full w-full bg-white dark:bg-dark_mode_main1 rounded-lg border-[1px] border-black_2_for_text focus:border-primary_1 outline-primary_1 placeholder:italic'
             />
             <ClearButton handleClear={handleClearMobileInput} />
           </div>

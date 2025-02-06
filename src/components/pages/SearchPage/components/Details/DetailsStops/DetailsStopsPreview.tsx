@@ -6,7 +6,9 @@ import { useTranslation } from 'react-i18next';
 
 export default function DetailsStopsPreview() {
   const сurrentRoute = useCurrentRouteStore((state) => state.сurrentRoute);
+  console.log(сurrentRoute);
   const { i18n } = useTranslation();
+  console.log(сurrentRoute?.arrival.date_time);
   return (
     <>
       <div className={`relative flex items-start justify-start  `}>
@@ -15,8 +17,9 @@ export default function DetailsStopsPreview() {
         </span>
 
         <div
-          className={`relative after:content-[''] before:absolute after:rounded-full before:border-[2px] before:border-blackmode before:bg-white dark:before:bg-dark_mode_main1 tablet:dark:before:bg-background_black_mode before:w-4 before:h-4 before:top-0 before:-left-[19px] before:-translate-x-1/2 before:rounded-full before:z-20`}
+          className={`relative after:content-[''] before:absolute after:rounded-full before:border-[2px] before:border-blackmode    before:bg-white dark:before:bg-dark_mode_main1 tablet:dark:before:bg-background_black_mode before:w-4 before:h-4 before:top-0 before:-left-[19px] before:-translate-x-1/2 before:rounded-full before:z-20`}
           // className='details_stops_item'
+          //bg-grayy dark:bg-background_black_mode
         >
           <LocationDisplay
             variant='mobile'
@@ -31,7 +34,7 @@ export default function DetailsStopsPreview() {
         </div>
       </div>
       <div
-        className={`relative flex items-start justify-start  overflow-hidden z-10 bg-white dark:bg-background_black_mode tablet:dark:bg-card_bg_primery'}`}
+        className={`relative flex items-start justify-start  overflow-hidden z-10 bg-grayy tablet:bg-white dark:bg-background_black_mode tablet:dark:bg-card_bg_primery'}`}
       >
         <span className={`button_mobile text-text_prymery_color mr-9 min-w-[40px] max-w-[40px]`}>
           {format(parseISO(сurrentRoute?.arrival.date_time || ''), 'HH:mm')}

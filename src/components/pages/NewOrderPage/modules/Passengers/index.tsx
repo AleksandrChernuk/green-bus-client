@@ -17,8 +17,8 @@ export default function Passengers() {
   });
 
   return (
-    <ul>
-      <li>
+    <ul className='space-y-2'>
+      <li className='flex items-center gap-2 '>
         <div className='w-10 h-10 p-2 font-bold text-center text-white rounded-xl bg-primary'>
           1
         </div>

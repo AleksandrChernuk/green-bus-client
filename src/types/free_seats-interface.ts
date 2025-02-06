@@ -1,4 +1,5 @@
 export interface IFreeSeats {
-  seat_number: number | null;
-  seat_id: number | null;
+  seat_coords: string | null;
+  seat_number: string | null;
+  seat_id: string | null;
 }

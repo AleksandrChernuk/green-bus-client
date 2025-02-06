@@ -5,5 +5,10 @@
   "sort_buy_time_on_road": "Shortest journey",
   "resul_count": "results",
   "collapse_route": "Згорнути весь маршрут",
-  "show_route": "Show the entire route"
+  "show_route": "Show the entire route",
+  "amenities": "Amenities",
+  "return_policy": "Return policy",
+  "luggage": "Luggage",
+  "organized_transfer": "Organized transfer",
+  "places": "Places"
 }

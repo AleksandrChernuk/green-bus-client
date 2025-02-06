@@ -137,7 +137,7 @@
 }
 
 @utility h6 {
-  @apply text-base font-bold tracking-normal leading-[18px];
+  @apply text-sm font-bold tracking-normal leading-[18px];
 }
 
 @utility main_text_body {

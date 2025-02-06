@@ -13,7 +13,7 @@ import { Separator } from '@radix-ui/react-dropdown-menu';
 export const DesktopPassengers = memo(() => {
   const { open, handleToggleOpen, handleBlur } = usePassengers();
 
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation();
 
   const adult = useSearchStore(useShallow((state) => state.adult));
   const children = useSearchStore(useShallow((state) => state.children));

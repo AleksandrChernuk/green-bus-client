@@ -7,12 +7,13 @@ import { IFreeSeats } from './free_seats-interface';
 import { ITranstempoSeat } from './seat_transtempo-interface';
 
 export interface IGetRouteDetailsBody {
+  routeId: string;
+  intervalId: string; // Для EWE обязательно передать этот параметр!
   fromCityId: number;
   toCityId: number;
   fromStationId: number;
   toStationId: number;
   providerId: string;
-  routeId: string;
   travelDate: string;
   locale: string;
   passengersCount: number;

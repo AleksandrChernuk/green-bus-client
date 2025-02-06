@@ -52,7 +52,7 @@ export const MobilePassengers = memo(() => {
         </DrawerClose>
       </div>
       <ScrollArea className='relative px-5 pt-4 overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
-        <h3 className='mb-6 h3 text-text_prymery_color'> {t('placeholderPassengers')}</h3>
+        <h3 className='mb-6 h4 text-text_prymery_color'> {t('placeholderPassengers')}</h3>
         <div>
           <PassengersButton type='adult' value={adult} />
           <Separator className='h-[1px] my-4 rounded-lg bg-gray_0 dark:bg-black_2_for_text' />

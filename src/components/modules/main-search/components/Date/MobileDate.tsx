@@ -23,7 +23,7 @@ export const MobileDate = memo(() => {
   const { locale } = useDateLocale();
 
   const currentDate = useSearchStore(useShallow((state) => state.date));
-  const month = useSearchStore(useShallow((state) => state.month));
+  const month = useSearchStore((state) => state.month);
   const incrementMonth = useSearchStore((state) => state.incrementMonth);
   const decrementMonth = useSearchStore((state) => state.decrementMonth);
   const setMonth = useSearchStore((state) => state.setMonth);
@@ -53,10 +53,10 @@ export const MobileDate = memo(() => {
           {t('backBtn')}
         </DrawerClose>
       </div>
-      <ScrollArea className='relative px-5 pb-5 overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
-        <div className='sticky top-0 left-0 right-0 z-50 '>
+      <ScrollArea className='relative pb-5 overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
+        <div className='sticky top-0 left-0 right-0 z-50 px-5'>
           <div className='flex items-center justify-between w-full py-6 bg-grayy dark:bg-background_black_mode'>
-            <h3 className='grow h3 text-text_prymery_color'>{t('date_picker_title')}</h3>
+            <h3 className='grow h4 text-text_prymery_color'>{t('date_picker_title')}</h3>
             <div className='flex items-center justify-end gap-2'>
               <Button
                 className='w-8 h-8'
@@ -73,35 +73,38 @@ export const MobileDate = memo(() => {
             </div>
           </div>
         </div>
-        <Calendar
-          mode='single'
-          month={month}
-          selected={currentDate ? toDate(currentDate) : toDate(new Date())}
-          today={currentDate ? toDate(currentDate) : toDate(new Date())}
-          onSelect={(value) => {
-            if (value) {
-              setMonth(toDate(value));
-            }
-            handleSelectDate(value || new Date());
-          }}
-          disabled={{ before: new Date() }}
-          className='rounded-none'
-          classNames={{
-            row: 'flex w-full items-center justify-between mt-2 gap-2',
-            head_row: 'flex w-full items-center justify-between gap-1 mobile:gap-2',
-            months: 'flex flex-col gap-4',
-            nav_button_previous: 'hidden',
-            nav_button_next: 'hidden',
-            cell: 'h-9 w-9 rounded-full text-center text-base p-0 relative flex justify-center items-center [&:has([aria-selected])]:bg-transporante &:has([aria-selected])]:dark:text-gray_1 dark:text-gray_1  hover:bg-primary_1 hover:text-white   focus-within:relative focus-within:z-20',
+        <div className='px-5 my-5'>
+          <Calendar
+            mode='single'
+            month={month}
+            disableNavigation
+            selected={currentDate ? toDate(currentDate) : toDate(new Date())}
+            today={currentDate ? toDate(currentDate) : toDate(new Date())}
+            onSelect={(value) => {
+              if (value) {
+                setMonth(toDate(value));
+              }
+              handleSelectDate(value || new Date());
+            }}
+            disabled={{ before: new Date() }}
+            className='rounded-none'
+            classNames={{
+              row: 'flex w-full items-center justify-between mt-2 gap-2',
+              head_row: 'flex w-full items-center justify-between gap-1 mobile:gap-2',
+              months: 'flex flex-col gap-4',
+              nav_button_previous: 'hidden',
+              nav_button_next: 'hidden',
+              cell: 'h-9 w-9 rounded-full text-center text-base p-0 relative flex justify-center items-center [&:has([aria-selected])]:bg-transporante &:has([aria-selected])]:dark:text-gray_1 dark:text-gray_1  hover:bg-primary_1 hover:text-white   focus-within:relative focus-within:z-20',
 
-            day: 'rounded-full h-9 w-9 p-0 text-sm font-medium tracking-normal leading-[21.6px]	aria-selected:opacity-100 hover:bg-primary_1 hover:text-white ',
+              day: 'rounded-full h-9 w-9 p-0 text-sm font-medium tracking-normal leading-[21.6px]	aria-selected:opacity-100 hover:bg-primary_1 hover:text-white ',
 
-            caption:
-              'flex justify-start relative items-center mb-4 text-sm text-black_2_for_text dark:text-grayy font-medium',
-          }}
-          numberOfMonths={3}
-          locale={locale}
-        />
+              caption:
+                'flex justify-start relative items-center mb-4 text-sm text-black_2_for_text dark:text-grayy font-medium',
+            }}
+            numberOfMonths={3}
+            locale={locale}
+          />
+        </div>
       </ScrollArea>
     </CustomDarwer>
   );

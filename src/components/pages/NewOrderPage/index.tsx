@@ -35,7 +35,7 @@ export default function NewOrderPage() {
         </div>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div className='grid grid-cols-1 laptop:grid-cols-[minmax(0,766px)_1fr] w-full relative'>
+          <div className='grid grid-cols-1 laptop:grid-cols-[minmax(0,766px)_1fr] w-full relative gap-4'>
             <div className='space-y-8 laptop:col-span-1'>
               <FormProvider {...methods}>
                 <Passengers />
@@ -45,7 +45,7 @@ export default function NewOrderPage() {
                 </CheckoutCard>
               </FormProvider>
             </div>
-            <div className='laptop:col-span-1 laptop:justify-self-end laptop:w-[542px] '>
+            <div className='laptop:col-span-1 laptop:justify-self-end laptop:w-[542px] space-y-4'>
               <CheckoutCard title='Your booking'>
                 <Trip />
               </CheckoutCard>

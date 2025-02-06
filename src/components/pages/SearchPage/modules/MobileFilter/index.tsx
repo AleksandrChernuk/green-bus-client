@@ -25,8 +25,8 @@ export const MobileFilter = () => {
         setOpen((p) => !p);
       }}
       trigger={
-        <Button variant={'outline'} className='p-2 rounded-lg'>
-          <SlidersHorizontal color='#098537' size={16} />
+        <Button variant={'outline'} className='p-2 rounded-lg border-primary'>
+          <SlidersHorizontal color='#098537' size={24} />
         </Button>
       }
     >
@@ -41,7 +41,7 @@ export const MobileFilter = () => {
           </Button>
         </DrawerClose>
       </div>
-      <ScrollArea className='relative px-5 pt-6 overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
+      <ScrollArea className='relative px-5 my-6 overflow-y-scroll grow bg-grayy dark:bg-background_black_mode'>
         <ul>
           <li>
             <h5 className='mb-4 h5 text-text_prymery_color'>{t('sort_by')}:</h5>

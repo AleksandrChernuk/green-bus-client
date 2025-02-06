@@ -45,7 +45,18 @@ export const getStopsProcessor = (route: IRouteResponse) => {
       };
 
     case 'TransTempo':
-      return (stops: IStops[]) => stops;
+      return (stops: IStops[]) => {
+        const startIdx = stops.findIndex(
+        (el) => el.location.id === `${route?.details?.providerLocationFrom}`
+      );
+      const endIdx = stops.findIndex(
+        (el) => el.location.id === `${route?.details?.providerLocationTo}`
+      );
+
+      return stops
+        .map((el) => ({ ...el, arrival_date_time: el.departure_date_time }))
+          .slice(startIdx === -1 ? 0 : startIdx, endIdx == -1 ? stops.length - 1 : endIdx + 1)
+      };
 
     case 'EuroClub':
       return (stops: IStops[]) => {
@@ -56,6 +67,20 @@ export const getStopsProcessor = (route: IRouteResponse) => {
           arrival_date_time:
             el.arrival_date_time === '' ? el.departure_date_time : el.arrival_date_time,
         }));
+      };
+
+    case 'EWE':
+      return (stops: IStops[]) => {
+        const startIdx = stops.findIndex(
+          (el) => el.location.id === `${route?.details?.providerLocationFrom}`
+        );
+        const endIdx = stops.findIndex(
+          (el) => el.location.id === `${route?.details?.providerLocationTo}`
+        );
+
+        return stops
+          .map((el) => ({ ...el, arrival_date_time: el.departure_date_time }))
+          .slice(startIdx === -1 ? 0 : startIdx, endIdx == -1 ? stops.length - 1 : endIdx + 1);
       };
 
     default:

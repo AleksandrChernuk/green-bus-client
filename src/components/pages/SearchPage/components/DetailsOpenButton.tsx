@@ -17,7 +17,7 @@ export default function DetailsOpenButton({ isOpen, children, onClick }: Props) 
           onClick();
         }
       }}
-      className='flex items-center gap-px p-0 text-primary_1 button_underline_bolt_text text-nowrap self-end'
+      className='flex items-center self-end gap-px p-0 underline text-primary_1 samll_button text-nowrap'
     >
       <span>{children}</span>
       <ChevronDown

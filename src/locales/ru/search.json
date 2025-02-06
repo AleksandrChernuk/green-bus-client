@@ -5,5 +5,10 @@
   "sort_buy_time_on_road": "Короткий маршрут",
   "resul_count": "результатов",
   "collapse_route": "Свернуть весь маршрут",
-  "show_route": "Показать весь маршрут"
+  "show_route": "Показать весь маршрут",
+  "amenities": "Удобства",
+  "return_policy": "Политика возврата",
+  "luggage": "Багаж",
+  "organized_transfer": "Организованная пересадка",
+  "places": "Мест"
 }

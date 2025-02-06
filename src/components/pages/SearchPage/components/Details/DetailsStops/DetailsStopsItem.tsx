@@ -1,5 +1,7 @@
+'use client';
 import React from 'react';
 import { IStops } from '@/types/stops-interface';
+import { useTranslation } from 'react-i18next';
 
 type Props = {
   isFirst?: boolean;
@@ -7,12 +9,12 @@ type Props = {
   point: IStops;
 };
 
- 
-
 export default function DetailsStopsItem({ isFirst, isLast, point }: Props) {
+  const { t } = useTranslation(['search']);
+
   return (
     <div
-      className={`relative flex items-start justify-start  ${isLast && 'overflow-hidden z-10 bg-white dark:bg-dark_mode_main1 tablet:dark:bg-card_bg_primery'}`}
+      className={`relative flex items-start justify-start   ${isLast && 'overflow-hidden z-10 bg-grayy tablet:bg-white dark:bg-background_black_mode'}`}
     >
       <span
         className={`${isFirst || isLast ? 'button_mobile' : 'small_2_bolt_text'} text-text_prymery_color mr-9 min-w-[40px] max-w-[40px]`}
@@ -23,7 +25,7 @@ export default function DetailsStopsItem({ isFirst, isLast, point }: Props) {
       </span>
 
       <div
-        className={`details_stops_item ${isLast ? 'before:border-primary_1' : 'before:border-blackmode before:bg-white dark:before:bg-background_black_mode tablet:dark:before:bg-background_black_mode'} `}
+        className={`details_stops_item ${isLast ? 'before:border-primary_1' : 'before:border-blackmode before:bg-grayy dark:before:bg-background_black_mode'} `}
       >
         {isLast && (
           <span className='absolute w-[8px] h-[8px] rounded-full bg-primary_1 top-[4px] -left-[19px] -translate-x-1/2'></span>
@@ -40,7 +42,7 @@ export default function DetailsStopsItem({ isFirst, isLast, point }: Props) {
         </div>
         {!isLast && !isFirst && point.bus_changes && (
           <div className='p-1 my-0.5  text-white bg-red-500 text-xs  font-bold  rounded-lg text-center'>
-            Організована пересадка
+            {t('organized_transfer')}
           </div>
         )}
       </div>

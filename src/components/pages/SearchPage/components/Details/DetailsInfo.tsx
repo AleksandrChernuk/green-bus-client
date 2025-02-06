@@ -17,9 +17,9 @@ export default function DetailsInfo({ hasCardWrapp }: { hasCardWrapp?: boolean }
       className={`space-y-1 ${hasCardWrapp && 'p-4 tablet:p-6 bg-card_bg_primery shadow-(--shadow-custom) rounded-2xl'}`}
     >
       <div className='gap-2 flex_center'>
-        <h5 className='h5 text-text_prymery_color'>{t('route')}:</h5>
+        <h5 className='h6 text-text_prymery_color'>{t('route')}:</h5>
 
-        <div className='flex_center gap-1 text-primary_1 text-text-text_secondary_color text-[10px] mobile:small_text'>
+        <div className='flex_center gap-2 text-primary_1 text-text-text_secondary_color text-[10px] mobile:small_text'>
           {` ${format(сurrentRoute?.departure.date_time || new Date(), 'EEE dd')}, 
                   ${сurrentRoute && extractLocationDetails(сurrentRoute?.departure.fromLocation, i18n.language).locationName}`}
           <ChevronRight size={16} className='stroke-primary_1' />
