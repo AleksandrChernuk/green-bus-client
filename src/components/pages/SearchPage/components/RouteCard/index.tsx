@@ -119,7 +119,6 @@ export const RouteCard = memo(({ element }: Props) => {
 
           <div className='flex items-center justify-center ml-auto tablet:hidden'>
             <MobileDetails
-              handleSelect={handleSelect}
               handleSetCurretRoute={() => {
                 setCurrentRoute({
                   route: element,
