@@ -1,3 +1,5 @@
+'use client';
+
 /* eslint-disable react-hooks/exhaustive-deps */
 import { CheckoutSchema } from '@/schemas/checkout-form.shema';
 import { FormValues } from '@/types/checkout-from.types';
