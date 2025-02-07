@@ -5,7 +5,8 @@ import initTranslations from '../i18n';
 import TranslationsProvider from '@/providers/TranslationsProvider';
 import ThemeProvider from '@/providers/ThemeProvider';
 import ReactQueryContext from '@/providers/ReactQueryProvider';
-  
+import i18NextConfig from '@/i18next.config';
+
 const noto_sans = Noto_Sans({
   variable: '--font-geist-sans',
   subsets: ['latin', 'cyrillic'],
@@ -19,9 +20,9 @@ const mulish = Mulish({
   display: 'swap',
 });
 
-// export function generateStaticParams() {
-//   return i18NextConfig.i18n.locales.map((locale) => ({ locale }));
-// }
+export function generateStaticParams() {
+  return i18NextConfig.i18n.locales.map((locales) => ({ locales }));
+}
 
 const i18nNamespaces = ['common', 'search'];
 
@@ -36,7 +37,7 @@ export default async function RootLayout({
   console.log(locales);
   const { resources } = await initTranslations(locales, i18nNamespaces);
   return (
-    <TranslationsProvider namespaces={i18nNamespaces} locale={locales} resources={resources}>
+    <TranslationsProvider namespaces={i18nNamespaces} locales={locales} resources={resources}>
       <html lang={locales} suppressHydrationWarning>
         <body className={`${noto_sans.variable} ${mulish.variable} antialiased`}>
           <ThemeProvider
