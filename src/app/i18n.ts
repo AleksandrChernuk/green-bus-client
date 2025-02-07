@@ -6,7 +6,7 @@ import { initReactI18next } from 'react-i18next/initReactI18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
 
 export default async function initTranslations(
-  locale: string,
+  lang: string,
   namespaces: string[],
   i18nInstance?: i18n,
   resources?: any
@@ -18,14 +18,14 @@ export default async function initTranslations(
   if (!resources) {
     i18nInstance.use(
       resourcesToBackend(
-        (language: string, namespace: string) => import(`../locales/${language}/${namespace}.json`)
+        (language: string, namespace: string) => import(`../locales/${lang}/${namespace}.json`)
       )
     );
   }
 
   await i18nInstance.init({
-    // debug: process.env.NODE_ENV === 'development',
-    lng: locale,
+    debug: process.env.NODE_ENV === 'development',
+    lng: lang,
     resources,
     fallbackLng: i18NextConfig.defaultLocale,
     supportedLngs: i18NextConfig.locales,
@@ -33,9 +33,7 @@ export default async function initTranslations(
     fallbackNS: namespaces[0],
     ns: namespaces,
     preload: resources ? [] : i18NextConfig.locales,
-
-    // preload: resources ? [] : i18NextConfig.i18n.locales,
-    // load: 'all',
+    load: 'all',
   });
   return {
     i18n: i18nInstance,

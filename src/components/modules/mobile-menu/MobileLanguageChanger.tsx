@@ -52,7 +52,6 @@ export default function MobileLanguageChanger() {
     } else if (currentPathname) {
       const newPath = currentPathname.replace(`/${currentLocale}`, `/${value}`);
       router.push(newPath + query);
-      router.refresh();
     }
   };
   return (

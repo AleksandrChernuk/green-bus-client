@@ -13,6 +13,7 @@
 
  export default function SelectLocale() {
    const { i18n } = useTranslation();
+   console.log(i18n.language);
    const currentLocale = i18n.language;
    const router = useRouter();
    const currentPathname = usePathname();
