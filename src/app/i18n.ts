@@ -30,7 +30,7 @@ export default async function initTranslations(
     defaultNS: ns[0],
     fallbackNS: ns[0],
     preload: resources ? [] : i18NextConfig.i18n.locales,
-    // load: 'all',
+    load: 'all',
   });
 
   return {
