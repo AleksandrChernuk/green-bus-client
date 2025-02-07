@@ -6,7 +6,7 @@ import TranslationsProvider from '@/providers/TranslationsProvider';
 import ThemeProvider from '@/providers/ThemeProvider';
 import ReactQueryContext from '@/providers/ReactQueryProvider';
 import i18NextConfig from '@/i18next.config';
-
+ 
 const noto_sans = Noto_Sans({
   variable: '--font-geist-sans',
   subsets: ['latin', 'cyrillic'],
@@ -21,7 +21,7 @@ const mulish = Mulish({
 });
 
 export function generateStaticParams() {
-  return i18NextConfig.i18n.locales.map((locales) => ({ locales }));
+  return i18NextConfig.locales.map((locales) => ({ locales }));
 }
 
 const i18nNamespaces = ['common', 'search'];
@@ -34,22 +34,22 @@ export default async function RootLayout({
   params: Promise<{ locales: string }>;
 }) {
   const { locales } = await params;
-  console.log(locales);
   const { resources } = await initTranslations(locales, i18nNamespaces);
   return (
-    <TranslationsProvider namespaces={i18nNamespaces} locales={locales} resources={resources}>
-      <html lang={locales} suppressHydrationWarning>
-        <body className={`${noto_sans.variable} ${mulish.variable} antialiased`}>
-          <ThemeProvider
-            attribute='class'
-            defaultTheme='dark'
-            enableSystem
-            disableTransitionOnChange
-          >
-            <ReactQueryContext>{children}</ReactQueryContext>
-          </ThemeProvider>
-        </body>
-      </html>
-    </TranslationsProvider>
+    <html lang={locales} suppressHydrationWarning>
+      <body className={`${noto_sans.variable} ${mulish.variable} antialiased`}>
+        <ThemeProvider attribute='class' defaultTheme='dark' enableSystem disableTransitionOnChange>
+          <ReactQueryContext>
+            <TranslationsProvider
+              namespaces={i18nNamespaces}
+              locales={locales}
+              resources={resources}
+            >
+              {children}
+            </TranslationsProvider>
+          </ReactQueryContext>
+        </ThemeProvider>
+      </body>
+    </html>
   );
 }

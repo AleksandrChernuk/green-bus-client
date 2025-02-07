@@ -47,11 +47,12 @@ export default function MobileLanguageChanger() {
     const queryString = searchParams?.toString();
     const query = queryString ? `?${queryString}` : '';
 
-    if (currentLocale === i18NextConfig.i18n.defaultLocale) {
+    if (currentLocale === i18NextConfig.defaultLocale) {
       router.push('/' + value + currentPathname + query);
     } else if (currentPathname) {
       const newPath = currentPathname.replace(`/${currentLocale}`, `/${value}`);
       router.push(newPath + query);
+      router.refresh();
     }
   };
   return (
