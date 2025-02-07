@@ -42,7 +42,7 @@ const Search = () => {
       return;
     }
     route.push(
-      `/${i18n.language}/search?from=${from?.id}&to=${to?.id}&date=${date}&adult=${adult}&children=${children}`
+      `${i18n.language}/search?from=${from?.id}&to=${to?.id}&date=${date}&adult=${adult}&children=${children}`
     );
     setIsSubmitting(false);
   };

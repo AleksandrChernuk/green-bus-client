@@ -7,18 +7,15 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { useEffect } from 'react';
 import createPassList from '../helpers/createPassList';
-import { useSearchParams } from 'next/navigation';
 
 export function useMainForm() {
-  const params = useSearchParams();
-
   const methods = useForm<FormValues>({
     mode: 'onSubmit',
     resolver: zodResolver(CheckoutSchema),
     defaultValues: {
       passengers: createPassList({
-        adult: params.get('adult') ? Number(params.get('adult')) : 1,
-        children: params.get('children') ? Number(params.get('children')) : 0,
+        adult: 1,
+        children: 0,
       }),
       email: '',
       phone: '',

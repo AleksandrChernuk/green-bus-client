@@ -5,15 +5,13 @@ import { Suspense } from 'react';
 
 export default async function NewOrder() {
   const cookieStore = await cookies();
-  const theme = cookieStore.get('theme') || 'default'; // Default value in case the cookie is missing
+  const theme = cookieStore.get('theme') || 'default';
 
-  console.log(theme); // Ensure you're logging the value properly for debugging
+  console.log(theme);  
   return (
     <>
       <main role='main' className='pb-16 grow bg-grayy dark:bg-background_black_mode'>
-        <Suspense>
-          <NewOrderPage />
-        </Suspense>
+        <NewOrderPage />
       </main>
       <SecondFooter className='bg-grayy dark:bg-background_black_mode' />
     </>
