@@ -33,6 +33,7 @@ export default async function RootLayout({
   params: Promise<{ locales: string }>;
 }) {
   const { locales } = await params;
+  console.log(locales);
   const { resources } = await initTranslations(locales, i18nNamespaces);
   return (
     <TranslationsProvider namespaces={i18nNamespaces} locale={locales} resources={resources}>
