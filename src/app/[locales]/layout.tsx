@@ -31,24 +31,24 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: Promise<{ locales: string }>;
+  params: { locales: string };
 }) {
-  const { locales } = await params;
+  const { locales } = params;
   const { resources } = await initTranslations(locales, i18nNamespaces);
-   return (
-     <html lang={locales} suppressHydrationWarning>
-       <TranslationsProvider namespaces={i18nNamespaces} locale={locales} resources={resources}>
-         <body className={`${noto_sans.variable} ${mulish.variable} antialiased`}>
-           <ThemeProvider
-             attribute='class'
-             defaultTheme='dark'
-             enableSystem
-             disableTransitionOnChange
-           >
-             <ReactQueryContext>{children}</ReactQueryContext>
-           </ThemeProvider>
-         </body>
-       </TranslationsProvider>
-     </html>
-   );
+  return (
+    <html lang={locales} suppressHydrationWarning>
+      <TranslationsProvider namespaces={i18nNamespaces} locale={locales} resources={resources}>
+        <body className={`${noto_sans.variable} ${mulish.variable} antialiased`}>
+          <ThemeProvider
+            attribute='class'
+            defaultTheme='dark'
+            enableSystem
+            disableTransitionOnChange
+          >
+            <ReactQueryContext>{children}</ReactQueryContext>
+          </ThemeProvider>
+        </body>
+      </TranslationsProvider>
+    </html>
+  );
 }
