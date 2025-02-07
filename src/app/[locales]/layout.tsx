@@ -21,7 +21,7 @@ const mulish = Mulish({
 });
 
 export function generateStaticParams() {
-  return i18NextConfig.locales.map((locales) => ({ locales }));
+  return i18NextConfig.locales.map((locale) => ({ locale }));
 }
 
 const i18nNamespaces = ['common', 'search'];
