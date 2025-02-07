@@ -31,9 +31,9 @@ export default async function RootLayout({
   params,
 }: {
   children: React.ReactNode;
-  params: { locales: string };
+  params: Promise<{ locales: string }>;
 }) {
-  const { locales } = params;
+  const { locales } = await params;
   const { resources } = await initTranslations(locales, i18nNamespaces);
   return (
     <html lang={locales} suppressHydrationWarning>
