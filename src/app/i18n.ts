@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import i18NextConfig from "@/i18next.config";
 import { createInstance, i18n } from 'i18next';
- 
+import { initReactI18next } from 'react-i18next/initReactI18next';
+
 import resourcesToBackend from 'i18next-resources-to-backend';
 
 export default async function initTranslations(
@@ -11,6 +12,8 @@ export default async function initTranslations(
   resources?: any
 ) {
   i18nInstance = i18nInstance || createInstance();
+
+  i18nInstance.use(initReactI18next);
 
   if (!resources) {
     i18nInstance.use(
