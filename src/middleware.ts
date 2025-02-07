@@ -6,6 +6,8 @@ export async function middleware(request: NextRequest) {
   return i18nRouter(request, {
     locales: i18NextConfig.i18n.locales,
     defaultLocale: i18NextConfig.i18n.defaultLocale,
+    localeCookie: i18NextConfig.i18n.defaultLocale,
+    serverSetCookie: 'always',
   });
 }
 
