@@ -43,7 +43,7 @@ export const RouteCard = memo(({ element }: Props) => {
       passCount: adult + children,
       travelDate: date,
     });
-    router.push(`${i18n.language}/new-order`);
+    router.push(`/${i18n.language}/new-order`);
   };
 
   const { t, i18n } = useTranslation(['common', 'search']);
