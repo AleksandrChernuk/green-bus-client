@@ -36,8 +36,8 @@ export default async function RootLayout({
   const { locales } = await params;
   const { resources } = await initTranslations(locales, i18nNamespaces);
   return (
-    <html lang={locales} suppressHydrationWarning>
-      <TranslationsProvider namespaces={i18nNamespaces} locale={locales} resources={resources}>
+    <TranslationsProvider namespaces={i18nNamespaces} locale={locales} resources={resources}>
+      <html lang={locales} suppressHydrationWarning>
         <body className={`${noto_sans.variable} ${mulish.variable} antialiased`}>
           <ThemeProvider
             attribute='class'
@@ -48,7 +48,7 @@ export default async function RootLayout({
             <ReactQueryContext>{children}</ReactQueryContext>
           </ThemeProvider>
         </body>
-      </TranslationsProvider>
-    </html>
+      </html>
+    </TranslationsProvider>
   );
 }
