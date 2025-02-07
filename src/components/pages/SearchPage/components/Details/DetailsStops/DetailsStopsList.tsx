@@ -8,7 +8,6 @@ export default function DetailsStopsList() {
 
   if (!stops) return null;
   const processStops = getStopsProcessor(currentRoute);
-  console.log(processStops);
 
   const processedStops = processStops(stops);
 

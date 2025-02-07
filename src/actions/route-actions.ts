@@ -32,7 +32,6 @@ export const getRouteDetails = async (
   });
 
   if (!response.ok) {
-    console.log(response);
     throw new Error('Error');
   }
 
