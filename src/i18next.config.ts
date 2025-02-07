@@ -1,13 +1,13 @@
 const i18NextConfig = {
-  // debug: false,
+  debug: false,
   i18n: {
     locales: ['en', 'ru', 'uk'],
     defaultLocale: 'uk',
   },
-  fallbackNS: 'uk',
-  defaultNS: 'uk',
+  fallbackNS: 'common',
+  defaultNS: 'common',
   ns: ['common'],
-  // load: 'all',
+  load: 'all',
   preload: ['en', 'ru', 'uk'],
 };
 
