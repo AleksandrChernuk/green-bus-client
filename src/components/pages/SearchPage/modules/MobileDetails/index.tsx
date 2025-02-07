@@ -15,8 +15,8 @@ import DetailsLuggage from '../../components/Details/DetailsLuggage';
 import DetailsReturnPolicy from '../../components/Details/DetailsReturnPolicy';
  import DetailsDiscounts from '../../components/Details/DetailsDiscounts';
  import DetailsAmenities from '../../components/Details/DetailsAmenities';
-import { useRouter } from 'next/router';
-
+import { useRouter } from 'next/navigation';
+ 
 export default function MobileDetails({
   handleSetCurretRoute,
 }: {
