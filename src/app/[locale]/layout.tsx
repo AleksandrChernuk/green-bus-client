@@ -26,17 +26,12 @@ export default async function RootLayout({
 }) {
   const { locale } = await params;
   return (
-     <html lang={locale} suppressHydrationWarning>
-       <body className={`${noto_sans.variable} ${mulish.variable} antialiased`}>
-         <ThemeProvider
-           attribute='class'
-           defaultTheme='dark'
-           enableSystem
-           disableTransitionOnChange
-         >
-           <ReactQueryContext>{children}</ReactQueryContext>
-         </ThemeProvider>
-       </body>
-     </html>
-   );
+    <html lang={locale} suppressHydrationWarning>
+      <body className={`${noto_sans.variable} ${mulish.variable} antialiased`}>
+        <ThemeProvider attribute='class' defaultTheme='dark' enableSystem disableTransitionOnChange>
+          <ReactQueryContext>{children}</ReactQueryContext>
+        </ThemeProvider>
+      </body>
+    </html>
+  );
 }
