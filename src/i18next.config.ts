@@ -1,7 +1,7 @@
 const i18nConfig = {
-  FallbackLng: 'en',
+  fallbackLng: 'uk',
+  defaultLocale: 'uk',
   locales: ['uk', 'en', 'ru'],
-  defaultLocale: 'en',
 };
 
 export default i18nConfig;

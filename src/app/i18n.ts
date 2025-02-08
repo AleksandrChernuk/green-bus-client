@@ -2,6 +2,7 @@
 import { createInstance, i18n } from 'i18next';
 import { initReactI18next } from 'react-i18next/initReactI18next';
 import resourcesToBackend from 'i18next-resources-to-backend';
+import i18nConfig from '@/i18next.config';
 
 export default async function initTranslations(
   lang: string,
@@ -24,11 +25,13 @@ export default async function initTranslations(
   await i18nInstance.init({
     // debug: process.env.NODE_ENV === 'development',
     lng: lang,
-    resources: resources,
+    resources,
+    fallbackLng: i18nConfig.defaultLocale,
+    supportedLngs: i18nConfig.locales,
     defaultNS: namespaces[0],
     fallbackNS: namespaces[0],
     ns: namespaces,
-    load: 'all',
+    preload: resources ? [] : i18nConfig.locales,
   });
 
   return {
