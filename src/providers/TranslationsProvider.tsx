@@ -7,20 +7,20 @@ import initTranslations from "@/app/i18n";
 
 interface TranslationsProviderProps {
   children: ReactNode;
-  locales: string;
+  lang: string;
   namespaces: string[];
   resources: Resource;
 }
 
 export default function TranslationsProvider({
   children,
-  locales,
+  lang,
   namespaces,
   resources,
 }: TranslationsProviderProps) {
   const i18n = createInstance();
 
-  initTranslations(locales, namespaces, i18n, resources);
+  initTranslations(lang, namespaces, i18n, resources);
 
   return <I18nextProvider i18n={i18n}>{children}</I18nextProvider>;
 }

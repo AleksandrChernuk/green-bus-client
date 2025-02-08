@@ -43,7 +43,7 @@
    const handleChange = async (value: string) => {
      if (value === currentLocale) return;
 
-     await i18n.changeLanguage(value);
+     //  await i18n.changeLanguage(value);
 
      const queryString = searchParams?.toString();
      const query = queryString ? `?${queryString}` : '';

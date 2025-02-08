@@ -49,9 +49,13 @@ export default function MobileLanguageChanger() {
 
     if (currentLocale === i18NextConfig.defaultLocale) {
       router.push('/' + value + currentPathname + query);
+             router.refresh();
+
     } else if (currentPathname) {
       const newPath = currentPathname.replace(`/${currentLocale}`, `/${value}`);
       router.push(newPath + query);
+             router.refresh();
+
     }
   };
   return (

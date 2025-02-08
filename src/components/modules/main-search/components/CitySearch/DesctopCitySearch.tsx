@@ -10,7 +10,7 @@ import { useTranslation } from 'react-i18next';
 import { useSearchStore } from '@/store/useSearch';
  
 export const DesctopCitySearch = memo(({ name }: { name: 'from' | 'to' }) => {
-  const { t } = useTranslation(['common']);
+  const { t } = useTranslation();
 
   const {
     open,
