@@ -23,7 +23,7 @@ export default async function initTranslations(
   }
 
   await i18nInstance.init({
-    // debug: process.env.NODE_ENV === 'development',
+    debug: process.env.NODE_ENV === 'development',
     lng: lang,
     resources,
     fallbackLng: i18nConfig.defaultLocale,
